@@ -1,0 +1,36 @@
+export function defaultState() {
+  return {
+    version: 1,
+    athlete: 'Bishwajeet',
+    current_block: 1,
+    current_week: 1,
+    working_weights: {
+      push: [
+        { key: 'bench',      name: 'Bench Press',      weight: 77, unit: 'kg' },
+        { key: 'incline_bb', name: 'Incline BB Press', weight: 45, unit: 'kg' },
+        { key: 'incline_db', name: 'Incline DB Press', weight: 35, unit: 'kg' },
+        { key: 'ohp',        name: 'OHP',              weight: 35, unit: 'kg' },
+        { key: 'lat_raise',  name: 'Lateral Raise',    weight: 10, unit: 'kg' }
+      ],
+      pull: [
+        { key: 'deadlift',   name: 'Deadlift',         weight: 140, unit: 'kg' },
+        { key: 'pulldown',   name: 'Lat Pulldown',     weight: 65,  unit: 'kg' },
+        { key: 'pullup',     name: 'Pull-up',          weight: 0,   unit: 'BW' }
+      ],
+      legs: [
+        { key: 'hack_sq',    name: 'Hack Squat',       weight: 0, unit: 'kg', calibrate: true },
+        { key: 'bss',        name: 'BSS',              weight: 0, unit: 'kg', calibrate: true },
+        { key: 'leg_press',  name: 'Leg Press',        weight: 0, unit: 'kg', calibrate: true },
+        { key: 'leg_curl',   name: 'Leg Curl',         weight: 65, unit: 'kg' }
+      ],
+      acc: [
+        { key: 'bb_curl',    name: 'BB Curl',          weight: 25, unit: 'kg' },
+        { key: 'tri_pd',     name: 'Tricep Pushdown',  weight: 20, unit: 'kg' },
+        { key: 'dip',        name: 'Dip',              weight: 0,  unit: 'BW' }
+      ]
+    },
+    in_progress: {},
+    log: [],
+    updated_at: null
+  };
+}
