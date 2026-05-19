@@ -1,0 +1,31 @@
+# =============================================================
+# PROTOCOL STORE — Cloudflare Worker config
+# =============================================================
+# Edit the REPO_OWNER and REPO_NAME below, then deploy.
+# Secrets (GITHUB_TOKEN, APP_PASSWORD) are set separately — see README.
+# =============================================================
+
+name = "protocol-store"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+# === EDIT THESE ===
+REPO_OWNER = "2002Bishwajeet"              # your GitHub username
+REPO_NAME  = "workout-plan"              # the repo holding your training data
+REPO_BRANCH = "main"
+
+# Where in the repo to store the state file
+DATA_PATH = "data/state.json"
+
+# Tighten this to your Pages URL once it's live, e.g.
+# ALLOWED_ORIGIN = "https://workout.bishwajeetparhi.dev"
+ALLOWED_ORIGIN = "*"
+
+# Author attached to commits made by the worker
+COMMIT_AUTHOR_NAME  = "Protocol"
+COMMIT_AUTHOR_EMAIL = "protocol@local"
+
+# === SECRETS (do NOT add these here — set via wrangler secret put) ===
+# GITHUB_TOKEN    — fine-grained PAT, contents:read+write on this one repo
+# APP_PASSWORD    — shared secret the client sends in X-App-Password
