@@ -8,6 +8,11 @@
 name = "protocol-store"
 main = "src/index.js"
 compatibility_date = "2025-01-01"
+workers_dev = true
+
+[[routes]]
+pattern = "api.workout.bishwajeetparhi.dev/*"
+zone_name = "bishwajeetparhi.dev"
 
 [vars]
 # === EDIT THESE ===
@@ -18,9 +23,7 @@ REPO_BRANCH = "main"
 # Where in the repo to store the state file
 DATA_PATH = "data/state.json"
 
-# Tighten this to your Pages URL once it's live, e.g.
-# ALLOWED_ORIGIN = "https://workout.bishwajeetparhi.dev"
-ALLOWED_ORIGIN = "*"
+ALLOWED_ORIGIN = "https://workout.bishwajeetparhi.dev"
 
 # Author attached to commits made by the worker
 COMMIT_AUTHOR_NAME  = "Protocol"

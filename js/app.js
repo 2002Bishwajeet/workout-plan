@@ -38,12 +38,12 @@ document.querySelectorAll('.nav button').forEach(b => {
 (async function boot() {
   setDate();
   document.getElementById('bootStatus').textContent = 'Checking config…';
-  const cfg = Store.readConfig();
-  if (!cfg) {
+  const pwd = Store.readPassword();
+  if (!pwd) {
     openSetup();
     return;
   }
-  Store.config = cfg;
+  Store.password = pwd;
   try {
     document.getElementById('bootStatus').textContent = 'Loading state…';
     await Store.load();

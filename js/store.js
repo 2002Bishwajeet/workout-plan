@@ -1,38 +1,37 @@
 import { defaultState } from './data/default-state.js';
 import { setStatus } from './ui/status.js';
+import { WORKER_URL } from './config.js';
 
 export const Store = {
   state: null,
   sha: null,
-  config: null,
+  password: null,
   saveTimer: null,
   pendingMsg: null,
   dirty: false,
   onRender: null,
 
-  readConfig() {
-    try {
-      const raw = localStorage.getItem('protocol_config');
-      return raw ? JSON.parse(raw) : null;
-    } catch { return null; }
+  readPassword() {
+    try { return localStorage.getItem('protocol_password'); }
+    catch { return null; }
   },
 
-  saveConfig(cfg) {
-    localStorage.setItem('protocol_config', JSON.stringify(cfg));
-    this.config = cfg;
+  savePassword(pwd) {
+    localStorage.setItem('protocol_password', pwd);
+    this.password = pwd;
   },
 
-  clearConfig() {
-    localStorage.removeItem('protocol_config');
-    this.config = null;
+  clearPassword() {
+    localStorage.removeItem('protocol_password');
+    this.password = null;
   },
 
   async load() {
-    this.config = this.readConfig();
-    if (!this.config) { setStatus('offline'); return null; }
+    this.password = this.readPassword();
+    if (!this.password) { setStatus('offline'); return null; }
     setStatus('saving', 'Loading');
-    const res = await fetch(`${this.config.workerUrl.replace(/\/$/, '')}/state`, {
-      headers: { 'X-App-Password': this.config.password }
+    const res = await fetch(`${WORKER_URL}/state`, {
+      headers: { 'X-App-Password': this.password }
     });
     if (!res.ok) {
       if (res.status === 401) throw new Error('Bad password');
@@ -65,13 +64,13 @@ export const Store = {
   },
 
   async save(forceMsg) {
-    if (!this.state || !this.config) return;
+    if (!this.state || !this.password) return;
     setStatus('saving');
     const msg = forceMsg || this.pendingMsg || 'Update state';
     try {
-      const res = await fetch(`${this.config.workerUrl.replace(/\/$/, '')}/state`, {
+      const res = await fetch(`${WORKER_URL}/state`, {
         method: 'POST',
-        headers: { 'X-App-Password': this.config.password, 'Content-Type': 'application/json' },
+        headers: { 'X-App-Password': this.password, 'Content-Type': 'application/json' },
         body: JSON.stringify({ state: this.state, sha: this.sha, message: msg })
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}: ${await res.text()}`);

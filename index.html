@@ -23,12 +23,8 @@
   <div class="modal">
     <h2>Connect</h2>
     <div class="sub">One-time per device</div>
-    <p>Point this app at your Cloudflare Worker. The Worker holds the GitHub token and writes commits to your repo. See the README for setup.</p>
+    <p>Enter the app password to sync with your training data. All state is stored in your GitHub repo via the Worker.</p>
     <div class="err" id="setupErr"></div>
-    <div class="field">
-      <label>Worker URL</label>
-      <input type="url" id="inputUrl" placeholder="https://protocol-store.<you>.workers.dev" autocomplete="off">
-    </div>
     <div class="field">
       <label>App Password</label>
       <input type="password" id="inputPwd" placeholder="••••••••" autocomplete="off">

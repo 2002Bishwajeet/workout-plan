@@ -18,5 +18,5 @@ export function setStatus(status, detail) {
   };
   lbl.textContent = labels[status] || status;
   pill.title = detail ? `${labels[status]} — ${detail}` : labels[status];
-  foot.textContent = `${labels[status]}${_store?.config ? ' · ' + new URL(_store.config.workerUrl).hostname : ''}`;
+  foot.textContent = labels[status] || status;
 }
