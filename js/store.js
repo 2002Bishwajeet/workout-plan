@@ -26,30 +26,26 @@ export const Store = {
     this.password = null;
   },
 
+  get editable() { return !!this.password; },
+
   async load() {
     this.password = this.readPassword();
-    if (!this.password) { setStatus('offline'); return null; }
     setStatus('saving', 'Loading');
-    const res = await fetch(`${WORKER_URL}/state`, {
-      headers: { 'X-App-Password': this.password }
-    });
-    if (!res.ok) {
-      if (res.status === 401) throw new Error('Bad password');
-      throw new Error(`HTTP ${res.status}`);
-    }
+    const res = await fetch(`${WORKER_URL}/state`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const body = await res.json();
     this.state = body.state || defaultState();
     this.sha   = body.sha;
-    if (!body.state) {
+    if (!body.state && this.password) {
       await this.save('Initial state');
     } else {
-      setStatus('synced');
+      setStatus(this.password ? 'synced' : 'offline');
     }
     return this.state;
   },
 
   update(mutator, message) {
-    if (!this.state) return;
+    if (!this.state || !this.password) return;
     mutator(this.state);
     this.dirty = true;
     this.pendingMsg = message;

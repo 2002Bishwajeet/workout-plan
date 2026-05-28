@@ -29,15 +29,15 @@ export default {
       return json({ ok: true, service: 'protocol-store' }, 200, corsHeaders);
     }
 
-    // Auth gate — every other route requires the shared password
-    const password = request.headers.get('X-App-Password');
-    if (!env.APP_PASSWORD || password !== env.APP_PASSWORD) {
-      return json({ error: 'Unauthorized' }, 401, corsHeaders);
-    }
-
     try {
       if (url.pathname === '/state') {
         if (request.method === 'GET')  return await handleGetState(env, corsHeaders);
+
+        // Writes require the shared password
+        const password = request.headers.get('X-App-Password');
+        if (!env.APP_PASSWORD || password !== env.APP_PASSWORD) {
+          return json({ error: 'Unauthorized' }, 401, corsHeaders);
+        }
         if (request.method === 'POST') return await handlePostState(env, request, corsHeaders);
       }
       return json({ error: 'Not found' }, 404, corsHeaders);

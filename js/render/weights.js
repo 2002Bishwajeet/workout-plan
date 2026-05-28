@@ -15,7 +15,7 @@ function renderWeightCells(targetId, list) {
 
 function editWeight(key) {
   const w = getWeight(key);
-  if (!w || w.unit === 'BW') return;
+  if (!w || w.unit === 'BW' || !Store.editable) return;
   const cells = document.querySelectorAll(`.weight-cell[data-key="${key}"]`);
   if (!cells.length) return;
   cells.forEach(cell => {

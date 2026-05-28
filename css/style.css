@@ -244,6 +244,12 @@
   .modal .err { background: rgba(200,50,26,0.1); border: 1px solid var(--blood); color: var(--blood); padding: 10px 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-bottom: 16px; display: none; }
   .modal .err.show { display: block; }
 
+  /* ---- READ-ONLY MODE ---- */
+  .readonly .exercise-row .ex-num { cursor: default; opacity: 0.3; pointer-events: none; }
+  .readonly .weight-cell { cursor: default; }
+  .readonly .weight-cell:hover { background: var(--surface); }
+  .readonly .btn-log { opacity: 0.3; pointer-events: none; }
+
   /* ---- INITIAL LOADING SCREEN ---- */
   .boot { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 20px; z-index: 200; }
   .boot.hidden { display: none; }

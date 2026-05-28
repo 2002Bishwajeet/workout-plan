@@ -17,6 +17,7 @@ function showView(name) {
 function renderAll() {
   setDate();
   if (!Store.state) return;
+  document.body.classList.toggle('readonly', !Store.editable);
   renderDashboardHero();
   renderWeekGrid();
   renderWeights();
@@ -37,19 +38,12 @@ document.querySelectorAll('.nav button').forEach(b => {
 
 (async function boot() {
   setDate();
-  document.getElementById('bootStatus').textContent = 'Checking config…';
-  const pwd = Store.readPassword();
-  if (!pwd) {
-    openSetup();
-    return;
-  }
-  Store.password = pwd;
+  document.getElementById('bootStatus').textContent = 'Loading…';
   try {
-    document.getElementById('bootStatus').textContent = 'Loading state…';
     await Store.load();
     renderAll();
     document.getElementById('boot').classList.add('hidden');
   } catch (e) {
-    openSetup(e.message);
+    document.getElementById('bootStatus').textContent = `Failed: ${e.message}`;
   }
 })();
