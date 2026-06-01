@@ -8,7 +8,7 @@
       {
         "key": "bench",
         "name": "Bench Press",
-        "weight": 77,
+        "weight": 70,
         "unit": "kg"
       },
       {
@@ -110,5 +110,5 @@
     "1-push-1": []
   },
   "log": [],
-  "updated_at": "2026-06-01T17:19:35.733Z"
+  "updated_at": "2026-06-01T17:33:19.548Z"
 }
