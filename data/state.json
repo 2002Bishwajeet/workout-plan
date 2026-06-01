@@ -106,15 +106,18 @@
       }
     ]
   },
-  "in_progress": {
-    "1-push-1": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
-  },
-  "log": [],
-  "updated_at": "2026-06-01T18:38:52.515Z"
+  "in_progress": {},
+  "log": [
+    {
+      "date": "2026-06-01T18:46:14.576Z",
+      "week": 1,
+      "name": "Push",
+      "sessionId": "push-1",
+      "sessionKey": "1-push-1",
+      "sets": 22,
+      "vol": 5185,
+      "focus": "Bench primary · vertical press · lateral volume"
+    }
+  ],
+  "updated_at": "2026-06-01T18:46:17.343Z"
 }
