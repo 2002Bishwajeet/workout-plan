@@ -8,8 +8,6 @@ A GitHub-backed training app. **Every interaction — tick a set, edit a weight,
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![No build step](https://img.shields.io/badge/build-none-2a241e)](#architecture)
 
-**▶ Live: [workout.bishwajeetparhi.dev](https://workout.bishwajeetparhi.dev/)**
-
 ![PROTOCOL — 12-week Push/Pull/Legs training log](assets/og-image.png)
 
 A static site and a small API, both deployed as Cloudflare Workers. The API proxies state writes through to a JSON file in _your_ GitHub repo — so the data is version-controlled and owned by you, with no third-party database.
