@@ -8,7 +8,6 @@ export function defaultState() {
       push: [
         { key: 'bench',      name: 'Bench Press',      weight: 77, unit: 'kg' },
         { key: 'incline_bb', name: 'Incline BB Press', weight: 45, unit: 'kg' },
-        { key: 'incline_db', name: 'Incline DB Press', weight: 35, unit: 'kg' },
         { key: 'ohp',        name: 'OHP',              weight: 35, unit: 'kg' },
         { key: 'lat_raise',  name: 'Lateral Raise',    weight: 10, unit: 'kg' }
       ],

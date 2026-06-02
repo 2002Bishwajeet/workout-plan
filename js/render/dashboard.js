@@ -1,5 +1,6 @@
 import { Store } from '../store.js';
-import { SESSIONS_W1 } from '../data/sessions.js';
+import { sessionsForWeek } from '../data/sessions.js';
+import { blockForWeek } from '../data/programme.js';
 
 let _openSession = null;
 
@@ -15,7 +16,7 @@ export function setDate() {
 
 export function renderDashboardHero() {
   if (!Store.state) return;
-  document.getElementById('blockNum').innerHTML = `<em>${String(Store.state.current_block).padStart(2,'0')}</em>`;
+  document.getElementById('blockNum').innerHTML = `<em>${String(blockForWeek(Store.state.current_week)).padStart(2,'0')}</em>`;
   document.getElementById('weekNum').textContent = String(Store.state.current_week).padStart(2,'0');
 }
 
@@ -26,7 +27,7 @@ export function renderWeekGrid() {
   const todayMap = { 1: 'push-1', 2: 'pull-1', 4: 'legs-1', 6: 'upper-1' };
   const todayId = todayMap[dow];
 
-  grid.innerHTML = SESSIONS_W1.map(s => {
+  grid.innerHTML = sessionsForWeek(week).map(s => {
     const key = `${week}-${s.id}`;
     const done = Store.state?.log?.some(l => l.sessionKey === key);
     const isToday = s.id === todayId && !done;

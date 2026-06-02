@@ -13,3 +13,9 @@ export const WEEK_FOCUS = {
   9: 'Peak',       10: 'Peak',     11: 'Peak test',
   12: 'Deload'
 };
+
+// Maps a week number (1–12) to its block number (1–4) using PROGRAMME.blocks.
+export function blockForWeek(week) {
+  const idx = PROGRAMME.blocks.findIndex(b => b.weeks.includes(week));
+  return idx < 0 ? 1 : idx + 1;
+}

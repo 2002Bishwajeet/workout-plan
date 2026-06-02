@@ -1,5 +1,6 @@
 import { Store, exerciseWeight, fmtWeight } from '../store.js';
-import { SESSIONS_W1 } from '../data/sessions.js';
+import { sessionsForWeek } from '../data/sessions.js';
+import { blockForWeek } from '../data/programme.js';
 
 let activeSession = null;
 let _showView = null;
@@ -50,11 +51,12 @@ export function getActiveSession() {
 }
 
 export function openSession(id) {
-  const s = SESSIONS_W1.find(x => x.id === id);
+  const s = sessionsForWeek(Store.state.current_week).find(x => x.id === id);
   if (!s) return;
   activeSession = s;
   document.getElementById('sessionTitle').textContent = s.title;
-  document.getElementById('sessionMeta').textContent = `Block 01 · Week ${String(Store.state.current_week).padStart(2,'0')} · ${s.day}`;
+  const wk = Store.state.current_week;
+  document.getElementById('sessionMeta').textContent = `Block ${String(blockForWeek(wk)).padStart(2,'0')} · Week ${String(wk).padStart(2,'0')} · ${s.day}`;
   document.getElementById('sessionRpe').textContent = s.rpe;
   renderExerciseList();
   _showView('session');
