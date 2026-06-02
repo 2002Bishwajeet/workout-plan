@@ -1,166 +1,336 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0a0a">
-<title>PROTOCOL — Bishwajeet // Block 01</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-<!-- BOOT SCREEN -->
-<div class="boot" id="boot">
-  <div class="mark">PROTO<span>·</span>COL</div>
-  <div class="status" id="bootStatus">Initialising…</div>
-</div>
-
-<!-- SETUP MODAL -->
-<div class="modal-bg" id="setupModal">
-  <div class="modal">
-    <h2>Connect</h2>
-    <div class="sub">One-time per device</div>
-    <p>Enter the app password to sync with your training data. All state is stored in your GitHub repo via the Worker.</p>
-    <div class="err" id="setupErr"></div>
-    <div class="field">
-      <label>App Password</label>
-      <input type="password" id="inputPwd" placeholder="••••••••" autocomplete="off">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFF8F5" />
+    <title>PROTOCOL — Bishwajeet // Block 01</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- BOOT SCREEN -->
+    <div class="boot" id="boot">
+      <div class="mark">PROTO<span>·</span>COL</div>
+      <div class="status" id="bootStatus">Initialising…</div>
     </div>
-    <div class="actions">
-      <button class="primary" id="connectBtn">Connect</button>
-    </div>
-  </div>
-</div>
 
-<header class="topbar">
-  <div class="container topbar-inner">
-    <div class="brand">
-      <div class="brand-mark">PROTO<span>·</span>COL</div>
-      <div class="brand-sub">Bishwajeet // 12-wk PPL</div>
-    </div>
-    <div class="sync-cluster">
-      <nav class="nav">
-        <button class="active" data-view="dashboard">Dashboard</button>
-        <button data-view="programme">Programme</button>
-        <button data-view="weights">Weights</button>
-        <button data-view="log">Log</button>
-      </nav>
-      <button class="sync-pill" id="syncPill" data-status="offline" title="Sync status">
-        <span class="dot"></span><span class="lbl" id="syncLbl">Offline</span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<main class="container">
-
-  <!-- DASHBOARD -->
-  <section id="dashboard" class="view active">
-    <div class="hero">
-      <div class="hero-status">
-        <div><div class="label">Block</div><div class="block-num" id="blockNum"><em>01</em></div></div>
-        <div><div class="label">Week</div><div class="block-num" id="weekNum">01</div></div>
-        <div class="hero-meta">
-          <div class="label">Phase</div>
-          <div class="focus" id="phaseDesc">Volume base · RPE 7-8 · Calibration week — flag anything too light or heavy.</div>
+    <!-- SETUP MODAL -->
+    <div class="modal-bg" id="setupModal">
+      <div class="modal">
+        <h2>Connect</h2>
+        <div class="sub">One-time per device</div>
+        <p>
+          Enter the app password to sync with your training data. All state is
+          stored in your GitHub repo via the Worker.
+        </p>
+        <div class="err" id="setupErr"></div>
+        <div class="field">
+          <label>App Password</label>
+          <input
+            type="password"
+            id="inputPwd"
+            placeholder="••••••••"
+            autocomplete="off"
+          />
+        </div>
+        <div class="actions">
+          <button class="primary" id="connectBtn">Connect</button>
         </div>
       </div>
-      <div class="hero-side">
-        <div class="label">Today</div>
-        <div class="date" id="todayDate">—</div>
-        <div class="label">Sessions logged</div>
-        <div class="streak mono tabular"><span id="loggedCount">00</span><span style="color:var(--ink-3);font-size:18px;">/52</span></div>
-      </div>
     </div>
 
-    <div class="section-head"><h2>This Week</h2><div class="meta">04 sessions · Block 01</div></div>
-    <div class="grid grid-4" id="weekGrid"></div>
-
-    <div class="section-head"><h2>Working Weights</h2><div class="meta">Tap to edit</div></div>
-    <div class="weights-panel"><div class="weights-grid" id="weightsGrid"></div></div>
-
-    <div class="section-head"><h2>Calisthenics Progression</h2><div class="meta">Block 01 target</div></div>
-    <div class="grid grid-3">
-      <div class="session-card" style="cursor:default;"><div class="sc-top"><div class="sc-day">Push</div><span class="badge badge-torch">Building</span></div><div class="sc-title">Pike Push-ups</div><div class="sc-focus">Pre-handstand variant. Build to 3×12 strict before progressing to deficit.</div><div class="sc-stats"><div class="sc-stat"><div class="v">3 × 8</div><div class="k">Current</div></div><div class="sc-stat"><div class="v">3 × 12</div><div class="k">Target</div></div></div></div>
-      <div class="session-card" style="cursor:default;"><div class="sc-top"><div class="sc-day">Pull</div><span class="badge badge-torch">Building</span></div><div class="sc-title">Pull-ups</div><div class="sc-focus">Bodyweight foundation. Block 02 introduces weighted progression.</div><div class="sc-stats"><div class="sc-stat"><div class="v">4 × 6</div><div class="k">Current</div></div><div class="sc-stat"><div class="v">+ 10kg</div><div class="k">B2 target</div></div></div></div>
-      <div class="session-card" style="cursor:default;"><div class="sc-top"><div class="sc-day">Push</div><span class="badge badge-torch">Building</span></div><div class="sc-title">Dips</div><div class="sc-focus">Bodyweight base. Weighted dip becomes primary strength lift in Block 02.</div><div class="sc-stats"><div class="sc-stat"><div class="v">3 × 8</div><div class="k">Current</div></div><div class="sc-stat"><div class="v">+ 10kg</div><div class="k">B2 target</div></div></div></div>
-    </div>
-  </section>
-
-  <!-- PROGRAMME -->
-  <section id="programme" class="view">
-    <div class="hero">
-      <div class="hero-status">
-        <div><div class="label">Programme</div><div class="block-num">12<em style="font-size:0.6em;color:var(--ink-3);">wk</em></div></div>
-        <div class="hero-meta" style="padding-bottom:16px;"><div class="label">Structure</div><div class="focus">Push / Pull / Legs + rotating 4th day. Volume → Intensification → Peak → Deload.</div></div>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">PROTO<span>·</span>COL</div>
+          <div class="brand-sub">Bishwajeet // 12-wk PPL</div>
+        </div>
+        <div class="sync-cluster">
+          <nav class="nav">
+            <button class="active" data-view="dashboard">Dashboard</button>
+            <button data-view="programme">Programme</button>
+            <button data-view="weights">Weights</button>
+            <button data-view="log">Log</button>
+          </nav>
+          <button
+            class="sync-pill"
+            id="syncPill"
+            data-status="offline"
+            title="Sync status"
+          >
+            <span class="dot"></span
+            ><span class="lbl" id="syncLbl">Offline</span>
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="programme-grid" id="programmeGrid"></div>
-  </section>
+    </header>
 
-  <!-- WEIGHTS -->
-  <section id="weights" class="view">
-    <div class="hero">
-      <div class="hero-status">
-        <div><div class="label">Working Weights</div><div class="block-num" style="font-size:clamp(48px,9vw,88px);">CURRENT</div></div>
-        <div class="hero-meta" style="padding-bottom:16px;"><div class="label">Update Rule</div><div class="focus">Top of rep range × 2 sessions at target RPE → +2.5kg (upper) / +5kg (lower). Tap any value to edit.</div></div>
-      </div>
-    </div>
-    <div class="section-head"><h2>Push</h2><div class="meta" id="pushMeta">—</div></div>
-    <div class="weights-panel"><div class="weights-grid" id="weightsPush"></div></div>
-    <div class="section-head"><h2>Pull</h2><div class="meta" id="pullMeta">—</div></div>
-    <div class="weights-panel"><div class="weights-grid" id="weightsPull"></div></div>
-    <div class="section-head"><h2>Legs</h2><div class="meta" id="legsMeta">—</div></div>
-    <div class="weights-panel"><div class="weights-grid" id="weightsLegs"></div></div>
-    <div class="section-head"><h2>Accessories</h2><div class="meta" id="accMeta">—</div></div>
-    <div class="weights-panel"><div class="weights-grid" id="weightsAcc"></div></div>
-  </section>
+    <main class="container">
+      <!-- DASHBOARD -->
+      <section id="dashboard" class="view active">
+        <div class="hero">
+          <div class="hero-status">
+            <div>
+              <div class="label">Block</div>
+              <div class="block-num" id="blockNum"><em>01</em></div>
+            </div>
+            <div>
+              <div class="label">Week</div>
+              <div class="block-num" id="weekNum">01</div>
+            </div>
+            <div class="hero-meta">
+              <div class="label">Phase</div>
+              <div class="focus" id="phaseDesc">
+                Volume base · RPE 7-8 · Calibration week — flag anything too
+                light or heavy.
+              </div>
+            </div>
+          </div>
+          <div class="hero-side">
+            <div class="label">Today</div>
+            <div class="date" id="todayDate">—</div>
+            <div class="label">Sessions logged</div>
+            <div class="streak mono tabular">
+              <span id="loggedCount">00</span
+              ><span style="color: var(--ink-3); font-size: 18px">/52</span>
+            </div>
+          </div>
+        </div>
 
-  <!-- LOG -->
-  <section id="log" class="view">
-    <div class="hero">
-      <div class="hero-status">
-        <div><div class="label">Session Log</div><div class="block-num" style="font-size:clamp(48px,9vw,88px);"><span id="logCount">00</span><em style="font-size:0.5em;color:var(--ink-3);">entries</em></div></div>
-        <div class="hero-meta" style="padding-bottom:16px;"><div class="label">Range</div><div class="focus">Every completed session, version-controlled in your GitHub repo.</div></div>
-      </div>
-    </div>
-    <div class="section-head"><h2>Recent</h2><div class="meta">Block 01</div></div>
-    <div id="logEntries"></div>
-  </section>
+        <div class="section-head">
+          <h2>This Week</h2>
+          <div class="meta">04 sessions · Block 01</div>
+        </div>
+        <div class="grid grid-4" id="weekGrid"></div>
 
-  <!-- SESSION DETAIL -->
-  <section id="session" class="view">
-    <div class="session-head">
-      <button class="back" id="backBtn">← Back</button>
-      <div>
-        <div class="label" id="sessionMeta">Block 01 · Week 01 · Day 01</div>
-        <h1 id="sessionTitle">Push</h1>
-      </div>
-      <div class="meta">
-        <div class="label">RPE Target</div>
-        <div class="mono tabular" id="sessionRpe" style="font-size:18px;color:var(--ink);margin-top:4px;">7 — 8</div>
-      </div>
-    </div>
-    <div id="exerciseList"></div>
-    <div class="session-foot">
-      <div class="stats">
-        <div class="stat"><div class="v tabular mono" id="totalSets">0</div><div class="k">Sets</div></div>
-        <div class="stat"><div class="v tabular mono" id="totalVolume">0</div><div class="k">Tonnage (kg)</div></div>
-        <div class="stat"><div class="v tabular mono" id="estTime">~60</div><div class="k">Est. min</div></div>
-      </div>
-      <button class="btn-log" id="completeBtn">Complete Session</button>
-    </div>
-  </section>
+        <div class="section-head">
+          <h2>Working Weights</h2>
+          <div class="meta">Tap to edit</div>
+        </div>
+        <div class="weights-panel">
+          <div class="weights-grid" id="weightsGrid"></div>
+        </div>
 
-  <div class="foot container" style="padding-left:0;padding-right:0;">
-    <span>PROTOCOL · v0.2 · Pages + Worker</span>
-    <span id="footStatus">—</span>
-  </div>
-</main>
+        <div class="section-head">
+          <h2>Calisthenics Progression</h2>
+          <div class="meta">Block 01 target</div>
+        </div>
+        <div class="grid grid-3">
+          <div class="session-card" style="cursor: default">
+            <div class="sc-top">
+              <div class="sc-day">Push</div>
+              <span class="badge badge-torch">Building</span>
+            </div>
+            <div class="sc-title">Pike Push-ups</div>
+            <div class="sc-focus">
+              Pre-handstand variant. Build to 3×12 strict before progressing to
+              deficit.
+            </div>
+            <div class="sc-stats">
+              <div class="sc-stat">
+                <div class="v">3 × 8</div>
+                <div class="k">Current</div>
+              </div>
+              <div class="sc-stat">
+                <div class="v">3 × 12</div>
+                <div class="k">Target</div>
+              </div>
+            </div>
+          </div>
+          <div class="session-card" style="cursor: default">
+            <div class="sc-top">
+              <div class="sc-day">Pull</div>
+              <span class="badge badge-torch">Building</span>
+            </div>
+            <div class="sc-title">Pull-ups</div>
+            <div class="sc-focus">
+              Bodyweight foundation. Block 02 introduces weighted progression.
+            </div>
+            <div class="sc-stats">
+              <div class="sc-stat">
+                <div class="v">4 × 6</div>
+                <div class="k">Current</div>
+              </div>
+              <div class="sc-stat">
+                <div class="v">+ 10kg</div>
+                <div class="k">B2 target</div>
+              </div>
+            </div>
+          </div>
+          <div class="session-card" style="cursor: default">
+            <div class="sc-top">
+              <div class="sc-day">Push</div>
+              <span class="badge badge-torch">Building</span>
+            </div>
+            <div class="sc-title">Dips</div>
+            <div class="sc-focus">
+              Bodyweight base. Weighted dip becomes primary strength lift in
+              Block 02.
+            </div>
+            <div class="sc-stats">
+              <div class="sc-stat">
+                <div class="v">3 × 8</div>
+                <div class="k">Current</div>
+              </div>
+              <div class="sc-stat">
+                <div class="v">+ 10kg</div>
+                <div class="k">B2 target</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<script type="module" src="js/app.js"></script>
-</body>
+      <!-- PROGRAMME -->
+      <section id="programme" class="view">
+        <div class="hero">
+          <div class="hero-status">
+            <div>
+              <div class="label">Programme</div>
+              <div class="block-num">
+                12<em style="font-size: 0.6em; color: var(--ink-3)">wk</em>
+              </div>
+            </div>
+            <div class="hero-meta" style="padding-bottom: 16px">
+              <div class="label">Structure</div>
+              <div class="focus">
+                Push / Pull / Legs + rotating 4th day. Volume → Intensification
+                → Peak → Deload.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="programme-grid" id="programmeGrid"></div>
+      </section>
+
+      <!-- WEIGHTS -->
+      <section id="weights" class="view">
+        <div class="hero">
+          <div class="hero-status">
+            <div>
+              <div class="label">Working Weights</div>
+              <div class="block-num" style="font-size: clamp(48px, 9vw, 88px)">
+                CURRENT
+              </div>
+            </div>
+            <div class="hero-meta" style="padding-bottom: 16px">
+              <div class="label">Update Rule</div>
+              <div class="focus">
+                Top of rep range × 2 sessions at target RPE → +2.5kg (upper) /
+                +5kg (lower). Tap any value to edit.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-head">
+          <h2>Push</h2>
+          <div class="meta" id="pushMeta">—</div>
+        </div>
+        <div class="weights-panel">
+          <div class="weights-grid" id="weightsPush"></div>
+        </div>
+        <div class="section-head">
+          <h2>Pull</h2>
+          <div class="meta" id="pullMeta">—</div>
+        </div>
+        <div class="weights-panel">
+          <div class="weights-grid" id="weightsPull"></div>
+        </div>
+        <div class="section-head">
+          <h2>Legs</h2>
+          <div class="meta" id="legsMeta">—</div>
+        </div>
+        <div class="weights-panel">
+          <div class="weights-grid" id="weightsLegs"></div>
+        </div>
+        <div class="section-head">
+          <h2>Accessories</h2>
+          <div class="meta" id="accMeta">—</div>
+        </div>
+        <div class="weights-panel">
+          <div class="weights-grid" id="weightsAcc"></div>
+        </div>
+      </section>
+
+      <!-- LOG -->
+      <section id="log" class="view">
+        <div class="hero">
+          <div class="hero-status">
+            <div>
+              <div class="label">Session Log</div>
+              <div class="block-num" style="font-size: clamp(48px, 9vw, 88px)">
+                <span id="logCount">00</span
+                ><em style="font-size: 0.5em; color: var(--ink-3)">entries</em>
+              </div>
+            </div>
+            <div class="hero-meta" style="padding-bottom: 16px">
+              <div class="label">Range</div>
+              <div class="focus">
+                Every completed session, version-controlled in your GitHub repo.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-head">
+          <h2>Recent</h2>
+          <div class="meta">Block 01</div>
+        </div>
+        <div id="logEntries"></div>
+      </section>
+
+      <!-- SESSION DETAIL -->
+      <section id="session" class="view">
+        <div class="session-head">
+          <button class="back" id="backBtn">← Back</button>
+          <div>
+            <div class="label" id="sessionMeta">
+              Block 01 · Week 01 · Day 01
+            </div>
+            <h1 id="sessionTitle">Push</h1>
+          </div>
+          <div class="meta">
+            <div class="label">RPE Target</div>
+            <div
+              class="mono tabular"
+              id="sessionRpe"
+              style="font-size: 18px; color: var(--ink); margin-top: 4px"
+            >
+              7 — 8
+            </div>
+          </div>
+        </div>
+        <div id="exerciseList"></div>
+        <div class="session-foot">
+          <div class="stats">
+            <div class="stat">
+              <div class="v tabular mono" id="totalSets">0</div>
+              <div class="k">Sets</div>
+            </div>
+            <div class="stat">
+              <div class="v tabular mono" id="totalVolume">0</div>
+              <div class="k">Tonnage (kg)</div>
+            </div>
+            <div class="stat">
+              <div class="v tabular mono" id="estTime">~60</div>
+              <div class="k">Est. min</div>
+            </div>
+          </div>
+          <button class="btn-log" id="completeBtn">Complete Session</button>
+        </div>
+      </section>
+
+      <div class="foot container" style="padding-left: 0; padding-right: 0">
+        <span>PROTOCOL · v0.2 · Pages + Worker</span>
+        <span id="footStatus">—</span>
+      </div>
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
 </html>
