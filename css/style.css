@@ -96,7 +96,10 @@ html, body { background: var(--md-surface); color: var(--md-on-surface); font-fa
   background: none; border: none; color: var(--md-on-surface-variant);
   font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.02em;
   padding: 9px 18px; border-radius: var(--r-full); cursor: pointer; transition: background 0.15s, color 0.15s;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
 }
+.nav .ic { display: inline-flex; align-items: center; }
+.nav .ic svg { width: 18px; height: 18px; }
 .nav button:hover { background: var(--md-sc); color: var(--md-on-surface); }
 .nav button.active { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
 
