@@ -1,6 +1,8 @@
-# PROTOCOL
+<p align="center">
+  <img src="assets/readme-banner.png" alt="PROTOCOL — 12-week PPL training log" width="100%">
+</p>
 
-A GitHub-backed training app. **Every interaction — tick a set, edit a weight, complete a session — becomes a real git commit.** The commit history *is* the training journal.
+A GitHub-backed training app. **Every interaction — tick a set, edit a weight, complete a session — becomes a real git commit.** The commit history _is_ the training journal.
 
 [![Live](https://img.shields.io/badge/live-workout.bishwajeetparhi.dev-ff5b1f)](https://workout.bishwajeetparhi.dev/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
@@ -10,7 +12,7 @@ A GitHub-backed training app. **Every interaction — tick a set, edit a weight,
 
 ![PROTOCOL — 12-week Push/Pull/Legs training log](assets/og-image.png)
 
-A static site and a small API, both deployed as Cloudflare Workers. The API proxies state writes through to a JSON file in *your* GitHub repo — so the data is version-controlled and owned by you, with no third-party database.
+A static site and a small API, both deployed as Cloudflare Workers. The API proxies state writes through to a JSON file in _your_ GitHub repo — so the data is version-controlled and owned by you, with no third-party database.
 
 ```
 ┌─────────────┐    HTTPS     ┌──────────────────┐   GitHub API   ┌──────────┐
@@ -20,15 +22,15 @@ A static site and a small API, both deployed as Cloudflare Workers. The API prox
       ▲                                                                │
       │   static site (HTML/CSS/JS)                                    │ data/state.json
       │                                                                │  = training journal
-┌─────┴────────────────┐                                              
-│ Site Worker          │   ◀── both served from Cloudflare,           
-│ (Cloudflare Assets)  │       free tier                              
-└──────────────────────┘                                             
+┌─────┴────────────────┐
+│ Site Worker          │   ◀── both served from Cloudflare,
+│ (Cloudflare Assets)  │       free tier
+└──────────────────────┘
 ```
 
 - **Site Worker** — serves the static files (`index.html`, `css/`, `js/`, `assets/`). Custom domain: `workout.bishwajeetparhi.dev`.
 - **API Worker** (`protocol-store`) — single `/state` endpoint. Custom domain: `api.workout.bishwajeetparhi.dev`.
-- **GitHub** — stores the source *and* `data/state.json`, your training log. The API Worker is the only thing that writes to it.
+- **GitHub** — stores the source _and_ `data/state.json`, your training log. The API Worker is the only thing that writes to it.
 
 The API Worker holds the GitHub token. The browser only knows a shared password. The repo can stay public on a free GitHub account — nothing sensitive lives in the source.
 
