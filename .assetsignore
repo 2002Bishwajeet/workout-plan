@@ -2,27 +2,34 @@
 # wrangler uploads the assets directory from DISK, not from git, so this also keeps
 # local-only files (.env, .wrangler cache, .git history) from ever being served.
 # Only index.html, site.webmanifest, css/, js/, and assets/ should ship to the web.
+#
+# NOTE: patterns follow .gitignore rules — an UNANCHORED name matches at ANY depth.
+# Root-only entries are anchored with a leading "/" so that e.g. "/data" excludes the
+# top-level data/ but NOT js/data/ (which holds the app's programme modules). An
+# unanchored "data" would 404 js/data/*.js and hang the app on the boot screen.
 
-# version control & tooling
+# match anywhere (these never collide with site files)
 .git
-.github
-.gitignore
 .DS_Store
 .wrangler
 .dev.vars*
 .env*
 node_modules
 
-# server-side / non-site config & source
-worker
-wrangler.jsonc
+# root-only: version control & CI config
+/.github
+/.gitignore
 
-# repo docs & training data (state is served via the API Worker, not as a static file)
-data
-docs
-CLAUDE.md
-README.md
-LICENSE
+# root-only: server-side / non-site config & source
+/worker
+/wrangler.jsonc
 
-# stray / legacy
-protocol
+# root-only: repo docs & training data (state is served via the API Worker)
+/data
+/docs
+/CLAUDE.md
+/README.md
+/LICENSE
+
+# root-only: stray / legacy
+/protocol
