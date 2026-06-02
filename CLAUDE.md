@@ -6,13 +6,13 @@ Context for Claude Code sessions working in this repo. Read this before making c
 
 ## What this is
 
-A personal training app for one user (Bishwajeet). The site is plain HTML served by GitHub Pages. A Cloudflare Worker proxies all state mutations through to a JSON file in this repo — so every interaction (tick a set, edit a weight, complete a session) is a real git commit. The commit history *is* the training journal.
+A personal training app for one user (Bishwajeet). The site is plain HTML served as a Cloudflare Worker (Static Assets). A second Cloudflare Worker proxies all state mutations through to a JSON file in this repo — so every interaction (tick a set, edit a weight, complete a session) is a real git commit. The commit history *is* the training journal.
 
-Two pieces of infrastructure, both free-tier:
-- **GitHub Pages** serves `index.html`
-- **Cloudflare Worker** at `worker/src/index.js`, holds the GitHub PAT, exposes `/state` GET+POST
+Two Cloudflare Workers, both free-tier (the site is **not** on GitHub Pages):
+- **Site Worker** — root `wrangler.jsonc`, Static Assets, serves `index.html` + `css/`/`js/`/`assets/`. Custom domain `workout.bishwajeetparhi.dev`.
+- **API Worker** — `protocol-store`, `worker/src/index.js`, holds the GitHub PAT, exposes `/state` GET+POST. Custom domain `api.workout.bishwajeetparhi.dev`.
 
-Browser → Worker (with shared password) → GitHub API (with PAT) → `data/state.json` in this repo.
+Browser → API Worker (with shared password) → GitHub API (with PAT) → `data/state.json` in this repo.
 
 ---
 

@@ -1,0 +1,158 @@
+=====================================
+EXERCISE LIBRARY
+=====================================
+ 
+Use this file to tell your Claude PT which exercises you can do,
+which you prefer, and any you want to avoid. Claude will use this
+when building your sessions.
+ 
+-------------------------------------
+INSTRUCTIONS
+-------------------------------------
+ 
+For each exercise, mark your status:
+  [YES]  — can do, happy to include
+  [SUB]  — can do but prefer a substitute
+  [NO]   — injury, equipment, or preference — do not programme
+ 
+Add notes where useful (e.g. "only with safety bar", "elbow pain on heavy sets")
+ 
+-------------------------------------
+LOWER BODY — QUAD DOMINANT
+-------------------------------------
+ 
+Barbell Back Squat        [NO]
+Barbell Front Squat       [NO]
+Safety Bar Squat          [NO]
+Hack Squat (machine)      [YES]
+Leg Press                 [YES]
+Bulgarian Split Squat     [YES]
+Lunges (barbell/DB)       [YES]
+Step Ups                  [NO]
+Goblet Squat              [NO]
+Leg Extension (machine)   [YES] 
+ 
+-------------------------------------
+LOWER BODY — POSTERIOR CHAIN
+-------------------------------------
+ 
+Conventional Deadlift     [YES]
+Sumo Deadlift             [NO]
+Romanian Deadlift         [NO]
+Stiff Leg Deadlift        [NO]
+Hip Thrust (barbell)      [NO]
+Hip Thrust (machine)      [NO]
+Glute Bridge              [NO]
+Leg Curl (lying)          [YES]
+Leg Curl (seated)         [YES]
+Nordic Curl               [NO]
+Good Morning              [NO]
+Cable Pull Through        [YES]
+ 
+-------------------------------------
+UPPER BODY — PUSH (HORIZONTAL)
+-------------------------------------
+ 
+Barbell Bench Press       [YES]
+Dumbbell Bench Press      [NO]
+Incline Barbell Press     [YES]
+Incline Dumbbell Press    [NO]
+Decline Press             [YES]
+Machine Chest Press       [YES]
+Cable Fly                 [YES]
+Dumbbell Fly              [YES]
+Pec Dec (machine)         [YES]
+ 
+-------------------------------------
+UPPER BODY — PUSH (VERTICAL)
+-------------------------------------
+ 
+Barbell OHP               [YES]
+Dumbbell OHP              [YES]
+Arnold Press              [YES]
+Seated Machine Press      [YES]
+Landmine Press            [NO]
+Lateral Raise (DB)        [YES]
+Lateral Raise (cable)     [NO]
+Rear Delt Fly (DB)        [NO]
+Rear Delt Fly (machine)   [YES]
+Face Pull (cable)         [YES]
+ 
+-------------------------------------
+UPPER BODY — PULL (HORIZONTAL)
+-------------------------------------
+ 
+Barbell Bent Over Row     [NO]
+Dumbbell Row              [YES]
+Cable Row (seated)        [YES]
+Machine Row               [YES]
+Chest Supported Row       [YES]
+Meadows Row               [NO]
+Pendlay Row               [NO]
+ 
+-------------------------------------
+UPPER BODY — PULL (VERTICAL)
+-------------------------------------
+ 
+Pull Up (bodyweight)      [YES]
+Weighted Pull Up          [YES]
+Chin Up                   [YES]
+Lat Pulldown (bar)        [YES]
+Lat Pulldown (neutral)    [YES]
+Single Arm Pulldown       [YES]
+Straight Arm Pulldown     [YES]
+ 
+-------------------------------------
+ARMS
+-------------------------------------
+ 
+Barbell Curl              [YES]
+Dumbbell Curl             [YES]
+Incline Dumbbell Curl     [YES]
+Cable Curl                [YES]
+Hammer Curl               [YES]
+Preacher Curl (machine)   [NO]
+Close Grip Bench Press    [NO]
+Tricep Pushdown (cable)   [YES]
+Overhead Tricep Ext (cable)[YES]
+Skull Crushers            [YES]
+Dips (tricep)             [YES]
+ 
+-------------------------------------
+CORE
+-------------------------------------
+ 
+Plank                     [YES]
+Cable Crunch              [NO]
+Hanging Leg Raise         [YES]
+Ab Wheel                  [YES]
+Pallof Press              [YES]
+Landmine Rotation         [YES]
+ 
+-------------------------------------
+CALVES
+-------------------------------------
+ 
+Standing Calf Raise       [YES]
+Seated Calf Raise         [YES]
+Leg Press Calf Raise      [YES]
+ 
+-------------------------------------
+NOTES & PREFERENCES
+-------------------------------------
+ 
+Injuries / limitations:
+No limitations.
+ 
+Favourite exercises (prioritise these):
+Prioritse Bench press, push ups, pike pushups, pull ups, dips, bulgarian split squats
+ 
+Exercises to substitute:
+Nothing to substitute. i will mention which i want to avoid while we talk
+ 
+Other notes for your PT:
+I usually train 3-4 days. 4 being the optional days mostly. I train in the evening. So keep it balanced keeping in mind of my energy levels.
+ 
+=====================================
+END OF EXERCISE LIBRARY
+=====================================

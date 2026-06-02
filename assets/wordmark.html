@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PROTOCOL — Wordmark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     PROTOCOL wordmark — pure type, no image asset.
+     The dot is always --torch. This is the canonical mark.
+     ============================================================ */
+  :root { --bg:#0a0908; --ink:#f4ede2; --ink-3:#6e655a; --torch:#ff5b1f; }
+  * { margin:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--ink); min-height:100vh; display:flex; align-items:center; justify-content:center; gap:64px; flex-wrap:wrap; padding:48px; font-family:'JetBrains Mono',monospace; }
+
+  .lockup { display:flex; align-items:baseline; gap:12px; }
+  .mark { font-family:'Anton',sans-serif; letter-spacing:0.02em; line-height:1; }
+  .mark .dot { color:var(--torch); }
+  .sub { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.2em; color:var(--ink-3); text-transform:uppercase; }
+
+  /* size variants */
+  .xl .mark { font-size:88px; }
+  .lg .mark { font-size:48px; }
+  .md .mark { font-size:22px; }
+
+  .stack { display:flex; flex-direction:column; gap:24px; align-items:flex-start; }
+  .cap { font-size:9px; letter-spacing:0.2em; color:var(--ink-3); text-transform:uppercase; }
+</style>
+</head>
+<body>
+  <div class="stack">
+    <div class="cap">Primary · XL</div>
+    <div class="xl"><div class="mark">PROTO<span class="dot">·</span>COL</div></div>
+  </div>
+
+  <div class="stack">
+    <div class="cap">Lockup · with sub</div>
+    <div class="md lockup">
+      <div class="mark">PROTO<span class="dot">·</span>COL</div>
+      <div class="sub">Bishwajeet // 12-wk PPL</div>
+    </div>
+    <div class="cap">App bar / large</div>
+    <div class="lg"><div class="mark">PROTO<span class="dot">·</span>COL</div></div>
+  </div>
+</body>
+</html>

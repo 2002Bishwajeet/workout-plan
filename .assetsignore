@@ -1,0 +1,28 @@
+# .assetsignore — controls what the static-site Worker (root wrangler.jsonc) uploads.
+# wrangler uploads the assets directory from DISK, not from git, so this also keeps
+# local-only files (.env, .wrangler cache, .git history) from ever being served.
+# Only index.html, site.webmanifest, css/, js/, and assets/ should ship to the web.
+
+# version control & tooling
+.git
+.github
+.gitignore
+.DS_Store
+.wrangler
+.dev.vars*
+.env*
+node_modules
+
+# server-side / non-site config & source
+worker
+wrangler.jsonc
+
+# repo docs & training data (state is served via the API Worker, not as a static file)
+data
+docs
+CLAUDE.md
+README.md
+LICENSE
+
+# stray / legacy
+protocol

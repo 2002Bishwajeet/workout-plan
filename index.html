@@ -3,8 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#FFF8F5" />
+    <meta
+      name="theme-color"
+      content="#FFF8F5"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#19120E"
+      media="(prefers-color-scheme: dark)"
+    />
     <title>PROTOCOL — Bishwajeet // Block 01</title>
+    <meta
+      name="description"
+      content="A GitHub-backed 12-week Push/Pull/Legs training log. RPE-driven, version-controlled — every set you tick is a real git commit."
+    />
+    <link rel="canonical" href="https://workout.bishwajeetparhi.dev/" />
+
+    <!-- Favicons & app icons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/favicon-192.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- Open Graph / social share -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://workout.bishwajeetparhi.dev/" />
+    <meta property="og:site_name" content="PROTOCOL" />
+    <meta property="og:title" content="PROTOCOL — 12-wk PPL" />
+    <meta
+      property="og:description"
+      content="A GitHub-backed 12-week Push/Pull/Legs training log. RPE-driven, version-controlled."
+    />
+    <meta
+      property="og:image"
+      content="https://workout.bishwajeetparhi.dev/assets/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="PROTOCOL — 12-week Push/Pull/Legs training log"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PROTOCOL — 12-wk PPL" />
+    <meta
+      name="twitter:description"
+      content="A GitHub-backed 12-week Push/Pull/Legs training log. RPE-driven, version-controlled."
+    />
+    <meta
+      name="twitter:image"
+      content="https://workout.bishwajeetparhi.dev/assets/og-image.png"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -53,10 +117,22 @@
         </div>
         <div class="sync-cluster">
           <nav class="nav">
-            <button class="active" data-view="dashboard">Dashboard</button>
-            <button data-view="programme">Programme</button>
-            <button data-view="weights">Weights</button>
-            <button data-view="log">Log</button>
+            <button class="active" data-view="dashboard">
+              <span class="ic"><i data-lucide="layout-dashboard"></i></span
+              ><span class="lbl">Dashboard</span>
+            </button>
+            <button data-view="programme">
+              <span class="ic"><i data-lucide="calendar-days"></i></span
+              ><span class="lbl">Programme</span>
+            </button>
+            <button data-view="weights">
+              <span class="ic"><i data-lucide="dumbbell"></i></span
+              ><span class="lbl">Weights</span>
+            </button>
+            <button data-view="log">
+              <span class="ic"><i data-lucide="history"></i></span
+              ><span class="lbl">Log</span>
+            </button>
           </nav>
           <button
             class="sync-pill"
@@ -287,7 +363,10 @@
       <!-- SESSION DETAIL -->
       <section id="session" class="view">
         <div class="session-head">
-          <button class="back" id="backBtn">← Back</button>
+          <button class="back" id="backBtn">
+            <span class="ic"><i data-lucide="arrow-left"></i></span
+            ><span>Back</span>
+          </button>
           <div>
             <div class="label" id="sessionMeta">
               Block 01 · Week 01 · Day 01
@@ -321,7 +400,10 @@
               <div class="k">Est. min</div>
             </div>
           </div>
-          <button class="btn-log" id="completeBtn">Complete Session</button>
+          <button class="btn-log" id="completeBtn">
+            <span class="ic"><i data-lucide="flag"></i></span
+            ><span>Complete Session</span>
+          </button>
         </div>
       </section>
 
@@ -331,6 +413,10 @@
       </div>
     </main>
 
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+      if (window.lucide) lucide.createIcons();
+    </script>
     <script type="module" src="js/app.js"></script>
   </body>
 </html>
