@@ -117,7 +117,17 @@
       "sets": 22,
       "vol": 5185,
       "focus": "Bench primary · vertical press · lateral volume"
+    },
+    {
+      "date": "2026-06-04T14:24:50.115Z",
+      "week": 1,
+      "name": "Pull",
+      "sessionId": "pull-1",
+      "sessionKey": "1-pull-1",
+      "sets": 23,
+      "vol": 5620,
+      "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-01T18:46:17.343Z"
+  "updated_at": "2026-06-04T14:24:52.699Z"
 }
