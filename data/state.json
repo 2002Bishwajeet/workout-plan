@@ -40,7 +40,7 @@
       {
         "key": "deadlift",
         "name": "Deadlift",
-        "weight": 140,
+        "weight": 100,
         "unit": "kg"
       },
       {
@@ -129,5 +129,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-04T14:24:52.699Z"
+  "updated_at": "2026-06-04T14:25:29.338Z"
 }
