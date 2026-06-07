@@ -168,8 +168,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 0;
+  padding: 14px 24px;
   gap: 16px;
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
 }
 .brand {
   display: flex;
@@ -314,7 +316,10 @@ body {
   }
   /* respect notch / Dynamic Island; keep the bar pinned to the very top of the safe area */
   .topbar-inner {
-    padding: 10px 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
   }
   .nav {
     position: fixed;
