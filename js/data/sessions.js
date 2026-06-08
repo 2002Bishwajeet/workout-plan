@@ -52,7 +52,7 @@ const B1_LEGS_CAL = { ...B1_LEGS,
   focus: 'Calibration · leg press, BSS, leg extension starting weights',
   exercises: B1_LEGS.exercises.map(e =>
     ['leg_press','bss','leg_ext'].includes(e.weightKey) ? { ...e, cal: true } : e) };
-const B1_UPPER = { id: 'upper-1', day: 'Day 04 · Sat', title: 'Upper +', focus: 'Bench top-set + back-offs · dip + pull-up volume', rpe: '8',
+const B1_UPPER = { id: 'upper-1', optional: true, day: 'Day 04 · Sat', title: 'Upper +', focus: 'Bench top-set + back-offs · dip + pull-up volume', rpe: '8',
   exercises: [
     { name: 'Bench Press (top set)', sets: 1, reps: '5',       weightKey: 'bench',           rpe: '8' },
     { name: 'Bench (back-offs)',     sets: 3, reps: '8',       weightKey: 'bench_bo',        rpe: '7' },
@@ -93,7 +93,7 @@ const B2_LEGS = { id: 'legs-1', day: 'Day 03 · Thu', title: 'Legs', focus: 'Leg
     { name: 'Standing Calf Raise',   sets: 4, reps: '8-10',    weightKey: 'calf',       rpe: '8' },
     { name: 'Hanging Leg Raise',     sets: 3, reps: '12-15',   weight: 'BW',            rpe: '8' }
   ]};
-const B2_UPPER = { id: 'upper-1', day: 'Day 04 · Sat', title: 'Upper +', focus: 'Bench intensity · weighted dip primary · pull volume', rpe: '8 — 8.5',
+const B2_UPPER = { id: 'upper-1', optional: true, day: 'Day 04 · Sat', title: 'Upper +', focus: 'Bench intensity · weighted dip primary · pull volume', rpe: '8 — 8.5',
   exercises: [
     { name: 'Bench Press (top set)', sets: 1, reps: '4-5',     weightKey: 'bench',           rpe: '8.5' },
     { name: 'Bench (back-offs)',     sets: 3, reps: '6',       weightKey: 'bench_bo',        rpe: '8' },
@@ -134,7 +134,7 @@ const B3_LEGS = { id: 'legs-1', day: 'Day 03 · Thu', title: 'Legs', focus: 'Hea
     { name: 'Standing Calf Raise',   sets: 4, reps: '8-10',    weightKey: 'calf',       rpe: '8' },
     { name: 'Hanging Leg Raise',     sets: 3, reps: '12-15',   weight: 'BW',            rpe: '8' }
   ]};
-const B3_UPPER = { id: 'upper-1', day: 'Day 04 · Sat', title: 'Upper +', focus: 'Bench peak · weighted dip · calisthenic tests', rpe: '8.5 — 9',
+const B3_UPPER = { id: 'upper-1', optional: true, day: 'Day 04 · Sat', title: 'Upper +', focus: 'Bench peak · weighted dip · calisthenic tests', rpe: '8.5 — 9',
   exercises: [
     { name: 'Bench Press (top set)', sets: 1, reps: '3',       weightKey: 'bench',           rpe: '9' },
     { name: 'Bench (back-offs)',     sets: 3, reps: '5',       weightKey: 'bench_bo',        rpe: '8.5' },
@@ -170,7 +170,7 @@ const B4_LEGS = { id: 'legs-1', day: 'Day 03 · Thu', title: 'Legs', focus: 'Del
     { name: 'Standing Calf Raise',   sets: 2, reps: '12',      weightKey: 'calf',       rpe: '6' },
     { name: 'Hanging Leg Raise',     sets: 2, reps: '12',      weight: 'BW',            rpe: '6' }
   ]};
-const B4_UPPER = { id: 'upper-1', day: 'Day 04 · Sat', title: 'Upper +', focus: 'Deload · light upper · prep next cycle', rpe: '6 — 7',
+const B4_UPPER = { id: 'upper-1', optional: true, day: 'Day 04 · Sat', title: 'Upper +', focus: 'Deload · light upper · prep next cycle', rpe: '6 — 7',
   exercises: [
     { name: 'Bench Press',           sets: 3, reps: '5',       weightKey: 'bench',           rpe: '6' },
     { name: 'Dip',                   sets: 2, reps: '8',       weight: 'BW',                 rpe: '6' },

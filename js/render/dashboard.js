@@ -34,7 +34,7 @@ export function renderWeekGrid() {
     const cls = done ? 'done' : (isToday ? 'today' : '');
     const badge = done ? '<span class="badge">Done</span>'
                        : isToday ? '<span class="badge badge-torch">Today</span>'
-                       : (s.id === 'upper-1' ? '<span class="badge">Optional</span>'
+                       : (s.optional ? '<span class="badge">Optional</span>'
                                               : '<span class="badge">Upcoming</span>');
     return `
       <button class="session-card ${cls}" data-session="${s.id}">

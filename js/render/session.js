@@ -14,8 +14,25 @@ export function initSession(showViewFn) {
   document.getElementById('completeBtn').addEventListener('click', () => {
     if (!activeSession) return;
     const s = activeSession;
-    const week = Store.state.current_week;
+    const pad = n => String(n).padStart(2, '0');
+    const startWeek = Store.state.current_week;
+
+    // Sessions already logged for the week we're currently sitting on.
+    const loggedKeys = new Set((Store.state.log || []).map(l => l.sessionKey));
+    const coreDone = sessionsForWeek(startWeek)
+      .filter(ws => !ws.optional)
+      .every(ws => loggedKeys.has(`${startWeek}-${ws.id}`));
+
+    // Skip-the-optional path: re-completing a session that's already logged,
+    // once every REQUIRED day of the week is in, means you've started your next
+    // training week — so this completion belongs to that next week and rolls
+    // current_week forward. (Lets you skip Upper+ without ever getting stuck;
+    // the core-done guard stops an accidental repeat from advancing early.)
+    const startingNextWeek = coreDone && startWeek < 12
+      && loggedKeys.has(`${startWeek}-${s.id}`);
+    const week = startingNextWeek ? startWeek + 1 : startWeek;
     const key = `${week}-${s.id}`;
+
     const totalSets = s.exercises.reduce((a,e)=>a+e.sets,0);
     const totalVol = s.exercises.reduce((a,e) => {
       const w = exerciseWeight(e);
@@ -25,16 +42,16 @@ export function initSession(showViewFn) {
       return a + (w * r * e.sets);
     }, 0);
 
-    // Auto-advance: once every session of this week is logged, roll forward to
-    // the next week (capped at the 12-week programme) in the SAME commit. No
-    // button — finishing the last session of the week moves you on.
-    const loggedKeys = new Set((Store.state.log || []).map(l => l.sessionKey));
-    loggedKeys.add(key);
-    const weekComplete = sessionsForWeek(week).every(ws => loggedKeys.has(`${week}-${ws.id}`));
-    const advancing = weekComplete && week < 12;
-    const pad = n => String(n).padStart(2, '0');
-    const msg = advancing
-      ? `Complete session: ${s.title} (Wk ${pad(week)}) → Wk ${pad(week + 1)}`
+    // Did-everything path: when this completion fills the last session of `week`
+    // (Upper+ included), advance to the next week. Capped at the 12-week block.
+    const after = new Set(loggedKeys); after.add(key);
+    const finishing = week < 12
+      && sessionsForWeek(week).every(ws => after.has(`${week}-${ws.id}`));
+    const finalWeek = finishing ? week + 1 : week;
+    const advanced = finalWeek !== startWeek;
+
+    const msg = finishing
+      ? `Complete session: ${s.title} (Wk ${pad(week)}) → Wk ${pad(finalWeek)}`
       : `Complete session: ${s.title} (Wk ${pad(week)})`;
 
     Store.update(st => {
@@ -45,17 +62,22 @@ export function initSession(showViewFn) {
         sets: totalSets, vol: Math.round(totalVol),
         focus: s.focus
       });
-      if (st.in_progress) delete st.in_progress[key];
-      if (advancing) st.current_week = week + 1;
+      if (st.in_progress) {
+        delete st.in_progress[key];
+        delete st.in_progress[`${startWeek}-${s.id}`];
+      }
+      if (st.current_week !== finalWeek) st.current_week = finalWeek;
     }, msg);
 
     const btn = document.getElementById('completeBtn');
-    btn.textContent = advancing ? `Wk ${pad(week)} done → Wk ${pad(week + 1)}` : 'Logged ✓';
+    btn.textContent = finishing ? `Wk ${pad(week)} done → Wk ${pad(finalWeek)}`
+                    : startingNextWeek ? `Week ${pad(week)} started`
+                    : 'Logged ✓';
     btn.style.background = 'var(--rpe-low)';
     setTimeout(() => {
       btn.textContent = 'Complete Session';
       btn.style.background = '';
-      _showView(advancing ? 'dashboard' : 'log');
+      _showView(advanced ? 'dashboard' : 'log');
     }, 900);
   });
 }
