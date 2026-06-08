@@ -1,6 +1,7 @@
-import { Store, exerciseWeight, fmtWeight } from '../store.js';
+import { Store, exerciseWeight, fmtWeight, getWeight } from '../store.js';
 import { sessionsForWeek } from '../data/sessions.js';
 import { blockForWeek } from '../data/programme.js';
+import { weightControlHTML, bindWeightControls } from '../ui/weight-editor.js';
 
 let activeSession = null;
 let _showView = null;
@@ -74,6 +75,7 @@ export function renderExerciseList() {
     const rpeCls = e.rpe.includes('9') ? 'rpe-9-plus' : (e.rpe.includes('8') && !e.rpe.startsWith('7') ? 'rpe-8-9' : 'rpe-7-8');
     const w = exerciseWeight(e);
     const weightDisplay = fmtWeight(w, w === 'BW' ? 'BW' : 'kg');
+    const ww = e.weightKey ? getWeight(e.weightKey) : null;
     const calMark = e.cal ? ' <span class="badge badge-torch" style="margin-left:8px;">Cal</span>' : '';
     return `
       <div class="exercise-row ${isDone ? 'done' : ''}" data-idx="${idx}">
@@ -82,7 +84,7 @@ export function renderExerciseList() {
           <div class="ex-name">${e.name}${calMark}</div>
           <div class="ex-meta">${e.sets} sets · ${e.reps} reps</div>
         </div>
-        <div class="ex-stat"><div class="v tabular">${weightDisplay}</div><div class="k">Load</div></div>
+        <div class="ex-stat">${ww ? weightControlHTML(ww) : `<div class="v tabular">${weightDisplay}</div>`}<div class="k">Load</div></div>
         <div class="ex-stat"><div class="v tabular">${e.sets}×${e.reps}</div><div class="k">Vol</div></div>
         <div class="ex-rpe ${rpeCls}">RPE ${e.rpe}</div>
       </div>
@@ -102,6 +104,7 @@ export function renderExerciseList() {
       }, `Tick: ${exName} (${s.title})`);
     });
   });
+  bindWeightControls(wrap);
   const totalSets = s.exercises.reduce((a,e)=>a+e.sets,0);
   const totalVol = s.exercises.reduce((a,e) => {
     const w = exerciseWeight(e);

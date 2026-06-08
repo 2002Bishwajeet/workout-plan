@@ -1,49 +1,16 @@
-import { Store, getWeight } from '../store.js';
+import { Store } from '../store.js';
+import { weightControlHTML, bindWeightControls } from '../ui/weight-editor.js';
 
 function renderWeightCells(targetId, list) {
   const wrap = document.getElementById(targetId);
+  if (!wrap) return;
   wrap.innerHTML = list.map(w => `
     <div class="weight-cell ${w.calibrate ? 'cal' : ''}" data-key="${w.key}">
       <div class="ex">${w.name}</div>
-      <div class="val tabular">${w.unit === 'BW' ? 'BW' : (w.weight || '—')}<span class="unit">${w.unit}</span></div>
+      <div class="val">${weightControlHTML(w)}</div>
     </div>
   `).join('');
-  wrap.querySelectorAll('.weight-cell').forEach(cell => {
-    cell.addEventListener('click', () => editWeight(cell.dataset.key));
-  });
-}
-
-function editWeight(key) {
-  const w = getWeight(key);
-  if (!w || w.unit === 'BW' || !Store.editable) return;
-  const cells = document.querySelectorAll(`.weight-cell[data-key="${key}"]`);
-  if (!cells.length) return;
-  cells.forEach(cell => {
-    const valEl = cell.querySelector('.val');
-    const current = w.weight || '';
-    valEl.innerHTML = `<input class="inline-edit tabular" type="number" step="0.5" value="${current}" autofocus>`;
-    const input = valEl.querySelector('input');
-    input.focus(); input.select();
-    const commit = () => {
-      const v = parseFloat(input.value);
-      if (!isNaN(v) && v !== w.weight) {
-        const prev = w.weight;
-        Store.update(s => {
-          for (const cat of Object.values(s.working_weights)) {
-            const found = cat.find(x => x.key === key);
-            if (found) { found.weight = v; if (found.calibrate) delete found.calibrate; }
-          }
-        }, `Update weight: ${w.name} ${prev || '—'} → ${v} kg`);
-      } else {
-        if (Store.onRender) Store.onRender();
-      }
-    };
-    input.addEventListener('blur', commit);
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') input.blur();
-      if (e.key === 'Escape') { if (Store.onRender) Store.onRender(); }
-    });
-  });
+  bindWeightControls(wrap);
 }
 
 export function renderWeights() {

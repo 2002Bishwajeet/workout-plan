@@ -696,17 +696,109 @@ body {
   color: var(--md-on-tertiary-container);
   opacity: 0.7;
 }
-.weight-cell input.inline-edit {
-  background: var(--md-sc-high);
+/* inline weight editor — steppers + numeric keypad (mobile-first) */
+.wedit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.wedit-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
   border: none;
-  border-bottom: 2px solid var(--md-primary);
-  border-radius: var(--r-xs) var(--r-xs) 0 0;
+  border-radius: var(--r-sm);
+  background: var(--md-secondary-container);
+  color: var(--md-on-secondary-container);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background 0.12s,
+    transform 0.05s;
+}
+.wedit-step:hover {
+  background: var(--md-secondary);
+  color: var(--md-on-secondary);
+}
+.wedit-step:active {
+  transform: scale(0.9);
+}
+.wedit-input {
+  width: 3.2ch;
+  min-width: 3.2ch;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
   color: var(--md-on-surface);
   font-family: "Anton", sans-serif;
   font-size: 30px;
-  padding: 0 6px;
-  width: 100%;
+  line-height: 1;
+  text-align: center;
+  padding: 0 2px;
   outline: none;
+  -moz-appearance: textfield;
+}
+.wedit-input::-webkit-outer-spin-button,
+.wedit-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.wedit-input:focus {
+  border-bottom-color: var(--md-primary);
+}
+.wedit-input::placeholder {
+  color: var(--md-outline);
+}
+.wedit-unit {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--md-on-surface-variant);
+  letter-spacing: 0.08em;
+}
+.wedit-static {
+  font-family: "Anton", sans-serif;
+  font-size: 30px;
+  line-height: 1;
+}
+.wedit-static .wedit-unit {
+  margin-left: 5px;
+}
+.weight-cell.cal .wedit-input {
+  color: var(--md-on-tertiary-container);
+}
+.weight-cell.cal .wedit-unit {
+  color: var(--md-on-tertiary-container);
+  opacity: 0.7;
+}
+.readonly .wedit-step {
+  display: none;
+}
+.readonly .wedit-input {
+  pointer-events: none;
+}
+
+/* mobile: larger tap targets + one weight per row */
+@media (max-width: 760px) {
+  .wedit {
+    gap: 8px;
+  }
+  .wedit-step {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+}
+@media (max-width: 600px) {
+  .weights-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---- programme ---- */
