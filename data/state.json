@@ -41,13 +41,15 @@
         "key": "deadlift",
         "name": "Deadlift",
         "weight": 100,
-        "unit": "kg"
+        "unit": "kg",
+        "step": 5
       },
       {
         "key": "pulldown",
         "name": "Lat Pulldown",
         "weight": 65,
-        "unit": "kg"
+        "unit": "kg",
+        "step": 5
       },
       {
         "key": "pullup",
@@ -58,31 +60,33 @@
     ],
     "legs": [
       {
-        "key": "hack_sq",
-        "name": "Hack Squat",
-        "weight": 0,
+        "key": "leg_press",
+        "name": "Leg Press",
+        "weight": 160,
         "unit": "kg",
-        "calibrate": true
+        "step": 5
       },
       {
         "key": "bss",
         "name": "BSS",
-        "weight": 0,
+        "weight": 10,
         "unit": "kg",
-        "calibrate": true
+        "step": 2.5
       },
       {
-        "key": "leg_press",
-        "name": "Leg Press",
+        "key": "leg_ext",
+        "name": "Leg Extension",
         "weight": 0,
         "unit": "kg",
+        "step": 5,
         "calibrate": true
       },
       {
         "key": "leg_curl",
         "name": "Leg Curl",
         "weight": 65,
-        "unit": "kg"
+        "unit": "kg",
+        "step": 5
       }
     ],
     "acc": [
@@ -106,13 +110,7 @@
       }
     ]
   },
-  "in_progress": {
-    "1-legs-1": [
-      2,
-      3,
-      1
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -133,7 +131,17 @@
       "sets": 23,
       "vol": 5620,
       "focus": "Deadlift primary · vertical + horizontal volume"
+    },
+    {
+      "date": "2026-06-05T18:41:11.000Z",
+      "week": 1,
+      "name": "Legs",
+      "sessionId": "legs-1",
+      "sessionKey": "1-legs-1",
+      "sets": 20,
+      "vol": 6895,
+      "focus": "Calibration · leg press, BSS, leg extension starting weights"
     }
   ],
-  "updated_at": "2026-06-05T18:41:16.884Z"
+  "updated_at": "2026-06-08T16:45:00.000Z"
 }
