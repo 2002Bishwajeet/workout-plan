@@ -173,16 +173,7 @@
       }
     ]
   },
-  "in_progress": {
-    "1-upper-1": [
-      0,
-      1,
-      2,
-      3,
-      4,
-      5
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -213,7 +204,17 @@
       "sets": 20,
       "vol": 6895,
       "focus": "Calibration · leg press, BSS, leg extension starting weights"
+    },
+    {
+      "date": "2026-06-08T17:43:48.180Z",
+      "week": 1,
+      "name": "Upper +",
+      "sessionId": "upper-1",
+      "sessionKey": "1-upper-1",
+      "sets": 20,
+      "vol": 2636,
+      "focus": "Bench top-set + back-offs · dip + pull-up volume"
     }
   ],
-  "updated_at": "2026-06-08T17:43:49.772Z"
+  "updated_at": "2026-06-08T17:43:51.157Z"
 }
