@@ -25,6 +25,18 @@ export function initSession(showViewFn) {
       return a + (w * r * e.sets);
     }, 0);
 
+    // Auto-advance: once every session of this week is logged, roll forward to
+    // the next week (capped at the 12-week programme) in the SAME commit. No
+    // button — finishing the last session of the week moves you on.
+    const loggedKeys = new Set((Store.state.log || []).map(l => l.sessionKey));
+    loggedKeys.add(key);
+    const weekComplete = sessionsForWeek(week).every(ws => loggedKeys.has(`${week}-${ws.id}`));
+    const advancing = weekComplete && week < 12;
+    const pad = n => String(n).padStart(2, '0');
+    const msg = advancing
+      ? `Complete session: ${s.title} (Wk ${pad(week)}) → Wk ${pad(week + 1)}`
+      : `Complete session: ${s.title} (Wk ${pad(week)})`;
+
     Store.update(st => {
       if (!st.log) st.log = [];
       st.log.push({
@@ -34,16 +46,17 @@ export function initSession(showViewFn) {
         focus: s.focus
       });
       if (st.in_progress) delete st.in_progress[key];
-    }, `Complete session: ${s.title} (Wk ${String(week).padStart(2,'0')})`);
+      if (advancing) st.current_week = week + 1;
+    }, msg);
 
     const btn = document.getElementById('completeBtn');
-    btn.textContent = 'Logged ✓';
+    btn.textContent = advancing ? `Wk ${pad(week)} done → Wk ${pad(week + 1)}` : 'Logged ✓';
     btn.style.background = 'var(--rpe-low)';
     setTimeout(() => {
       btn.textContent = 'Complete Session';
       btn.style.background = '';
-      _showView('log');
-    }, 700);
+      _showView(advancing ? 'dashboard' : 'log');
+    }, 900);
   });
 }
 
