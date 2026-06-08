@@ -2,7 +2,7 @@
   "version": 1,
   "athlete": "Bishwajeet",
   "current_block": 1,
-  "current_week": 1,
+  "current_week": 2,
   "working_weights": {
     "push": [
       {
@@ -216,5 +216,5 @@
       "focus": "Bench top-set + back-offs · dip + pull-up volume"
     }
   ],
-  "updated_at": "2026-06-08T17:43:51.157Z"
+  "updated_at": "2026-06-08T18:27:41.613Z"
 }
