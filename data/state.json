@@ -178,7 +178,8 @@
       0,
       1,
       2,
-      3
+      3,
+      4
     ]
   },
   "log": [
@@ -213,5 +214,5 @@
       "focus": "Calibration · leg press, BSS, leg extension starting weights"
     }
   ],
-  "updated_at": "2026-06-08T17:28:58.999Z"
+  "updated_at": "2026-06-08T17:37:49.280Z"
 }
