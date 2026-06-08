@@ -34,6 +34,20 @@
         "name": "Lateral Raise",
         "weight": 10,
         "unit": "kg"
+      },
+      {
+        "key": "machine_press",
+        "name": "Machine Chest Press",
+        "weight": 0,
+        "unit": "kg",
+        "step": 5
+      },
+      {
+        "key": "bench_bo",
+        "name": "Bench Back-off",
+        "weight": 65,
+        "unit": "kg",
+        "step": 2.5
       }
     ],
     "pull": [
@@ -56,6 +70,27 @@
         "name": "Pull-up",
         "weight": 0,
         "unit": "BW"
+      },
+      {
+        "key": "cs_row",
+        "name": "Chest Supported Row",
+        "weight": 0,
+        "unit": "kg",
+        "step": 5
+      },
+      {
+        "key": "face_pull",
+        "name": "Face Pull",
+        "weight": 0,
+        "unit": "kg",
+        "step": 2.5
+      },
+      {
+        "key": "hammer",
+        "name": "Hammer Curl",
+        "weight": 0,
+        "unit": "kg",
+        "step": 2.5
       }
     ],
     "legs": [
@@ -87,6 +122,13 @@
         "weight": 65,
         "unit": "kg",
         "step": 5
+      },
+      {
+        "key": "calf",
+        "name": "Standing Calf Raise",
+        "weight": 0,
+        "unit": "kg",
+        "step": 5
       }
     ],
     "acc": [
@@ -107,6 +149,27 @@
         "name": "Dip",
         "weight": 0,
         "unit": "BW"
+      },
+      {
+        "key": "incline_db_curl",
+        "name": "Incline DB Curl",
+        "weight": 0,
+        "unit": "kg",
+        "step": 2.5
+      },
+      {
+        "key": "oh_tri",
+        "name": "Overhead Tricep Ext",
+        "weight": 0,
+        "unit": "kg",
+        "step": 2.5
+      },
+      {
+        "key": "cable_crunch",
+        "name": "Cable Crunch",
+        "weight": 0,
+        "unit": "kg",
+        "step": 5
       }
     ]
   },
@@ -148,5 +211,5 @@
       "focus": "Calibration · leg press, BSS, leg extension starting weights"
     }
   ],
-  "updated_at": "2026-06-08T17:06:21.964Z"
+  "updated_at": "2026-06-08T17:11:57.187Z"
 }
