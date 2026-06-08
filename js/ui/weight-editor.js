@@ -78,6 +78,11 @@ export function bindWeightControls(root) {
       input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
       });
+      // Put the caret at the END on focus so typing appends, not prepends.
+      input.addEventListener('focus', () => {
+        const end = input.value.length;
+        setTimeout(() => { try { input.setSelectionRange(end, end); } catch (_) {} }, 0);
+      });
       input.addEventListener('click', (e) => e.stopPropagation());
     }
   });

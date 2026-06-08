@@ -119,6 +119,8 @@ body {
   font-family: "IBM Plex Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  /* kill double-tap-to-zoom (and the 300ms tap delay); pinch-zoom still works */
+  touch-action: manipulation;
 }
 /* (Material You has no film grain / torch glow — intentionally removed.) */
 
