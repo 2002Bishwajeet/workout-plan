@@ -10,6 +10,8 @@
 // Bodyweight movements use literal weight:'BW' (exerciseWeight() returns only
 // the number, so a weightKey on a BW/0 weight would render "— kg"). Only the
 // dip is weightKey-tracked, because it gets loaded from Block 2.
+// Lower-body bilateral quad work is Leg Press (no hack-squat machine available);
+// Leg Extension covers quad-isolation volume. No cable pull-through / ab wheel.
 // ─────────────────────────────────────────────────────────────
 
 // ===== BLOCK 1 — Volume Base (weeks 1–4) =====
@@ -35,19 +37,18 @@ const B1_PULL = { id: 'pull-1', day: 'Day 02 · Tue', title: 'Pull', focus: 'Dea
   ]};
 const B1_LEGS = { id: 'legs-1', day: 'Day 03 · Thu', title: 'Legs', focus: 'Quad + posterior volume · calf + core', rpe: '7 — 8',
   exercises: [
-    { name: 'Hack Squat',            sets: 4, reps: '6-8',     weightKey: 'hack_sq',    rpe: '7-8' },
+    { name: 'Leg Press',             sets: 4, reps: '6-8',     weightKey: 'leg_press',  rpe: '7-8' },
     { name: 'Bulgarian Split Squat', sets: 3, reps: '8-10',    weightKey: 'bss',        rpe: '7-8' },
-    { name: 'Leg Press',             sets: 3, reps: '10-12',   weightKey: 'leg_press',  rpe: '7' },
+    { name: 'Leg Extension',         sets: 3, reps: '10-12',   weightKey: 'leg_ext',    rpe: '7' },
     { name: 'Leg Curl (lying)',      sets: 3, reps: '10-12',   weightKey: 'leg_curl',   rpe: '7-8' },
-    { name: 'Cable Pull Through',    sets: 3, reps: '12-15',   weight: '—',             rpe: '7' },
     { name: 'Standing Calf Raise',   sets: 4, reps: '10-12',   weight: '—',             rpe: '8' },
     { name: 'Hanging Leg Raise',     sets: 3, reps: '10-15',   weight: 'BW',            rpe: '7-8' }
   ]};
 // Week 1 only: legs is the calibration session.
 const B1_LEGS_CAL = { ...B1_LEGS,
-  focus: 'Calibration · hack squat, BSS, leg press starting weights',
+  focus: 'Calibration · leg press, BSS, leg extension starting weights',
   exercises: B1_LEGS.exercises.map(e =>
-    ['hack_sq','bss','leg_press'].includes(e.weightKey) ? { ...e, cal: true } : e) };
+    ['leg_press','bss','leg_ext'].includes(e.weightKey) ? { ...e, cal: true } : e) };
 const B1_UPPER = { id: 'upper-1', day: 'Day 04 · Sat', title: 'Upper +', focus: 'Bench top-set + back-offs · dip + pull-up volume', rpe: '8',
   exercises: [
     { name: 'Bench Press (top set)', sets: 1, reps: '5',       weightKey: 'bench',      rpe: '8' },
@@ -56,7 +57,7 @@ const B1_UPPER = { id: 'upper-1', day: 'Day 04 · Sat', title: 'Upper +', focus:
     { name: 'Pull-up',               sets: 4, reps: 'AMRAP-1', weight: 'BW',            rpe: '8' },
     { name: 'Incline DB Curl',       sets: 3, reps: '10-12',   weight: '—',             rpe: '7' },
     { name: 'Overhead Tricep Ext',   sets: 3, reps: '10-12',   weight: '—',             rpe: '7' },
-    { name: 'Ab Wheel',              sets: 3, reps: 'AMRAP-1', weight: 'BW',            rpe: '8' }
+    { name: 'Cable Crunch',          sets: 3, reps: '12-15',   weight: '—',             rpe: '8' }
   ]};
 
 // ===== BLOCK 2 — Intensification (weeks 5–8) =====
@@ -80,13 +81,12 @@ const B2_PULL = { id: 'pull-1', day: 'Day 02 · Tue', title: 'Pull', focus: 'Hea
     { name: 'Barbell Curl',          sets: 3, reps: '6-8',     weightKey: 'bb_curl',    rpe: '8' },
     { name: 'Hammer Curl',           sets: 3, reps: '8-10',    weight: '—',             rpe: '8' }
   ]};
-const B2_LEGS = { id: 'legs-1', day: 'Day 03 · Thu', title: 'Legs', focus: 'Hack squat + leg press intensity · posterior chain', rpe: '8 — 8.5',
+const B2_LEGS = { id: 'legs-1', day: 'Day 03 · Thu', title: 'Legs', focus: 'Leg press intensity · quad + posterior chain', rpe: '8 — 8.5',
   exercises: [
-    { name: 'Hack Squat',            sets: 4, reps: '6-8',     weightKey: 'hack_sq',    rpe: '8' },
+    { name: 'Leg Press',             sets: 4, reps: '6-8',     weightKey: 'leg_press',  rpe: '8' },
     { name: 'Bulgarian Split Squat', sets: 3, reps: '8-10',    weightKey: 'bss',        rpe: '8' },
-    { name: 'Leg Press',             sets: 4, reps: '8-10',    weightKey: 'leg_press',  rpe: '8' },
+    { name: 'Leg Extension',         sets: 3, reps: '10-12',   weightKey: 'leg_ext',    rpe: '8' },
     { name: 'Leg Curl (seated)',     sets: 3, reps: '8-10',    weightKey: 'leg_curl',   rpe: '8' },
-    { name: 'Cable Pull Through',    sets: 3, reps: '12-15',   weight: '—',             rpe: '7' },
     { name: 'Standing Calf Raise',   sets: 4, reps: '8-10',    weight: '—',             rpe: '8' },
     { name: 'Hanging Leg Raise',     sets: 3, reps: '12-15',   weight: 'BW',            rpe: '8' }
   ]};
@@ -98,7 +98,7 @@ const B2_UPPER = { id: 'upper-1', day: 'Day 04 · Sat', title: 'Upper +', focus:
     { name: 'Pull-up',               sets: 4, reps: 'AMRAP-1', weight: 'BW',            rpe: '8.5' },
     { name: 'Incline DB Curl',       sets: 3, reps: '8-10',    weight: '—',             rpe: '8' },
     { name: 'Overhead Tricep Ext',   sets: 3, reps: '10-12',   weight: '—',             rpe: '7' },
-    { name: 'Ab Wheel',              sets: 3, reps: 'AMRAP-1', weight: 'BW',            rpe: '8' }
+    { name: 'Cable Crunch',          sets: 3, reps: '12-15',   weight: '—',             rpe: '8' }
   ]};
 
 // ===== BLOCK 3 — Strength Peak (weeks 9–11) =====
@@ -122,13 +122,12 @@ const B3_PULL = { id: 'pull-1', day: 'Day 02 · Tue', title: 'Pull', focus: 'Hea
     { name: 'Barbell Curl',          sets: 3, reps: '6-8',     weightKey: 'bb_curl',    rpe: '8.5' },
     { name: 'Hammer Curl',           sets: 3, reps: '8-10',    weight: '—',             rpe: '8' }
   ]};
-const B3_LEGS = { id: 'legs-1', day: 'Day 03 · Thu', title: 'Legs', focus: 'Heavy hack squat · strength-biased lower', rpe: '8.5 — 9',
+const B3_LEGS = { id: 'legs-1', day: 'Day 03 · Thu', title: 'Legs', focus: 'Heavy leg press · strength-biased lower', rpe: '8.5 — 9',
   exercises: [
-    { name: 'Hack Squat',            sets: 4, reps: '5-6',     weightKey: 'hack_sq',    rpe: '8.5' },
+    { name: 'Leg Press',             sets: 4, reps: '5-6',     weightKey: 'leg_press',  rpe: '8.5' },
     { name: 'Bulgarian Split Squat', sets: 3, reps: '6-8',     weightKey: 'bss',        rpe: '8' },
-    { name: 'Leg Press',             sets: 3, reps: '8-10',    weightKey: 'leg_press',  rpe: '8' },
+    { name: 'Leg Extension',         sets: 3, reps: '8-10',    weightKey: 'leg_ext',    rpe: '8' },
     { name: 'Leg Curl (lying)',      sets: 3, reps: '6-8',     weightKey: 'leg_curl',   rpe: '8.5' },
-    { name: 'Cable Pull Through',    sets: 3, reps: '12-15',   weight: '—',             rpe: '7' },
     { name: 'Standing Calf Raise',   sets: 4, reps: '8-10',    weight: '—',             rpe: '8' },
     { name: 'Hanging Leg Raise',     sets: 3, reps: '12-15',   weight: 'BW',            rpe: '8' }
   ]};
@@ -140,7 +139,7 @@ const B3_UPPER = { id: 'upper-1', day: 'Day 04 · Sat', title: 'Upper +', focus:
     { name: 'Pull-up',               sets: 4, reps: 'AMRAP-1', weight: 'BW',            rpe: '9' },
     { name: 'Incline DB Curl',       sets: 3, reps: '8-10',    weight: '—',             rpe: '8' },
     { name: 'Overhead Tricep Ext',   sets: 3, reps: '10-12',   weight: '—',             rpe: '8' },
-    { name: 'Ab Wheel',              sets: 3, reps: 'AMRAP-1', weight: 'BW',            rpe: '8.5' }
+    { name: 'Cable Crunch',          sets: 3, reps: '12-15',   weight: '—',             rpe: '8.5' }
   ]};
 
 // ===== BLOCK 4 — Deload (week 12) =====
@@ -162,7 +161,7 @@ const B4_PULL = { id: 'pull-1', day: 'Day 02 · Tue', title: 'Pull', focus: 'Del
   ]};
 const B4_LEGS = { id: 'legs-1', day: 'Day 03 · Thu', title: 'Legs', focus: 'Deload · light lower · mobility', rpe: '6 — 7',
   exercises: [
-    { name: 'Hack Squat',            sets: 3, reps: '8',       weightKey: 'hack_sq',    rpe: '6' },
+    { name: 'Leg Press',             sets: 3, reps: '8',       weightKey: 'leg_press',  rpe: '6' },
     { name: 'Bulgarian Split Squat', sets: 2, reps: '10',      weightKey: 'bss',        rpe: '6' },
     { name: 'Leg Curl (lying)',      sets: 2, reps: '10',      weightKey: 'leg_curl',   rpe: '6' },
     { name: 'Standing Calf Raise',   sets: 2, reps: '12',      weight: '—',             rpe: '6' },
@@ -174,7 +173,7 @@ const B4_UPPER = { id: 'upper-1', day: 'Day 04 · Sat', title: 'Upper +', focus:
     { name: 'Dip',                   sets: 2, reps: '8',       weight: 'BW',            rpe: '6' },
     { name: 'Pull-up',               sets: 2, reps: 'submax',  weight: 'BW',            rpe: '6' },
     { name: 'Incline DB Curl',       sets: 2, reps: '12',      weight: '—',             rpe: '6' },
-    { name: 'Ab Wheel',              sets: 2, reps: '10',      weight: 'BW',            rpe: '6' }
+    { name: 'Cable Crunch',          sets: 2, reps: '12',      weight: '—',             rpe: '6' }
   ]};
 
 const BLOCK1_W1 = [B1_PUSH, B1_PULL, B1_LEGS_CAL, B1_UPPER];   // week 1 = calibration legs

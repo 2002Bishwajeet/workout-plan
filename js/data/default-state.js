@@ -6,25 +6,25 @@ export function defaultState() {
     current_week: 1,
     working_weights: {
       push: [
-        { key: 'bench',      name: 'Bench Press',      weight: 77, unit: 'kg' },
-        { key: 'incline_bb', name: 'Incline BB Press', weight: 45, unit: 'kg' },
-        { key: 'ohp',        name: 'OHP',              weight: 35, unit: 'kg' },
-        { key: 'lat_raise',  name: 'Lateral Raise',    weight: 10, unit: 'kg' }
+        { key: 'bench',      name: 'Bench Press',      weight: 77, unit: 'kg', step: 2.5 },
+        { key: 'incline_bb', name: 'Incline BB Press', weight: 45, unit: 'kg', step: 2.5 },
+        { key: 'ohp',        name: 'OHP',              weight: 35, unit: 'kg', step: 2.5 },
+        { key: 'lat_raise',  name: 'Lateral Raise',    weight: 10, unit: 'kg', step: 2.5 }
       ],
       pull: [
-        { key: 'deadlift',   name: 'Deadlift',         weight: 140, unit: 'kg' },
-        { key: 'pulldown',   name: 'Lat Pulldown',     weight: 65,  unit: 'kg' },
+        { key: 'deadlift',   name: 'Deadlift',         weight: 140, unit: 'kg', step: 5 },
+        { key: 'pulldown',   name: 'Lat Pulldown',     weight: 65,  unit: 'kg', step: 5 },
         { key: 'pullup',     name: 'Pull-up',          weight: 0,   unit: 'BW' }
       ],
       legs: [
-        { key: 'hack_sq',    name: 'Hack Squat',       weight: 0, unit: 'kg', calibrate: true },
-        { key: 'bss',        name: 'BSS',              weight: 0, unit: 'kg', calibrate: true },
-        { key: 'leg_press',  name: 'Leg Press',        weight: 0, unit: 'kg', calibrate: true },
-        { key: 'leg_curl',   name: 'Leg Curl',         weight: 65, unit: 'kg' }
+        { key: 'leg_press',  name: 'Leg Press',        weight: 0,  unit: 'kg', step: 5,   calibrate: true },
+        { key: 'bss',        name: 'BSS',              weight: 0,  unit: 'kg', step: 2.5, calibrate: true },
+        { key: 'leg_ext',    name: 'Leg Extension',    weight: 0,  unit: 'kg', step: 5,   calibrate: true },
+        { key: 'leg_curl',   name: 'Leg Curl',         weight: 65, unit: 'kg', step: 5 }
       ],
       acc: [
-        { key: 'bb_curl',    name: 'BB Curl',          weight: 25, unit: 'kg' },
-        { key: 'tri_pd',     name: 'Tricep Pushdown',  weight: 20, unit: 'kg' },
+        { key: 'bb_curl',    name: 'BB Curl',          weight: 25, unit: 'kg', step: 2.5 },
+        { key: 'tri_pd',     name: 'Tricep Pushdown',  weight: 20, unit: 'kg', step: 2.5 },
         { key: 'dip',        name: 'Dip',              weight: 0,  unit: 'BW' }
       ]
     },
