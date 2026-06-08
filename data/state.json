@@ -160,7 +160,7 @@
       {
         "key": "oh_tri",
         "name": "Overhead Tricep Ext",
-        "weight": 0,
+        "weight": 12,
         "unit": "kg",
         "step": 2.5
       },
@@ -179,7 +179,8 @@
       1,
       2,
       3,
-      4
+      4,
+      5
     ]
   },
   "log": [
@@ -214,5 +215,5 @@
       "focus": "Calibration · leg press, BSS, leg extension starting weights"
     }
   ],
-  "updated_at": "2026-06-08T17:37:49.280Z"
+  "updated_at": "2026-06-08T17:43:49.772Z"
 }
