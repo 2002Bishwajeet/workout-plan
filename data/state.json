@@ -8,7 +8,7 @@
       {
         "key": "bench",
         "name": "Bench Press",
-        "weight": 65,
+        "weight": 70,
         "unit": "kg"
       },
       {
@@ -143,5 +143,5 @@
       "focus": "Calibration · leg press, BSS, leg extension starting weights"
     }
   ],
-  "updated_at": "2026-06-08T16:58:53.984Z"
+  "updated_at": "2026-06-08T16:59:02.073Z"
 }
