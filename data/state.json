@@ -74,7 +74,7 @@
       {
         "key": "cs_row",
         "name": "Chest Supported Row",
-        "weight": 0,
+        "weight": 60,
         "unit": "kg",
         "step": 5
       },
@@ -176,7 +176,8 @@
   "in_progress": {
     "2-pull-1": [
       0,
-      1
+      1,
+      2
     ]
   },
   "log": [
@@ -221,5 +222,5 @@
       "focus": "Bench top-set + back-offs · dip + pull-up volume"
     }
   ],
-  "updated_at": "2026-06-10T18:10:17.385Z"
+  "updated_at": "2026-06-10T18:10:21.706Z"
 }
