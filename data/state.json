@@ -45,7 +45,7 @@
       {
         "key": "bench_bo",
         "name": "Bench Back-off",
-        "weight": 65,
+        "weight": 60,
         "unit": "kg",
         "step": 2.5
       }
@@ -226,5 +226,5 @@
       "focus": "Bench top-set + back-offs · dip + pull-up volume"
     }
   ],
-  "updated_at": "2026-06-13T11:03:56.172Z"
+  "updated_at": "2026-06-13T11:04:00.154Z"
 }
