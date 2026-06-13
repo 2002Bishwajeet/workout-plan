@@ -182,7 +182,8 @@
     ],
     "2-upper-1": [
       0,
-      1
+      1,
+      2
     ]
   },
   "log": [
@@ -227,5 +228,5 @@
       "focus": "Bench top-set + back-offs · dip + pull-up volume"
     }
   ],
-  "updated_at": "2026-06-13T11:08:26.048Z"
+  "updated_at": "2026-06-13T11:18:11.501Z"
 }
