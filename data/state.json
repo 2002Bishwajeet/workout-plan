@@ -179,14 +179,6 @@
       1,
       2,
       3
-    ],
-    "2-upper-1": [
-      0,
-      1,
-      2,
-      3,
-      4,
-      5
     ]
   },
   "log": [
@@ -229,7 +221,17 @@
       "sets": 20,
       "vol": 2636,
       "focus": "Bench top-set + back-offs · dip + pull-up volume"
+    },
+    {
+      "date": "2026-06-13T15:16:11.850Z",
+      "week": 2,
+      "name": "Upper +",
+      "sessionId": "upper-1",
+      "sessionKey": "2-upper-1",
+      "sets": 20,
+      "vol": 2516,
+      "focus": "Bench top-set + back-offs · dip + pull-up volume"
     }
   ],
-  "updated_at": "2026-06-13T15:16:11.063Z"
+  "updated_at": "2026-06-13T15:16:14.436Z"
 }
