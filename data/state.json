@@ -95,6 +95,13 @@
     ],
     "legs": [
       {
+        "key": "hack_sq",
+        "name": "Hack Squat",
+        "weight": 140,
+        "unit": "kg",
+        "step": 5
+      },
+      {
         "key": "leg_press",
         "name": "Leg Press",
         "weight": 160,
@@ -111,10 +118,9 @@
       {
         "key": "leg_ext",
         "name": "Leg Extension",
-        "weight": 0,
+        "weight": 35,
         "unit": "kg",
-        "step": 5,
-        "calibrate": true
+        "step": 5
       },
       {
         "key": "leg_curl",
@@ -236,5 +242,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-15T10:17:20.931Z"
+  "updated_at": "2026-06-15T10:29:18.000Z"
 }
