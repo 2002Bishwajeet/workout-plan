@@ -173,14 +173,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-pull-1": [
-      0,
-      1,
-      2,
-      3
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -231,7 +224,17 @@
       "sets": 20,
       "vol": 2516,
       "focus": "Bench top-set + back-offs · dip + pull-up volume"
+    },
+    {
+      "date": "2026-06-15T10:17:18.426Z",
+      "week": 2,
+      "name": "Pull",
+      "sessionId": "pull-1",
+      "sessionKey": "2-pull-1",
+      "sets": 23,
+      "vol": 6040,
+      "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-13T15:16:14.436Z"
+  "updated_at": "2026-06-15T10:17:20.931Z"
 }
