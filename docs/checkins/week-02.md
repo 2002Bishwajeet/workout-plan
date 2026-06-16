@@ -10,7 +10,7 @@
 |---------|--------|-----:|------------:|
 | Push | **Skipped** | — | — |
 | Pull | **Done** — 4 exercises completed, session not marked complete in app | — | — |
-| Legs | **Skipped** (102 km cycling recovery) | — | — |
+| Legs | **Skipped** (102.55 km cycling recovery) | — | — |
 | Upper+ | **Done** (Sat 2026-06-13) | 20 | 2,516 |
 
 **1 of 4 sessions fully logged.** Pull was done but not saved (tap Complete in app). Push and Legs were skipped.
@@ -66,7 +66,7 @@ Bench is the programme's priority lift. Two weeks in with zero logged Push sessi
 
 ### 3. Legs skipped — noted, not a concern
 
-102 km cycling is legitimate grounds. Quad fatigue from that effort would compromise hack squat and leg press quality. One skipped Legs session is not a problem.
+102.55 km cycling is legitimate grounds. Quad fatigue from that effort would compromise hack squat and leg press quality. One skipped Legs session is not a problem.
 
 ### 4. Hack Squat not in working_weights — action required
 
