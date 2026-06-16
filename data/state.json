@@ -8,7 +8,7 @@
       {
         "key": "bench",
         "name": "Bench Press",
-        "weight": 70,
+        "weight": 60,
         "unit": "kg"
       },
       {
@@ -242,5 +242,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-16T15:13:46.000Z"
+  "updated_at": "2026-06-16T17:03:11.527Z"
 }
