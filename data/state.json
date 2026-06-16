@@ -182,7 +182,8 @@
   "in_progress": {
     "3-push-1": [
       0,
-      1
+      1,
+      2
     ]
   },
   "log": [
@@ -247,5 +248,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-16T17:29:41.959Z"
+  "updated_at": "2026-06-16T17:37:35.085Z"
 }
