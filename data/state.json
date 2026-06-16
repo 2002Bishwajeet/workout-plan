@@ -38,7 +38,7 @@
       {
         "key": "machine_press",
         "name": "Machine Chest Press",
-        "weight": 0,
+        "weight": 70,
         "unit": "kg",
         "step": 5
       },
@@ -247,5 +247,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-16T17:22:45.776Z"
+  "updated_at": "2026-06-16T17:29:19.817Z"
 }
