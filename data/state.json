@@ -81,7 +81,7 @@
       {
         "key": "face_pull",
         "name": "Face Pull",
-        "weight": 0,
+        "weight": 15,
         "unit": "kg",
         "step": 2.5
       },
@@ -190,7 +190,9 @@
     "3-pull-1": [
       1,
       0,
-      2
+      2,
+      4,
+      3
     ]
   },
   "log": [
@@ -255,5 +257,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-18T09:33:11.715Z"
+  "updated_at": "2026-06-18T09:41:10.314Z"
 }
