@@ -88,7 +88,7 @@
       {
         "key": "hammer",
         "name": "Hammer Curl",
-        "weight": 0,
+        "weight": 10,
         "unit": "kg",
         "step": 2.5
       }
@@ -255,5 +255,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-18T09:26:03.983Z"
+  "updated_at": "2026-06-18T09:26:15.351Z"
 }
