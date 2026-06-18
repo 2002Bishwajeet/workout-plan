@@ -186,14 +186,6 @@
       2,
       4,
       5
-    ],
-    "3-pull-1": [
-      1,
-      0,
-      2,
-      4,
-      3,
-      5
     ]
   },
   "log": [
@@ -256,7 +248,17 @@
       "sets": 23,
       "vol": 6040,
       "focus": "Deadlift primary · vertical + horizontal volume"
+    },
+    {
+      "date": "2026-06-18T09:54:46.261Z",
+      "week": 3,
+      "name": "Pull",
+      "sessionId": "pull-1",
+      "sessionKey": "3-pull-1",
+      "sets": 23,
+      "vol": 6549,
+      "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-18T09:54:45.215Z"
+  "updated_at": "2026-06-18T09:54:48.827Z"
 }
