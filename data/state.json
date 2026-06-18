@@ -188,7 +188,8 @@
       5
     ],
     "3-pull-1": [
-      1
+      1,
+      0
     ]
   },
   "log": [
@@ -253,5 +254,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-18T09:11:21.477Z"
+  "updated_at": "2026-06-18T09:11:26.974Z"
 }
