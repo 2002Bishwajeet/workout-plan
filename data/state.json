@@ -179,7 +179,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "4-push-1": [
+      0
+    ]
+  },
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -262,5 +266,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-22T14:46:00.000Z"
+  "updated_at": "2026-06-22T18:06:59.756Z"
 }
