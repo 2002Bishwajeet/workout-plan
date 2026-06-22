@@ -10,10 +10,10 @@
 |---------|--------|-----:|------------:|
 | Push | In progress — not logged | — | — |
 | Pull | Done (Thu 2026-06-18) | 23 | 6,549 |
-| Legs | Skipped | — | — |
+| Legs | Skipped (swim) | — | — |
 | Upper+ | Skipped | — | — |
 
-1 of 4 sessions logged. Push was started (`3-push-1` in `in_progress` with 5 exercises ticked) but the session was never completed. Legs and Upper+ were not started.
+1 of 4 sessions logged. Push was started (`3-push-1` in `in_progress` with 5 exercises ticked) but the session was never completed. Legs was swapped for a swim; Upper+ was not started.
 
 ### Week-over-week volume
 
@@ -55,9 +55,9 @@ All other compounds have no second logged session this week; no trigger is possi
 
 `in_progress` shows `3-push-1` with 5 exercises ticked; the session was never finished and logged. The week is over. Bench is the programme's primary strength lift, and Block 1 has two weeks remaining (weeks 4 and the Block 2 transition at week 5). Zero Push data means zero bench progression signal, zero incline data, zero OHP data. Run Push first in Week 4 — not optional.
 
-### 2. Legs: skipped in 2 of 3 weeks
+### 2. Legs: skipped in 2 of 3 weeks — both for cross-training
 
-Week 1 Legs was logged (calibration complete — `hack_sq` 140 kg, `bss` 10 kg, `leg_press` 160 kg all set). Weeks 2 and 3 had no Legs session. Lower-body frequency is effectively one session in three weeks. `leg_ext` and `leg_curl` have had no volume since Week 1. Do not extend this to Week 4.
+Week 1 Legs was logged (calibration complete — `hack_sq` 140 kg, `bss` 10 kg, `leg_press` 160 kg all set). Weeks 2 and 3 had no Legs session — Week 2 was the 102.55 km cycling ride, Week 3 was a swim. Both are legitimate active-recovery choices, but the result is the same: lower-body strength frequency is one session in three weeks, and `leg_ext` and `leg_curl` have had no load since Week 1. Week 4 Legs is non-negotiable — don't let a third week slide.
 
 ### 3. Bench weight: state shows 60 kg; Week 02 check-in recorded 70 kg
 
