@@ -79,7 +79,13 @@ async function handlePostState(env, request, corsHeaders) {
     sha = current?.sha || null;
   }
 
-  const result = await ghPutFile(env, dataPath(env), content, commitMsg, sha);
+  let result;
+  try {
+    result = await ghPutFile(env, dataPath(env), content, commitMsg, sha);
+  } catch (err) {
+    if (err.conflict) return json({ error: 'conflict', stale: true }, 409, corsHeaders);
+    throw err;
+  }
   return json({
     ok: true,
     sha: result.content.sha,
@@ -118,17 +124,14 @@ async function ghPutFile(env, path, content, message, sha) {
     body: JSON.stringify(body)
   });
 
-  // Conflict — someone wrote since we last read. Refetch & retry once.
+  // Stale write: the client's sha no longer matches HEAD, so something was
+  // committed since it loaded. Do NOT refetch-and-overwrite — that silently
+  // clobbers the newer commit (this is how a logged session got deleted). Surface
+  // a conflict so the client reloads fresh state. (409 = sha mismatch, 422 = sha missing.)
   if (res.status === 409 || res.status === 422) {
-    const fresh = await ghGetFile(env, path);
-    body.sha = fresh?.sha;
-    const retry = await fetch(url, {
-      method: 'PUT',
-      headers: { ...ghHeaders(env), 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    });
-    if (!retry.ok) throw new Error(`GitHub PUT retry ${retry.status}: ${await retry.text()}`);
-    return await retry.json();
+    const e = new Error('stale sha — reload and retry');
+    e.conflict = true;
+    throw e;
   }
 
   if (!res.ok) throw new Error(`GitHub PUT ${res.status}: ${await res.text()}`);

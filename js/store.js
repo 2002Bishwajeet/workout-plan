@@ -69,6 +69,17 @@ export const Store = {
         headers: { 'X-App-Password': this.password, 'Content-Type': 'application/json' },
         body: JSON.stringify({ state: this.state, sha: this.sha, message: msg })
       });
+      // Stale write — newer state on the server (e.g. another tab committed since
+      // we loaded). Reload fresh rather than clobber it: the rejected local edit is
+      // dropped, never the commit. ponytail: drop one tap, not the journal.
+      if (res.status === 409) {
+        await this.load();
+        if (this.onRender) this.onRender();
+        this.dirty = false;
+        this.pendingMsg = null;
+        setStatus('synced', 'Reloaded — newer data on server');
+        return;
+      }
       if (!res.ok) throw new Error(`HTTP ${res.status}: ${await res.text()}`);
       const { sha } = await res.json();
       this.sha = sha;
