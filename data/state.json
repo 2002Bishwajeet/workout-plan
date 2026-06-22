@@ -2,7 +2,7 @@
   "version": 1,
   "athlete": "Bishwajeet",
   "current_block": 1,
-  "current_week": 3,
+  "current_week": 4,
   "working_weights": {
     "push": [
       {
@@ -260,5 +260,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-18T09:54:48.827Z"
+  "updated_at": "2026-06-22T14:46:00.000Z"
 }
