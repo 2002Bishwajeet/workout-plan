@@ -184,7 +184,8 @@
       0,
       1,
       2,
-      3
+      3,
+      5
     ]
   },
   "log": [
@@ -279,5 +280,5 @@
       "focus": "Bench primary · vertical press · lateral volume"
     }
   ],
-  "updated_at": "2026-06-23T17:31:20.682Z"
+  "updated_at": "2026-06-23T17:31:36.149Z"
 }
