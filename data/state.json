@@ -181,7 +181,8 @@
   },
   "in_progress": {
     "4-pull-1": [
-      0
+      0,
+      1
     ]
   },
   "log": [
@@ -276,5 +277,5 @@
       "focus": "Bench primary · vertical press · lateral volume"
     }
   ],
-  "updated_at": "2026-06-23T16:52:19.685Z"
+  "updated_at": "2026-06-23T17:05:53.954Z"
 }
