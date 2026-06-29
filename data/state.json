@@ -181,7 +181,8 @@
   },
   "in_progress": {
     "4-legs-1": [
-      0
+      0,
+      1
     ]
   },
   "log": [
@@ -286,5 +287,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-26T17:00:37.484Z"
+  "updated_at": "2026-06-29T17:54:01.845Z"
 }
