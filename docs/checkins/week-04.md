@@ -10,10 +10,10 @@
 |---------|--------|-----:|------------:|
 | Push | Done (Mon 2026-06-23) | 22 | 6,654 |
 | Pull | Done (Mon 2026-06-23) | 23 | 6,549 |
-| Legs | Not completed (open in-progress — 1 exercise ticked) | — | — |
+| Legs | Swapped for swim (1 exercise ticked, then pool) | — | — |
 | Upper+ | Skipped | — | — |
 
-2 of 4 sessions logged. Push and Pull were completed as a same-day double on June 23 (Push ~15:45, Pull ~17:40). Legs was opened June 26 (first exercise ticked) but the session was not completed — it remains open in `in_progress`. Upper+ was not started.
+2 of 4 sessions logged. Push and Pull were completed as a same-day double on June 23 (Push ~15:45, Pull ~17:40). Legs was partially started (1 exercise ticked) then swapped for a swim — same pattern as Weeks 2 and 3 (cycling, swim). The session remains open in `in_progress`. Upper+ was not started.
 
 ### Week-over-week volume
 
@@ -60,9 +60,9 @@ Rule: top of rep range at target RPE for 2 consecutive sessions → +2.5 kg uppe
 
 ## Flags
 
-### 1. Legs: 1 completed session across 4 weeks — critical gap
+### 1. Legs: 1 completed gym session across 4 weeks — critical gap
 
-Week 1 Legs is the only completed session (calibration: `hack_sq` 140 kg, `bss` 10 kg, `leg_press` 160 kg). Weeks 2 and 3 were skipped (cycling, swim). Week 4 was started but not completed. Lower-body strength frequency in Block 1 is effectively one session in four weeks. Quad, hamstring, and posterior-chain volume is severely undertrained relative to upper body. Block 2 Legs increases Leg Press to 4×8–10 and bumps RPE to 8 — entering that without accumulated base is a risk. Resolve the open `4-legs-1` session (complete or tap Close in the app to clear it), then make Legs the non-negotiable first session of Week 5.
+Week 1 Legs is the only completed gym session (calibration: `hack_sq` 140 kg, `bss` 10 kg, `leg_press` 160 kg). Weeks 2–4 were swapped for cross-training: cycling (Week 2), swim (Week 3), swim again after 1 exercise (Week 4). The cross-training is legitimate active recovery, but the result is that lower-body strength volume — hack squat, leg press, BSS, leg curl, leg extension — has had one session in four weeks. Block 2 Legs increases Leg Press to 4×8–10 and bumps RPE to 8; entering that without accumulated base is a risk. Clear the open `4-legs-1` session in the app (tap Close to reset it), and make Legs the non-negotiable first session of Week 5.
 
 ### 2. Push and Pull done same day — quality check needed
 
@@ -103,7 +103,7 @@ The weights that felt RPE 7–8 in Block 1 will sit closer to RPE 7.5–8 at few
 
 Priority order for Week 5:
 
-1. **Legs** — resolve the open `4-legs-1` session first, then complete the Block 2 Legs template. Four weeks of near-zero lower-body volume is the biggest structural problem in this training block.
+1. **Legs** — clear the open `4-legs-1` session in the app (tap Close), then run the Block 2 Legs template. Four weeks of near-zero lower-body gym volume is the biggest structural gap in Block 1.
 2. **Push** — if Wk 3/Wk 4 bench sessions both hit the top of range at target RPE, start at 62.5 kg. Block 2 drops to 4×5–6.
 3. **Pull** — if both Wk 3/Wk 4 Pull sessions hit standard, move deadlift to 85 kg. Set count on pull-up goes to 5×AMRAP-1.
 4. **Upper+** — weighted dips begin. After a two-week absence, keep ego in check on the dip load — BW +2.5 kg is the correct starting point, not heavier.
