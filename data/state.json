@@ -132,7 +132,7 @@
       {
         "key": "calf",
         "name": "Standing Calf Raise",
-        "weight": 0,
+        "weight": 50,
         "unit": "kg",
         "step": 5
       }
@@ -288,5 +288,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-29T18:11:18.815Z"
+  "updated_at": "2026-06-29T18:17:32.962Z"
 }
