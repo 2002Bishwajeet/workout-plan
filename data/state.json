@@ -179,14 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "4-legs-1": [
-      0,
-      1,
-      2,
-      4
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -287,7 +280,17 @@
       "sets": 23,
       "vol": 6549,
       "focus": "Deadlift primary · vertical + horizontal volume"
+    },
+    {
+      "date": "2026-06-29T18:32:19.454Z",
+      "week": 4,
+      "name": "Legs",
+      "sessionId": "legs-1",
+      "sessionKey": "4-legs-1",
+      "sets": 20,
+      "vol": 10382,
+      "focus": "Quad + posterior volume · calf + core"
     }
   ],
-  "updated_at": "2026-06-29T18:26:23.997Z"
+  "updated_at": "2026-06-29T18:32:22.280Z"
 }
