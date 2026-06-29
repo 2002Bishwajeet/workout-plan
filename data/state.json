@@ -118,7 +118,7 @@
       {
         "key": "leg_ext",
         "name": "Leg Extension",
-        "weight": 35,
+        "weight": 39,
         "unit": "kg",
         "step": 5
       },
@@ -287,5 +287,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-29T17:54:01.845Z"
+  "updated_at": "2026-06-29T17:59:51.725Z"
 }
