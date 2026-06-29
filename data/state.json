@@ -183,7 +183,8 @@
     "4-legs-1": [
       0,
       1,
-      2
+      2,
+      4
     ]
   },
   "log": [
@@ -288,5 +289,5 @@
       "focus": "Deadlift primary · vertical + horizontal volume"
     }
   ],
-  "updated_at": "2026-06-29T18:17:32.962Z"
+  "updated_at": "2026-06-29T18:26:23.997Z"
 }
