@@ -182,7 +182,8 @@
   "in_progress": {
     "4-upper-1": [
       0,
-      1
+      1,
+      2
     ]
   },
   "log": [
@@ -297,5 +298,5 @@
       "focus": "Quad + posterior volume · calf + core"
     }
   ],
-  "updated_at": "2026-07-01T16:05:51.037Z"
+  "updated_at": "2026-07-01T16:13:39.657Z"
 }
