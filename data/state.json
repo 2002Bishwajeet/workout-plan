@@ -179,7 +179,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "4-upper-1": [
+      0
+    ]
+  },
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -292,5 +296,5 @@
       "focus": "Quad + posterior volume · calf + core"
     }
   ],
-  "updated_at": "2026-06-29T18:32:22.280Z"
+  "updated_at": "2026-07-01T15:48:52.129Z"
 }
