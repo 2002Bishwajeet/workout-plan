@@ -45,7 +45,7 @@
       {
         "key": "bench_bo",
         "name": "Bench Back-off",
-        "weight": 50,
+        "weight": 55,
         "unit": "kg",
         "step": 2.5
       }
@@ -296,5 +296,5 @@
       "focus": "Quad + posterior volume · calf + core"
     }
   ],
-  "updated_at": "2026-07-01T15:49:09.374Z"
+  "updated_at": "2026-07-01T15:49:23.575Z"
 }
