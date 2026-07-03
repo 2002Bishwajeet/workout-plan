@@ -179,16 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "5-pull-1": [
-      1,
-      0,
-      2,
-      3,
-      5,
-      6
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -309,7 +300,17 @@
       "sets": 20,
       "vol": 2346,
       "focus": "Bench top-set + back-offs · dip + pull-up volume"
+    },
+    {
+      "date": "2026-07-03T12:44:03.278Z",
+      "week": 5,
+      "name": "Pull",
+      "sessionId": "pull-1",
+      "sessionKey": "5-pull-1",
+      "sets": 25,
+      "vol": 6174,
+      "focus": "Heavy deadlift · pull-up density · row volume"
     }
   ],
-  "updated_at": "2026-07-03T12:44:03.033Z"
+  "updated_at": "2026-07-03T12:44:05.759Z"
 }
