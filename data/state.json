@@ -179,15 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "5-push-1": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -318,7 +310,17 @@
       "sets": 25,
       "vol": 6174,
       "focus": "Heavy deadlift · pull-up density · row volume"
+    },
+    {
+      "date": "2026-07-06T21:47:46.052Z",
+      "week": 5,
+      "name": "Push",
+      "sessionId": "push-1",
+      "sessionKey": "5-push-1",
+      "sets": 23,
+      "vol": 5831,
+      "focus": "Bench strength · pressing intensity · deficit pike"
     }
   ],
-  "updated_at": "2026-07-06T17:13:42.592Z"
+  "updated_at": "2026-07-06T21:47:48.598Z"
 }
