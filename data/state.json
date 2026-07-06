@@ -184,7 +184,8 @@
       0,
       1,
       2,
-      3
+      3,
+      4
     ]
   },
   "log": [
@@ -319,5 +320,5 @@
       "focus": "Heavy deadlift · pull-up density · row volume"
     }
   ],
-  "updated_at": "2026-07-06T17:06:12.863Z"
+  "updated_at": "2026-07-06T17:13:42.592Z"
 }
