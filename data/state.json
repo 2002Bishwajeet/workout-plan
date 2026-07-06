@@ -14,7 +14,7 @@
       {
         "key": "incline_bb",
         "name": "Incline BB Press",
-        "weight": 55,
+        "weight": 50,
         "unit": "kg"
       },
       {
@@ -316,5 +316,5 @@
       "focus": "Heavy deadlift · pull-up density · row volume"
     }
   ],
-  "updated_at": "2026-07-06T16:52:39.036Z"
+  "updated_at": "2026-07-06T16:52:42.183Z"
 }
