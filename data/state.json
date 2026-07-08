@@ -179,7 +179,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "5-legs-1": [
+      0
+    ]
+  },
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -322,5 +326,5 @@
       "focus": "Bench strength · pressing intensity · deficit pike"
     }
   ],
-  "updated_at": "2026-07-08T16:58:05.157Z"
+  "updated_at": "2026-07-08T17:07:33.673Z"
 }
