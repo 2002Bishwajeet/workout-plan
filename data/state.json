@@ -181,7 +181,8 @@
   },
   "in_progress": {
     "5-upper-1": [
-      0
+      0,
+      1
     ]
   },
   "log": [
@@ -336,5 +337,5 @@
       "focus": "Leg press intensity · quad + posterior chain"
     }
   ],
-  "updated_at": "2026-07-11T14:42:03.859Z"
+  "updated_at": "2026-07-11T14:52:04.705Z"
 }
