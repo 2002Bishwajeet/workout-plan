@@ -2,7 +2,7 @@
   "version": 1,
   "athlete": "Bishwajeet",
   "current_block": 1,
-  "current_week": 5,
+  "current_week": 6,
   "working_weights": {
     "push": [
       {
@@ -179,15 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "5-upper-1": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -338,7 +330,17 @@
       "sets": 20,
       "vol": 11132,
       "focus": "Leg press intensity · quad + posterior chain"
+    },
+    {
+      "date": "2026-07-11T16:14:02.403Z",
+      "week": 5,
+      "name": "Upper +",
+      "sessionId": "upper-1",
+      "sessionKey": "5-upper-1",
+      "sets": 21,
+      "vol": 1926,
+      "focus": "Bench intensity · weighted dip primary · pull volume"
     }
   ],
-  "updated_at": "2026-07-11T15:30:02.860Z"
+  "updated_at": "2026-07-11T16:14:05.416Z"
 }
