@@ -80,6 +80,15 @@ Block 2 Upper+ is weighted dip as the primary compound. The key still shows BW. 
 
 ---
 
+## Cross-training (non-gym days)
+
+| Date | Activity | Note |
+|------|----------|------|
+| Fri 2026-07-10 | Swim | Active recovery between Upper+ (Sat) and Week 6 |
+| Mon 2026-07-13 | Swim | Week 6 gym sessions begin Tuesday |
+
+---
+
 ## Next week
 
 **Week 6 — Block 2, Intensification (RPE 8–8.5).** Second week of Block 2.
