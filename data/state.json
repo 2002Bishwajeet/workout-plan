@@ -184,7 +184,8 @@
       0,
       1,
       2,
-      3
+      3,
+      4
     ]
   },
   "log": [
@@ -349,5 +350,5 @@
       "focus": "Bench intensity · weighted dip primary · pull volume"
     }
   ],
-  "updated_at": "2026-07-15T15:17:01.706Z"
+  "updated_at": "2026-07-15T15:22:00.444Z"
 }
