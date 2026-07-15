@@ -179,7 +179,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "6-push-1": [
+      0
+    ]
+  },
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -342,5 +346,5 @@
       "focus": "Bench intensity · weighted dip primary · pull volume"
     }
   ],
-  "updated_at": "2026-07-11T16:14:05.416Z"
+  "updated_at": "2026-07-15T14:42:30.940Z"
 }
