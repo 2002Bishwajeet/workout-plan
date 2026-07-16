@@ -179,15 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "6-push-1": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -348,7 +340,17 @@
       "sets": 21,
       "vol": 1926,
       "focus": "Bench intensity · weighted dip primary · pull volume"
+    },
+    {
+      "date": "2026-07-16T16:39:44.720Z",
+      "week": 6,
+      "name": "Push",
+      "sessionId": "push-1",
+      "sessionKey": "6-push-1",
+      "sets": 23,
+      "vol": 5831,
+      "focus": "Bench strength · pressing intensity · deficit pike"
     }
   ],
-  "updated_at": "2026-07-15T15:22:00.444Z"
+  "updated_at": "2026-07-16T16:39:47.514Z"
 }
