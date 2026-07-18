@@ -179,13 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "6-legs-1": [
-      0,
-      1,
-      2
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -356,7 +350,17 @@
       "sets": 23,
       "vol": 5831,
       "focus": "Bench strength · pressing intensity · deficit pike"
+    },
+    {
+      "date": "2026-07-18T16:24:43.987Z",
+      "week": 6,
+      "name": "Legs",
+      "sessionId": "legs-1",
+      "sessionKey": "6-legs-1",
+      "sets": 20,
+      "vol": 11132,
+      "focus": "Leg press intensity · quad + posterior chain"
     }
   ],
-  "updated_at": "2026-07-18T16:15:51.394Z"
+  "updated_at": "2026-07-18T16:24:46.997Z"
 }
