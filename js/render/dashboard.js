@@ -6,6 +6,13 @@ let _openSession = null;
 
 export function initDashboard(openSessionFn) {
   _openSession = openSessionFn;
+
+  document.getElementById('advanceWeekBtn').addEventListener('click', () => {
+    if (!Store.state || !Store.editable || Store.state.current_week >= 12) return;
+    const next = Store.state.current_week + 1;
+    const pad = n => String(n).padStart(2, '0');
+    Store.update(st => { st.current_week = next; }, `Advance to Week ${pad(next)}`);
+  });
 }
 
 export function setDate() {
@@ -23,6 +30,7 @@ export function renderDashboardHero() {
 export function renderWeekGrid() {
   const grid = document.getElementById('weekGrid');
   const week = Store.state?.current_week || 1;
+  document.getElementById('advanceWeekBtn').style.display = week >= 12 ? 'none' : '';
   const dow = new Date().getDay();
   const todayMap = { 1: 'push-1', 2: 'pull-1', 4: 'legs-1', 6: 'upper-1' };
   const todayId = todayMap[dow];

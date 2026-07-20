@@ -486,6 +486,22 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+.btn-skip-week {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--md-on-surface-variant);
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.btn-skip-week:hover {
+  color: var(--torch);
+  border-color: var(--torch);
+}
 
 .grid {
   display: grid;
@@ -644,7 +660,7 @@ body {
 }
 .weights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 10px;
 }
 .weight-cell {
