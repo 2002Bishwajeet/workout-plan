@@ -181,7 +181,8 @@
   },
   "in_progress": {
     "7-pull-1": [
-      0
+      0,
+      1
     ]
   },
   "log": [
@@ -376,5 +377,5 @@
       "focus": "Bench strength · pressing intensity · deficit pike"
     }
   ],
-  "updated_at": "2026-07-21T16:35:26.122Z"
+  "updated_at": "2026-07-21T16:44:19.256Z"
 }
