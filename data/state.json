@@ -81,7 +81,7 @@
       {
         "key": "face_pull",
         "name": "Face Pull",
-        "weight": 15,
+        "weight": 17.5,
         "unit": "kg",
         "step": 2.5
       },
@@ -378,5 +378,5 @@
       "focus": "Bench strength · pressing intensity · deficit pike"
     }
   ],
-  "updated_at": "2026-07-21T17:01:08.524Z"
+  "updated_at": "2026-07-21T17:06:14.439Z"
 }
