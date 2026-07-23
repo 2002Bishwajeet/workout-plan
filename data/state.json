@@ -182,7 +182,8 @@
   "in_progress": {
     "7-legs-1": [
       0,
-      1
+      1,
+      2
     ]
   },
   "log": [
@@ -387,5 +388,5 @@
       "focus": "Heavy deadlift · pull-up density · row volume"
     }
   ],
-  "updated_at": "2026-07-23T16:00:24.547Z"
+  "updated_at": "2026-07-23T16:08:12.657Z"
 }
