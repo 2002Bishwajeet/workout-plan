@@ -125,7 +125,7 @@
       {
         "key": "leg_curl",
         "name": "Leg Curl",
-        "weight": 65,
+        "weight": 70,
         "unit": "kg",
         "step": 5
       },
@@ -387,5 +387,5 @@
       "focus": "Heavy deadlift · pull-up density · row volume"
     }
   ],
-  "updated_at": "2026-07-23T16:00:08.979Z"
+  "updated_at": "2026-07-23T16:00:20.685Z"
 }
