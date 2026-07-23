@@ -183,7 +183,8 @@
     "7-legs-1": [
       0,
       1,
-      2
+      2,
+      4
     ]
   },
   "log": [
@@ -388,5 +389,5 @@
       "focus": "Heavy deadlift · pull-up density · row volume"
     }
   ],
-  "updated_at": "2026-07-23T16:08:12.657Z"
+  "updated_at": "2026-07-23T16:15:30.246Z"
 }
