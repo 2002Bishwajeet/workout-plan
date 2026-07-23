@@ -132,7 +132,7 @@
       {
         "key": "calf",
         "name": "Standing Calf Raise",
-        "weight": 50,
+        "weight": 60,
         "unit": "kg",
         "step": 5
       }
@@ -389,5 +389,5 @@
       "focus": "Heavy deadlift · pull-up density · row volume"
     }
   ],
-  "updated_at": "2026-07-23T16:15:30.246Z"
+  "updated_at": "2026-07-23T16:17:25.018Z"
 }
