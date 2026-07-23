@@ -104,7 +104,7 @@
       {
         "key": "leg_press",
         "name": "Leg Press",
-        "weight": 215,
+        "weight": 225,
         "unit": "kg",
         "step": 5
       },
@@ -382,5 +382,5 @@
       "focus": "Heavy deadlift · pull-up density · row volume"
     }
   ],
-  "updated_at": "2026-07-21T17:19:21.039Z"
+  "updated_at": "2026-07-23T15:39:13.719Z"
 }
