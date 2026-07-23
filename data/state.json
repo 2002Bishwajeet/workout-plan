@@ -179,15 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "7-legs-1": [
-      0,
-      1,
-      2,
-      4,
-      5
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -388,7 +380,17 @@
       "sets": 25,
       "vol": 6287,
       "focus": "Heavy deadlift · pull-up density · row volume"
+    },
+    {
+      "date": "2026-07-23T16:21:51.535Z",
+      "week": 7,
+      "name": "Legs",
+      "sessionId": "legs-1",
+      "sessionKey": "7-legs-1",
+      "sets": 20,
+      "vol": 11937,
+      "focus": "Leg press intensity · quad + posterior chain"
     }
   ],
-  "updated_at": "2026-07-23T16:21:51.421Z"
+  "updated_at": "2026-07-23T16:21:54.487Z"
 }
