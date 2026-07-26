@@ -16,6 +16,14 @@ function stepFor(w) {
   return (typeof w.step === 'number' && w.step > 0) ? w.step : 2.5;
 }
 
+// Fit the input to its value — the CSS width is only a fallback. Values like
+// "62.5" or "162.5" must never clip (issue #23); Anton is proportional, so
+// a small pixel buffer covers the decimal point.
+function autosizeInput(input) {
+  const len = Math.max(String(input.value || input.placeholder || '').length, 2);
+  input.style.width = `calc(${len}ch + 8px)`;
+}
+
 // Markup for one control bound to a working-weight object.
 // BW lifts and read-only mode render a static value (no editor).
 export function weightControlHTML(w) {
@@ -83,6 +91,8 @@ export function bindWeightControls(root) {
     });
 
     if (input) {
+      autosizeInput(input);
+      input.addEventListener('input', () => autosizeInput(input));
       // `change` fires on keypad-confirm and on blur — the reliable commit point.
       input.addEventListener('change', () => commitWeight(key, input.value));
       input.addEventListener('keydown', (e) => {
