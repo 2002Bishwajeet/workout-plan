@@ -39,6 +39,13 @@ document.querySelectorAll('.nav button').forEach(b => {
   b.addEventListener('click', () => showView(b.dataset.view));
 });
 
+// Batched ticks must not die with the tab: flush pending state the moment
+// the page is hidden or torn down (keepalive request survives unload).
+window.addEventListener('pagehide', () => Store.flushNow());
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') Store.flushNow();
+});
+
 (async function boot() {
   setDate();
   document.getElementById('bootStatus').textContent = 'Loading…';

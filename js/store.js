@@ -2,12 +2,16 @@ import { defaultState } from './data/default-state.js';
 import { setStatus } from './ui/status.js';
 import { WORKER_URL } from './config.js';
 
+// Ticks batch for up to a minute; anchor events (complete session, weight
+// edit, week advance) pass { flush: true } and commit the whole batch at once.
+const BATCH_MS = 60000;
+
 export const Store = {
   state: null,
   sha: null,
   password: null,
   saveTimer: null,
-  pendingMsg: null,
+  pendingMsgs: [],
   dirty: false,
   onRender: null,
 
@@ -44,30 +48,54 @@ export const Store = {
     return this.state;
   },
 
-  update(mutator, message) {
+  update(mutator, message, opts = {}) {
     if (!this.state || !this.password) return;
     mutator(this.state);
     this.dirty = true;
-    this.pendingMsg = message;
+    if (message) this.pendingMsgs.push(message);
     setStatus('pending');
     if (this.onRender) this.onRender();
-    this.scheduleSave();
+    if (opts.flush) {
+      clearTimeout(this.saveTimer);
+      this.save();
+    } else {
+      this.scheduleSave();
+    }
   },
 
   scheduleSave() {
     clearTimeout(this.saveTimer);
-    this.saveTimer = setTimeout(() => this.save(), 2500);
+    this.saveTimer = setTimeout(() => this.save(), BATCH_MS);
   },
 
-  async save(forceMsg) {
+  // Best-effort flush when the page is being hidden/closed: whatever is
+  // pending goes out now via a keepalive fetch, which survives unload.
+  flushNow() {
+    if (!this.dirty || !this.state || !this.password) return;
+    clearTimeout(this.saveTimer);
+    this.save(null, { keepalive: true });
+  },
+
+  // Subject = the latest (most significant) action; every earlier action in
+  // the batch is preserved as a body line, so the journal loses nothing.
+  composeMessage(msgs) {
+    if (!msgs.length) return 'Update state';
+    if (msgs.length === 1) return msgs[0];
+    return msgs[msgs.length - 1] + '\n\n'
+      + msgs.slice(0, -1).map(m => '- ' + m).join('\n');
+  },
+
+  async save(forceMsg, opts = {}) {
     if (!this.state || !this.password) return;
     setStatus('saving');
-    const msg = forceMsg || this.pendingMsg || 'Update state';
+    const batch = this.pendingMsgs.slice();
+    const msg = forceMsg || this.composeMessage(batch);
     try {
       const res = await fetch(`${WORKER_URL}/state`, {
         method: 'POST',
         headers: { 'X-App-Password': this.password, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ state: this.state, sha: this.sha, message: msg })
+        body: JSON.stringify({ state: this.state, sha: this.sha, message: msg }),
+        keepalive: !!opts.keepalive
       });
       // Stale write — newer state on the server (e.g. another tab committed since
       // we loaded). Reload fresh rather than clobber it: the rejected local edit is
@@ -76,16 +104,18 @@ export const Store = {
         await this.load();
         if (this.onRender) this.onRender();
         this.dirty = false;
-        this.pendingMsg = null;
+        this.pendingMsgs = [];
         setStatus('synced', 'Reloaded — newer data on server');
         return;
       }
       if (!res.ok) throw new Error(`HTTP ${res.status}: ${await res.text()}`);
       const { sha } = await res.json();
       this.sha = sha;
-      this.dirty = false;
-      this.pendingMsg = null;
-      setStatus('synced');
+      // Only drop what this save carried — actions logged mid-flight stay pending.
+      this.pendingMsgs = this.pendingMsgs.slice(batch.length);
+      this.dirty = this.pendingMsgs.length > 0;
+      if (this.dirty) this.scheduleSave();
+      setStatus(this.dirty ? 'pending' : 'synced');
     } catch (err) {
       console.error('Save failed:', err);
       setStatus('error', err.message);

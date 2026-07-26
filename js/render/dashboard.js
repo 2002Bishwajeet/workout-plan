@@ -11,7 +11,7 @@ export function initDashboard(openSessionFn) {
     if (!Store.state || !Store.editable || Store.state.current_week >= 12) return;
     const next = Store.state.current_week + 1;
     const pad = n => String(n).padStart(2, '0');
-    Store.update(st => { st.current_week = next; }, `Advance to Week ${pad(next)}`);
+    Store.update(st => { st.current_week = next; }, `Advance to Week ${pad(next)}`, { flush: true });
   });
 }
 

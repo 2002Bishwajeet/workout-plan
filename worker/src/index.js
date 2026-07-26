@@ -70,7 +70,13 @@ async function handlePostState(env, request, corsHeaders) {
   }
   state.updated_at = new Date().toISOString();
 
-  const commitMsg = String(message || 'Update state').slice(0, 120);
+  // Multi-line messages carry a batch: subject line capped at 120 chars,
+  // body (one line per batched action) capped separately so a runaway
+  // client can't commit an essay.
+  const lines = String(message || 'Update state').split('\n');
+  const subject = lines.shift().slice(0, 120);
+  const body = lines.join('\n').slice(0, 2000);
+  const commitMsg = body ? `${subject}\n${body}` : subject;
   const content   = JSON.stringify(state, null, 2);
 
   // If client didn't provide a SHA, fetch latest (handles first write + race recovery)
