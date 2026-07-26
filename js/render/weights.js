@@ -9,7 +9,7 @@ const PRIMARY_SESSION = { bench: 'push-1', deadlift: 'pull-1', leg_press: 'legs-
 function torStatusHTML(w) {
   const sid = PRIMARY_SESSION[w.key];
   if (!sid) return '';
-  const streak = torStreak(Store.state.log, sid, w.key);
+  const streak = torStreak(Store.state.log, sid, w.key, w.changed_at);
   const sug = suggestionFor(w, streak);
   return sug
     ? `<div class="tor-status ready tabular">Top ${TOR_TARGET}/${TOR_TARGET} → ${sug.target} kg</div>`

@@ -26,9 +26,12 @@ export function primaryKeyFor(sessionId, week) {
 
 // Consecutive top-of-range confirmations for (sessionId, key), counted
 // back from the most recent answered session. A logged "no" breaks the run.
-export function torStreak(log, sessionId, key) {
+// `since` (the lift's changed_at) discards confirmations earned at a
+// previous load — a fresh weight starts a fresh streak.
+export function torStreak(log, sessionId, key, since) {
   const entries = (log || [])
-    .filter(l => l.sessionId === sessionId && l.top_of_range && key in l.top_of_range)
+    .filter(l => l.sessionId === sessionId && l.top_of_range && key in l.top_of_range
+      && (!since || new Date(l.date) > new Date(since)))
     .sort((a, b) => new Date(a.date) - new Date(b.date));
   let n = 0;
   for (let i = entries.length - 1; i >= 0; i--) {

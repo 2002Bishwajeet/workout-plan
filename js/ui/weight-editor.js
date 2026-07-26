@@ -48,7 +48,13 @@ function commitWeight(key, raw) {
   Store.update(s => {
     for (const cat of Object.values(s.working_weights)) {
       const found = cat.find(x => x.key === key);
-      if (found) { found.weight = v; if (found.calibrate) delete found.calibrate; }
+      if (found) {
+        found.weight = v;
+        // Stamp the change so top-of-range streaks reset — confirmations
+        // earned at the old load must not justify another step at the new one.
+        found.changed_at = new Date().toISOString();
+        if (found.calibrate) delete found.calibrate;
+      }
     }
   }, `Update weight: ${w.name} ${prev || '—'} → ${v} kg`);
 }

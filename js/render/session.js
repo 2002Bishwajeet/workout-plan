@@ -155,7 +155,7 @@ export function renderExerciseList() {
     const isPrimary = pk && e.weightKey === pk;
     let torMark = '', torPrompt = '';
     if (isPrimary) {
-      const streak = torStreak(Store.state.log, s.id, pk);
+      const streak = torStreak(Store.state.log, s.id, pk, ww && ww.changed_at);
       const sug = ww && suggestionFor(ww, streak);
       torMark = sug
         ? ` <span class="badge badge-torch" style="margin-left:8px;">${TOR_TARGET}/${TOR_TARGET} → ${sug.target} kg</span>`
