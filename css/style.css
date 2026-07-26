@@ -1134,6 +1134,62 @@ body {
   align-items: center;
   transition: background 0.15s;
 }
+
+/* ---- top-of-range prompt (primary lift, after tick) ---- */
+.tor-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: var(--md-sc-low);
+  border: 1px dashed var(--md-outline-variant);
+  border-radius: var(--r-md);
+  padding: 10px 18px;
+  margin: -2px 0 8px;
+}
+.tor-actions {
+  display: inline-flex;
+  gap: 8px;
+}
+.tor-btn,
+.tor-change {
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  padding: 0 16px;
+  border-radius: var(--r-full);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--md-secondary-container);
+  color: var(--md-on-secondary-container);
+  transition: background 0.15s;
+}
+.tor-btn[data-tor="1"] {
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+}
+.tor-prompt.answered {
+  border-style: solid;
+}
+.readonly .tor-prompt {
+  display: none;
+}
+
+/* ---- top-of-range status on weight cells ---- */
+.tor-status {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--md-on-surface-variant);
+}
+.tor-status.ready {
+  color: var(--md-primary);
+  font-weight: 600;
+}
 .exercise-row.done {
   opacity: 0.6;
 }

@@ -38,6 +38,7 @@ export function defaultState() {
       ]
     },
     in_progress: {},
+    tor: {},
     log: [],
     updated_at: null
   };
