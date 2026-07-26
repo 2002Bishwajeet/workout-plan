@@ -1071,6 +1071,57 @@ body {
   }
 }
 
+/* ---- warm-up block (session view, display-only) ---- */
+.warmup-block {
+  background: var(--md-sc-low);
+  border: 1px dashed var(--md-outline-variant);
+  border-radius: var(--r-lg);
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wu-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.wu-time {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--md-on-surface-variant);
+}
+.wu-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+}
+.wu-item {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 11px;
+  border-radius: var(--r-full);
+  background: var(--md-sc-high);
+  font-size: 12px;
+  color: var(--md-on-surface-variant);
+  white-space: nowrap;
+}
+.wu-ramp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--md-outline-variant);
+}
+.wu-ramp-sets {
+  font-size: 12px;
+  color: var(--md-on-surface);
+}
+
 .exercise-row {
   background: var(--md-sc);
   border: none;
