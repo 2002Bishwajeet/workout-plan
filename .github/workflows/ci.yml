@@ -1,0 +1,27 @@
+# Zero-dependency CI: bare Node only — no npm install, no build step,
+# matching the project's no-bundler philosophy (see CLAUDE.md).
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Syntax-check every module
+        run: |
+          set -e
+          find js worker/src -name '*.js' -print0 | while IFS= read -r -d '' f; do
+            node --check "$f"
+          done
+
+      - name: Unit tests + state shape check
+        run: node --test tests/*.test.mjs
