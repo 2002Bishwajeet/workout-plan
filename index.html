@@ -142,6 +142,10 @@
               <span class="ic"><i data-lucide="history"></i></span
               ><span class="lbl">Log</span>
             </button>
+            <button data-view="stats">
+              <span class="ic"><i data-lucide="trending-up"></i></span
+              ><span class="lbl">Stats</span>
+            </button>
           </nav>
           <button
             class="sync-pill"
@@ -368,6 +372,45 @@
           <div class="meta">Block 01</div>
         </div>
         <div id="logEntries"></div>
+      </section>
+
+      <!-- STATS -->
+      <section id="stats" class="view">
+        <div class="hero">
+          <div class="hero-status">
+            <div>
+              <div class="label">Total Tonnage</div>
+              <div class="block-num" style="font-size: clamp(48px, 9vw, 88px)">
+                <span id="statsTonnage" class="tabular">0</span
+                ><em style="font-size: 0.4em; color: var(--ink-3)">kg</em>
+              </div>
+            </div>
+            <div class="hero-meta" style="padding-bottom: 16px">
+              <div class="label">Trends</div>
+              <div class="focus">
+                Volume per session type by week, primary-lift progression, and
+                every working-weight change.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-head">
+          <h2>Volume by Week</h2>
+          <div class="meta" id="statsVolMeta">—</div>
+        </div>
+        <div class="stats-scroll">
+          <table class="stats-table" id="statsVolTable"></table>
+        </div>
+        <div class="section-head">
+          <h2>Primary Lift Progression</h2>
+          <div class="meta">Top of range × 2 → step</div>
+        </div>
+        <div class="prog-panel" id="statsProg"></div>
+        <div class="section-head">
+          <h2>Weight Changes</h2>
+          <div class="meta" id="statsWhMeta">—</div>
+        </div>
+        <div id="statsHistory"></div>
       </section>
 
       <!-- SESSION DETAIL -->
