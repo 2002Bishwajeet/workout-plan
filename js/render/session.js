@@ -76,7 +76,7 @@ export function initSession(showViewFn) {
         delete st.tor[`${startWeek}-${s.id}`];
       }
       if (st.current_week !== finalWeek) st.current_week = finalWeek;
-    }, msg);
+    }, msg, { flush: true });
 
     const btn = document.getElementById('completeBtn');
     btn.textContent = finishing ? `Wk ${pad(week)} done → Wk ${pad(finalWeek)}`

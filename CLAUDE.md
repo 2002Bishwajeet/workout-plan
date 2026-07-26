@@ -93,7 +93,9 @@ Examples already in use:
 - `Complete session: Push (Wk 01)`
 - `Initial state`
 
-Keep messages under 80 chars, present-tense, no trailing punctuation. The Worker caps at 120.
+Keep messages under 80 chars, present-tense, no trailing punctuation. The Worker caps the subject line at 120 chars.
+
+Saves are batched (`js/store.js`): ticks debounce for up to a minute and anchor events (complete session, weight edit, week advance) flush immediately via `Store.update(mutator, message, { flush: true })`. When a save carries several actions, the latest becomes the commit subject and the earlier ones become body bullet lines — the journal keeps every action, grouped per commit. The Worker caps the body at 2000 chars.
 
 ---
 
