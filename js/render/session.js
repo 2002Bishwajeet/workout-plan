@@ -1,6 +1,7 @@
 import { Store, exerciseWeight, fmtWeight, getWeight } from '../store.js';
 import { sessionsForWeek } from '../data/sessions.js';
 import { blockForWeek } from '../data/programme.js';
+import { WARMUPS, rampSets } from '../data/warmups.js';
 import { weightControlHTML, bindWeightControls } from '../ui/weight-editor.js';
 
 let activeSession = null;
@@ -98,6 +99,32 @@ export function openSession(id) {
   _showView('session');
 }
 
+// Display-only warm-up block above the work sets: general prep plus a
+// ramp for the session's primary lift, computed from its working weight.
+function warmupHTML(s) {
+  const wu = WARMUPS[s.id];
+  if (!wu) return '';
+  const ww = getWeight(wu.rampKey);
+  const ramp = ww ? rampSets(ww.weight, ww.step || 2.5) : [];
+  const rampLine = ramp.length
+    ? `<div class="wu-ramp">
+         <span class="label">Ramp · ${wu.rampLabel}</span>
+         <span class="wu-ramp-sets mono tabular">${
+           ramp.map(r => `${r.load} kg × ${r.reps}`).join(' → ')
+         } → work sets</span>
+       </div>`
+    : '';
+  return `
+    <div class="warmup-block">
+      <div class="wu-head">
+        <span class="label">Warm-up</span>
+        <span class="wu-time mono">~5 min</span>
+      </div>
+      <div class="wu-items">${wu.prep.map(p => `<span class="wu-item">${p}</span>`).join('')}</div>
+      ${rampLine}
+    </div>`;
+}
+
 export function renderExerciseList() {
   if (!activeSession) return;
   const s = activeSession;
@@ -105,7 +132,7 @@ export function renderExerciseList() {
   const key = `${week}-${s.id}`;
   const doneArr = (Store.state.in_progress && Store.state.in_progress[key]) || [];
   const wrap = document.getElementById('exerciseList');
-  wrap.innerHTML = s.exercises.map((e, idx) => {
+  wrap.innerHTML = warmupHTML(s) + s.exercises.map((e, idx) => {
     const isDone = doneArr.includes(idx);
     const rpeCls = e.rpe.includes('9') ? 'rpe-9-plus' : (e.rpe.includes('8') && !e.rpe.startsWith('7') ? 'rpe-8-9' : 'rpe-7-8');
     const w = exerciseWeight(e);
