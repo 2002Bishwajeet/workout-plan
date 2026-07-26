@@ -654,6 +654,58 @@ body {
   background: var(--md-primary);
 }
 
+/* ---- adherence row (dashboard · This Week) ---- */
+.adh-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.adh-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: var(--r-full);
+  background: var(--md-sc);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--md-on-surface-variant);
+  white-space: nowrap;
+}
+.adh-pill .adh-count {
+  color: var(--md-on-surface);
+  font-weight: 500;
+}
+.adh-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--md-outline);
+  flex: none;
+}
+.adh-dot.on {
+  background: var(--rpe-low);
+  border-color: var(--rpe-low);
+}
+.adh-pill.behind {
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+}
+.adh-pill.behind .adh-count {
+  color: var(--md-on-primary-container);
+}
+.adh-flag {
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+  border-radius: var(--r-full);
+  padding: 2px 7px;
+  font-size: 8px;
+}
+
 /* ---- weights ---- */
 .weights-panel {
   margin-top: 8px;

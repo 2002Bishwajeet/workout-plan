@@ -27,6 +27,28 @@ export function renderDashboardHero() {
   document.getElementById('weekNum').textContent = String(Store.state.current_week).padStart(2,'0');
 }
 
+// Per-session-type completion across weeks 1..current. A required type done
+// in fewer than half of those weeks is flagged "behind" — but only from week 3,
+// before that there isn't enough signal to call anything a pattern.
+export function renderAdherence() {
+  const row = document.getElementById('adherenceRow');
+  if (!row || !Store.state) return;
+  const week = Store.state.current_week || 1;
+  const logged = new Set((Store.state.log || []).map(l => l.sessionKey));
+  row.innerHTML = sessionsForWeek(week).map(s => {
+    let hit = 0;
+    for (let w = 1; w <= week; w++) if (logged.has(`${w}-${s.id}`)) hit++;
+    const doneNow = logged.has(`${week}-${s.id}`);
+    const behind = !s.optional && week >= 3 && hit < week / 2;
+    return `<span class="adh-pill${behind ? ' behind' : ''}" title="${s.title}: completed ${hit} of ${week} weeks">
+      <span class="adh-dot${doneNow ? ' on' : ''}"></span>
+      <span>${s.title}</span>
+      <span class="adh-count tabular">${hit}/${week}</span>
+      ${behind ? '<span class="adh-flag">Behind</span>' : ''}
+    </span>`;
+  }).join('');
+}
+
 export function renderWeekGrid() {
   const grid = document.getElementById('weekGrid');
   const week = Store.state?.current_week || 1;
