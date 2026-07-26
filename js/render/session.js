@@ -1,6 +1,7 @@
 import { Store, exerciseWeight, fmtWeight, getWeight } from '../store.js';
 import { sessionsForWeek } from '../data/sessions.js';
 import { blockForWeek } from '../data/programme.js';
+import { completionPlan, sessionVolume } from '../session-logic.js';
 import { WARMUPS, rampSets } from '../data/warmups.js';
 import { primaryKeyFor, torStreak, suggestionFor, TOR_TARGET } from '../progression.js';
 import { weightControlHTML, bindWeightControls } from '../ui/weight-editor.js';
@@ -19,38 +20,14 @@ export function initSession(showViewFn) {
     const pad = n => String(n).padStart(2, '0');
     const startWeek = Store.state.current_week;
 
-    // Sessions already logged for the week we're currently sitting on.
+    // Week attribution + advancement rules live in js/session-logic.js.
     const loggedKeys = new Set((Store.state.log || []).map(l => l.sessionKey));
-    const coreDone = sessionsForWeek(startWeek)
-      .filter(ws => !ws.optional)
-      .every(ws => loggedKeys.has(`${startWeek}-${ws.id}`));
-
-    // Skip-the-optional path: re-completing a session that's already logged,
-    // once every REQUIRED day of the week is in, means you've started your next
-    // training week — so this completion belongs to that next week and rolls
-    // current_week forward. (Lets you skip Upper+ without ever getting stuck;
-    // the core-done guard stops an accidental repeat from advancing early.)
-    const startingNextWeek = coreDone && startWeek < 12
-      && loggedKeys.has(`${startWeek}-${s.id}`);
-    const week = startingNextWeek ? startWeek + 1 : startWeek;
-    const key = `${week}-${s.id}`;
+    const { week, key, startingNextWeek, finishing, finalWeek } =
+      completionPlan(startWeek, s, loggedKeys);
+    const advanced = finalWeek !== startWeek;
 
     const totalSets = s.exercises.reduce((a,e)=>a+e.sets,0);
-    const totalVol = s.exercises.reduce((a,e) => {
-      const w = exerciseWeight(e);
-      if (typeof w !== 'number' || w === 0) return a;
-      const reps = String(e.reps).match(/\d+/g);
-      const r = reps ? (parseInt(reps[0]) + (reps[1] ? parseInt(reps[1]) : parseInt(reps[0]))) / 2 : 8;
-      return a + (w * r * e.sets);
-    }, 0);
-
-    // Did-everything path: when this completion fills the last session of `week`
-    // (Upper+ included), advance to the next week. Capped at the 12-week block.
-    const after = new Set(loggedKeys); after.add(key);
-    const finishing = week < 12
-      && sessionsForWeek(week).every(ws => after.has(`${week}-${ws.id}`));
-    const finalWeek = finishing ? week + 1 : week;
-    const advanced = finalWeek !== startWeek;
+    const totalVol = sessionVolume(s.exercises, exerciseWeight);
 
     const msg = finishing
       ? `Complete session: ${s.title} (Wk ${pad(week)}) → Wk ${pad(finalWeek)}`
@@ -225,13 +202,7 @@ export function renderExerciseList() {
   });
   bindWeightControls(wrap);
   const totalSets = s.exercises.reduce((a,e)=>a+e.sets,0);
-  const totalVol = s.exercises.reduce((a,e) => {
-    const w = exerciseWeight(e);
-    if (typeof w !== 'number' || w === 0) return a;
-    const reps = String(e.reps).match(/\d+/g);
-    const r = reps ? (parseInt(reps[0]) + (reps[1] ? parseInt(reps[1]) : parseInt(reps[0]))) / 2 : 8;
-    return a + (w * r * e.sets);
-  }, 0);
+  const totalVol = sessionVolume(s.exercises, exerciseWeight);
   document.getElementById('totalSets').textContent = totalSets;
   document.getElementById('totalVolume').textContent = Math.round(totalVol).toLocaleString();
   document.getElementById('estTime').textContent = '~' + Math.min(75, Math.max(45, 35 + totalSets * 2));
