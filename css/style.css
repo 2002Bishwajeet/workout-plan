@@ -801,8 +801,10 @@ body {
   transform: scale(0.9);
 }
 .wedit-input {
-  width: 3.2ch;
-  min-width: 3.2ch;
+  /* fallback only — bindWeightControls autosizes to the value (issue #23) */
+  width: 4.5ch;
+  min-width: 2ch;
+  max-width: 100%;
   background: transparent;
   border: none;
   border-bottom: 2px solid transparent;
