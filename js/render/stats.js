@@ -1,5 +1,6 @@
 import { Store, getWeight } from '../store.js';
 import { torStreak, suggestionFor, TOR_TARGET } from '../progression.js';
+import { renderCheckins } from './checkins.js';
 
 // Session types in display order; every week uses the same four ids.
 const TYPES = [
@@ -88,4 +89,5 @@ export function renderStats() {
   renderWeightHistory();
   const tonnage = log.reduce((a, l) => a + (l.vol || 0), 0);
   document.getElementById('statsTonnage').textContent = tonnage.toLocaleString();
+  renderCheckins(); // fetches once; no-op on subsequent renders
 }

@@ -1302,6 +1302,92 @@ body {
   color: var(--md-on-surface-variant);
   padding: 12px;
 }
+
+/* ---- check-ins (stats view) ---- */
+.ck-item {
+  background: var(--md-sc);
+  border-radius: var(--r-lg);
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.ck-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 14px 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+  text-align: left;
+}
+.ck-title {
+  font-family: "Anton", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--md-on-surface);
+}
+.ck-file {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--md-on-surface-variant);
+}
+.ck-item.open .ck-head {
+  border-bottom: 1px solid var(--md-outline-variant);
+}
+.ck-body {
+  padding: 4px 18px 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--md-on-surface);
+}
+.ck-body h3, .ck-body h4, .ck-body h5, .ck-body h6 {
+  font-family: "Anton", sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 18px 0 8px;
+  color: var(--md-on-surface);
+}
+.ck-body h3 { font-size: 18px; }
+.ck-body h4 { font-size: 15px; }
+.ck-body h5, .ck-body h6 { font-size: 13px; }
+.ck-body p { margin: 8px 0; }
+.ck-body ul { margin: 8px 0 8px 20px; }
+.ck-body li { margin: 4px 0; }
+.ck-body hr { border: none; border-top: 1px solid var(--md-outline-variant); margin: 14px 0; }
+.ck-body code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85em;
+  background: var(--md-sc-high);
+  padding: 1px 5px;
+  border-radius: var(--r-xs);
+}
+.ck-tablewrap { overflow-x: auto; margin: 10px 0; }
+.ck-body table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.ck-body th, .ck-body td {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--md-outline-variant);
+  text-align: right;
+  white-space: nowrap;
+}
+.ck-body th:first-child, .ck-body td:first-child { text-align: left; }
+.ck-body th {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--md-on-surface-variant);
+}
+.ck-empty {
+  font-size: 13px;
+  color: var(--md-on-surface-variant);
+  padding: 12px;
+}
 .exercise-row.done {
   opacity: 0.6;
 }
