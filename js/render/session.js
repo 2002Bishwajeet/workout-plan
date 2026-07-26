@@ -3,16 +3,37 @@ import { sessionsForWeek } from '../data/sessions.js';
 import { blockForWeek } from '../data/programme.js';
 import { completionPlan, sessionVolume } from '../session-logic.js';
 import { WARMUPS, rampSets } from '../data/warmups.js';
+import { HOME_SESSIONS, HOME_PREP } from '../data/home-sessions.js';
 import { primaryKeyFor, torStreak, suggestionFor, TOR_TARGET } from '../progression.js';
 import { weightControlHTML, bindWeightControls } from '../ui/weight-editor.js';
 
 let activeSession = null;
 let _showView = null;
+// Home mode swaps the exercise list for the band+BW variant. Ticks live under
+// `${week}-${id}-home` so indices never collide with the gym list; completion
+// logs the SAME sessionKey as the gym twin, so advancement/adherence just work.
+let homeMode = false;
+
+const homeVariant = s => HOME_SESSIONS[s.id] || null;
+const activeExercises = s => (homeMode && homeVariant(s)) ? homeVariant(s).exercises : s.exercises;
+const tickKey = (week, s) => homeMode ? `${week}-${s.id}-home` : `${week}-${s.id}`;
+
+function setVariant(home) {
+  const s = activeSession;
+  if (!s) return;
+  homeMode = home && !!homeVariant(s);
+  document.getElementById('variantGym').classList.toggle('active', !homeMode);
+  document.getElementById('variantHome').classList.toggle('active', homeMode);
+  document.getElementById('sessionRpe').textContent = homeMode ? homeVariant(s).rpe : s.rpe;
+  renderExerciseList();
+}
 
 export function initSession(showViewFn) {
   _showView = showViewFn;
 
   document.getElementById('backBtn').addEventListener('click', () => _showView('dashboard'));
+  document.getElementById('variantGym').addEventListener('click', () => setVariant(false));
+  document.getElementById('variantHome').addEventListener('click', () => setVariant(true));
 
   document.getElementById('completeBtn').addEventListener('click', () => {
     if (!activeSession) return;
@@ -26,27 +47,34 @@ export function initSession(showViewFn) {
       completionPlan(startWeek, s, loggedKeys);
     const advanced = finalWeek !== startWeek;
 
-    const totalSets = s.exercises.reduce((a,e)=>a+e.sets,0);
-    const totalVol = sessionVolume(s.exercises, exerciseWeight);
+    const exs = activeExercises(s);
+    const totalSets = exs.reduce((a,e)=>a+e.sets,0);
+    const totalVol = sessionVolume(exs, exerciseWeight);
+    const title = homeMode ? `${s.title} (Home)` : s.title;
+    const focus = homeMode ? homeVariant(s).focus : s.focus;
 
     const msg = finishing
-      ? `Complete session: ${s.title} (Wk ${pad(week)}) → Wk ${pad(finalWeek)}`
-      : `Complete session: ${s.title} (Wk ${pad(week)})`;
+      ? `Complete session: ${title} (Wk ${pad(week)}) → Wk ${pad(finalWeek)}`
+      : `Complete session: ${title} (Wk ${pad(week)})`;
 
     Store.update(st => {
       if (!st.log) st.log = [];
-      // Move any mid-session top-of-range answers onto the log entry.
-      const tor = st.tor && (st.tor[key] || st.tor[`${startWeek}-${s.id}`]);
+      // Move any mid-session top-of-range answers onto the log entry —
+      // gym only; a home completion must not carry gym rep-quality data.
+      const tor = !homeMode && st.tor && (st.tor[key] || st.tor[`${startWeek}-${s.id}`]);
       st.log.push({
         date: new Date().toISOString(),
-        week, name: s.title, sessionId: s.id, sessionKey: key,
+        week, name: title, sessionId: s.id, sessionKey: key,
         sets: totalSets, vol: Math.round(totalVol),
-        focus: s.focus,
-        ...(tor ? { top_of_range: tor } : {})
+        focus,
+        ...(tor ? { top_of_range: tor } : {}),
+        ...(homeMode ? { variant: 'home' } : {})
       });
       if (st.in_progress) {
         delete st.in_progress[key];
         delete st.in_progress[`${startWeek}-${s.id}`];
+        delete st.in_progress[`${week}-${s.id}-home`];
+        delete st.in_progress[`${startWeek}-${s.id}-home`];
       }
       if (st.tor) {
         delete st.tor[key];
@@ -79,8 +107,11 @@ export function openSession(id) {
   document.getElementById('sessionTitle').textContent = s.title;
   const wk = Store.state.current_week;
   document.getElementById('sessionMeta').textContent = `Block ${String(blockForWeek(wk)).padStart(2,'0')} · Week ${String(wk).padStart(2,'0')} · ${s.day}`;
-  document.getElementById('sessionRpe').textContent = s.rpe;
-  renderExerciseList();
+  // Resume in home mode when a home session is already in progress.
+  const ip = Store.state.in_progress || {};
+  const homeStarted = (ip[`${wk}-${s.id}-home`] || []).length > 0;
+  const gymStarted = (ip[`${wk}-${s.id}`] || []).length > 0;
+  setVariant(homeStarted && !gymStarted);
   _showView('session');
 }
 
@@ -89,7 +120,9 @@ export function openSession(id) {
 function warmupHTML(s) {
   const wu = WARMUPS[s.id];
   if (!wu) return '';
-  const ww = getWeight(wu.rampKey);
+  // Home: band-only prep, no load ramp (nothing to ramp).
+  const prep = homeMode ? HOME_PREP : wu.prep;
+  const ww = homeMode ? null : getWeight(wu.rampKey);
   const ramp = ww ? rampSets(ww.weight, ww.step || 2.5) : [];
   const rampLine = ramp.length
     ? `<div class="wu-ramp">
@@ -105,7 +138,7 @@ function warmupHTML(s) {
         <span class="label">Warm-up</span>
         <span class="wu-time mono">~5 min</span>
       </div>
-      <div class="wu-items">${wu.prep.map(p => `<span class="wu-item">${p}</span>`).join('')}</div>
+      <div class="wu-items">${prep.map(p => `<span class="wu-item">${p}</span>`).join('')}</div>
       ${rampLine}
     </div>`;
 }
@@ -114,21 +147,23 @@ export function renderExerciseList() {
   if (!activeSession) return;
   const s = activeSession;
   const week = Store.state.current_week;
-  const key = `${week}-${s.id}`;
+  const key = tickKey(week, s);
+  const exs = activeExercises(s);
   const doneArr = (Store.state.in_progress && Store.state.in_progress[key]) || [];
   const wrap = document.getElementById('exerciseList');
   const pk = primaryKeyFor(s.id, week);
   const torAnswers = (Store.state.tor && Store.state.tor[key]) || {};
-  wrap.innerHTML = warmupHTML(s) + s.exercises.map((e, idx) => {
+  wrap.innerHTML = warmupHTML(s) + exs.map((e, idx) => {
     const isDone = doneArr.includes(idx);
     const rpeCls = e.rpe.includes('9') ? 'rpe-9-plus' : (e.rpe.includes('8') && !e.rpe.startsWith('7') ? 'rpe-8-9' : 'rpe-7-8');
     const w = exerciseWeight(e);
-    const weightDisplay = fmtWeight(w, w === 'BW' ? 'BW' : 'kg');
+    const weightDisplay = (homeMode && w === '—') ? 'Band' : fmtWeight(w, w === 'BW' ? 'BW' : 'kg');
     const ww = e.weightKey ? getWeight(e.weightKey) : null;
     const calMark = e.cal ? ' <span class="badge badge-torch" style="margin-left:8px;">Cal</span>' : '';
 
     // Primary strength lift: streak badge + (once ticked) the one-tap
     // top-of-range prompt. Skippable — an unanswered prompt stores nothing.
+    // Home exercises carry no weightKey, so none of this fires in home mode.
     const isPrimary = pk && e.weightKey === pk;
     let torMark = '', torPrompt = '';
     if (isPrimary) {
@@ -190,19 +225,19 @@ export function renderExerciseList() {
     btn.addEventListener('click', (ev) => {
       const row = ev.currentTarget.closest('.exercise-row');
       const idx = parseInt(row.dataset.idx);
-      const exName = s.exercises[idx].name;
+      const exName = exs[idx].name;
       Store.update(st => {
         if (!st.in_progress) st.in_progress = {};
         const arr = st.in_progress[key] || [];
         const i = arr.indexOf(idx);
         if (i >= 0) arr.splice(i, 1); else arr.push(idx);
         st.in_progress[key] = arr;
-      }, `Tick: ${exName} (${s.title})`);
+      }, `Tick: ${exName} (${s.title}${homeMode ? ' · Home' : ''})`);
     });
   });
   bindWeightControls(wrap);
-  const totalSets = s.exercises.reduce((a,e)=>a+e.sets,0);
-  const totalVol = sessionVolume(s.exercises, exerciseWeight);
+  const totalSets = exs.reduce((a,e)=>a+e.sets,0);
+  const totalVol = sessionVolume(exs, exerciseWeight);
   document.getElementById('totalSets').textContent = totalSets;
   document.getElementById('totalVolume').textContent = Math.round(totalVol).toLocaleString();
   document.getElementById('estTime').textContent = '~' + Math.min(75, Math.max(45, 35 + totalSets * 2));

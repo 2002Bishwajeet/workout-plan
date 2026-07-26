@@ -1073,6 +1073,33 @@ body {
   }
 }
 
+/* ---- gym/home variant toggle (session view) ---- */
+.variant-toggle {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--md-sc);
+  border-radius: var(--r-full);
+  margin-bottom: 14px;
+}
+.vt-btn {
+  border: none;
+  cursor: pointer;
+  height: 32px;
+  padding: 0 18px;
+  border-radius: var(--r-full);
+  background: none;
+  color: var(--md-on-surface-variant);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.15s, color 0.15s;
+}
+.vt-btn.active {
+  background: var(--md-secondary-container);
+  color: var(--md-on-secondary-container);
+}
 /* ---- warm-up block (session view, display-only) ---- */
 .warmup-block {
   background: var(--md-sc-low);
