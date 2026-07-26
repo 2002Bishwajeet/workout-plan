@@ -39,6 +39,7 @@ export function defaultState() {
     },
     in_progress: {},
     tor: {},
+    weight_history: [],
     log: [],
     updated_at: null
   };

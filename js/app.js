@@ -5,6 +5,7 @@ import { initDashboard, setDate, renderDashboardHero, renderWeekGrid, renderAdhe
 import { renderProgramme } from './render/programme.js';
 import { renderWeights } from './render/weights.js';
 import { renderLog } from './render/log.js';
+import { renderStats } from './render/stats.js';
 import { initSession, openSession, renderExerciseList, getActiveSession } from './render/session.js';
 
 function showView(name) {
@@ -24,6 +25,7 @@ function renderAll() {
   renderWeights();
   renderProgramme();
   renderLog();
+  renderStats();
   if (getActiveSession()) renderExerciseList();
 }
 

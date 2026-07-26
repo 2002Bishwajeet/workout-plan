@@ -56,6 +56,10 @@ function commitWeight(key, raw) {
         if (found.calibrate) delete found.calibrate;
       }
     }
+    // Progression journal for the Stats view, capped so state stays small.
+    if (!s.weight_history) s.weight_history = [];
+    s.weight_history.push({ date: new Date().toISOString(), key, name: w.name, from: prev || 0, to: v });
+    if (s.weight_history.length > 200) s.weight_history.splice(0, s.weight_history.length - 200);
   }, `Update weight: ${w.name} ${prev || '—'} → ${v} kg`);
 }
 
