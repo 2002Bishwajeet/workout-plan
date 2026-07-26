@@ -25,7 +25,7 @@ export default {
     const url = new URL(request.url);
 
     // Public health check (no auth) so the setup screen can verify URL is alive
-    if (url.pathname === '/health') {
+    if (url.pathname === '/health' && request.method === 'GET') {
       return json({ ok: true, service: 'protocol-store' }, 200, corsHeaders);
     }
 
@@ -40,6 +40,16 @@ export default {
         }
         if (request.method === 'POST') return await handlePostState(env, request, corsHeaders);
       }
+
+      // Apple Watch workout sync (iOS Shortcut / Health Auto Export → repo)
+      if (url.pathname === '/health' && request.method === 'POST') {
+        const password = request.headers.get('X-App-Password');
+        if (!env.APP_PASSWORD || password !== env.APP_PASSWORD) {
+          return json({ error: 'Unauthorized' }, 401, corsHeaders);
+        }
+        return await handlePostHealth(env, request, corsHeaders);
+      }
+
       return json({ error: 'Not found' }, 404, corsHeaders);
     } catch (err) {
       return json({ error: String(err.message || err) }, 500, corsHeaders);
@@ -98,6 +108,75 @@ async function handlePostState(env, request, corsHeaders) {
     commit: result.commit.sha,
     commit_url: result.commit.html_url
   }, 200, corsHeaders);
+}
+
+// Fields a workout entry may carry — anything else is dropped so the
+// payload contract stays forward-compatible but the stored data stays clean.
+const HEALTH_FIELDS = ['start', 'end', 'type', 'duration_min', 'avg_hr', 'max_hr', 'active_kcal'];
+
+function sanitizeWorkout(raw) {
+  const w = {};
+  for (const f of HEALTH_FIELDS) if (raw[f] !== undefined && raw[f] !== null) w[f] = raw[f];
+  return w;
+}
+
+// Appends watch workouts to data/health/YYYY-MM.json (one file per month,
+// keyed by the workout's start month). Accepts a single workout object or an
+// array; duplicates (same start timestamp) are ignored so Shortcut re-runs
+// are idempotent.
+async function handlePostHealth(env, request, corsHeaders) {
+  let body;
+  try { body = await request.json(); }
+  catch { return json({ error: 'Invalid JSON' }, 400, corsHeaders); }
+
+  const items = Array.isArray(body) ? body : [body];
+  if (!items.length || items.length > 50) {
+    return json({ error: 'Expected 1-50 workouts' }, 400, corsHeaders);
+  }
+  for (const it of items) {
+    if (!it || typeof it !== 'object' || !it.start || !it.end) {
+      return json({ error: 'Each workout needs start and end' }, 400, corsHeaders);
+    }
+    if (isNaN(Date.parse(it.start)) || isNaN(Date.parse(it.end))) {
+      return json({ error: 'start/end must be ISO timestamps' }, 400, corsHeaders);
+    }
+  }
+
+  // Group by month so a batch spanning a month boundary lands in the right files.
+  const byMonth = new Map();
+  for (const it of items) {
+    const month = String(it.start).slice(0, 7); // YYYY-MM
+    if (!byMonth.has(month)) byMonth.set(month, []);
+    byMonth.get(month).push(sanitizeWorkout(it));
+  }
+
+  let added = 0;
+  for (const [month, workouts] of byMonth) {
+    const path = `data/health/${month}.json`;
+    const file = await ghGetFile(env, path);
+    let arr = [];
+    if (file) {
+      try { arr = JSON.parse(file.content); } catch { arr = []; }
+      if (!Array.isArray(arr)) arr = [];
+    }
+    const known = new Set(arr.map(w => w.start));
+    const fresh = workouts.filter(w => !known.has(w.start));
+    if (!fresh.length) continue;
+
+    arr.push(...fresh);
+    arr.sort((a, b) => (a.start < b.start ? -1 : 1));
+    const first = fresh[0];
+    const detail = [
+      first.duration_min ? `${first.duration_min} min` : null,
+      first.active_kcal ? `${first.active_kcal} kcal` : null
+    ].filter(Boolean).join(', ');
+    const msg = fresh.length === 1
+      ? `Sync: Watch workout${detail ? ` (${detail})` : ''}`
+      : `Sync: ${fresh.length} watch workouts (${month})`;
+    await ghPutFile(env, path, JSON.stringify(arr, null, 2), msg, file ? file.sha : null);
+    added += fresh.length;
+  }
+  return json({ ok: true, added }, 200, corsHeaders);
 }
 
 // ----------- GitHub API helpers -----------
