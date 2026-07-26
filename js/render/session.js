@@ -2,6 +2,7 @@ import { Store, exerciseWeight, fmtWeight, getWeight } from '../store.js';
 import { sessionsForWeek } from '../data/sessions.js';
 import { blockForWeek } from '../data/programme.js';
 import { WARMUPS, rampSets } from '../data/warmups.js';
+import { primaryKeyFor, torStreak, suggestionFor, TOR_TARGET } from '../progression.js';
 import { weightControlHTML, bindWeightControls } from '../ui/weight-editor.js';
 
 let activeSession = null;
@@ -57,15 +58,22 @@ export function initSession(showViewFn) {
 
     Store.update(st => {
       if (!st.log) st.log = [];
+      // Move any mid-session top-of-range answers onto the log entry.
+      const tor = st.tor && (st.tor[key] || st.tor[`${startWeek}-${s.id}`]);
       st.log.push({
         date: new Date().toISOString(),
         week, name: s.title, sessionId: s.id, sessionKey: key,
         sets: totalSets, vol: Math.round(totalVol),
-        focus: s.focus
+        focus: s.focus,
+        ...(tor ? { top_of_range: tor } : {})
       });
       if (st.in_progress) {
         delete st.in_progress[key];
         delete st.in_progress[`${startWeek}-${s.id}`];
+      }
+      if (st.tor) {
+        delete st.tor[key];
+        delete st.tor[`${startWeek}-${s.id}`];
       }
       if (st.current_week !== finalWeek) st.current_week = finalWeek;
     }, msg);
@@ -132,6 +140,8 @@ export function renderExerciseList() {
   const key = `${week}-${s.id}`;
   const doneArr = (Store.state.in_progress && Store.state.in_progress[key]) || [];
   const wrap = document.getElementById('exerciseList');
+  const pk = primaryKeyFor(s.id, week);
+  const torAnswers = (Store.state.tor && Store.state.tor[key]) || {};
   wrap.innerHTML = warmupHTML(s) + s.exercises.map((e, idx) => {
     const isDone = doneArr.includes(idx);
     const rpeCls = e.rpe.includes('9') ? 'rpe-9-plus' : (e.rpe.includes('8') && !e.rpe.startsWith('7') ? 'rpe-8-9' : 'rpe-7-8');
@@ -139,19 +149,66 @@ export function renderExerciseList() {
     const weightDisplay = fmtWeight(w, w === 'BW' ? 'BW' : 'kg');
     const ww = e.weightKey ? getWeight(e.weightKey) : null;
     const calMark = e.cal ? ' <span class="badge badge-torch" style="margin-left:8px;">Cal</span>' : '';
+
+    // Primary strength lift: streak badge + (once ticked) the one-tap
+    // top-of-range prompt. Skippable — an unanswered prompt stores nothing.
+    const isPrimary = pk && e.weightKey === pk;
+    let torMark = '', torPrompt = '';
+    if (isPrimary) {
+      const streak = torStreak(Store.state.log, s.id, pk, ww && ww.changed_at);
+      const sug = ww && suggestionFor(ww, streak);
+      torMark = sug
+        ? ` <span class="badge badge-torch" style="margin-left:8px;">${TOR_TARGET}/${TOR_TARGET} → ${sug.target} kg</span>`
+        : ` <span class="badge" style="margin-left:8px;">Top ${Math.min(streak, TOR_TARGET)}/${TOR_TARGET}</span>`;
+      if (isDone) {
+        const ans = torAnswers[pk];
+        torPrompt = ans === undefined
+          ? `<div class="tor-prompt" data-key="${pk}" data-name="${e.name}">
+               <span class="label">Top of rep range at target RPE?</span>
+               <span class="tor-actions">
+                 <button class="tor-btn" type="button" data-tor="1">Yes</button>
+                 <button class="tor-btn" type="button" data-tor="0">No</button>
+               </span>
+             </div>`
+          : `<div class="tor-prompt answered">
+               <span class="label">Top of range · ${ans ? 'Yes' : 'No'}</span>
+               <button class="tor-change" type="button" data-key="${pk}" data-name="${e.name}">Change</button>
+             </div>`;
+      }
+    }
     return `
       <div class="exercise-row ${isDone ? 'done' : ''}" data-idx="${idx}">
         <div class="ex-num"><span>${String(idx+1).padStart(2,'0')}</span></div>
         <div>
-          <div class="ex-name">${e.name}${calMark}</div>
+          <div class="ex-name">${e.name}${calMark}${torMark}</div>
           <div class="ex-meta">${e.sets} sets · ${e.reps} reps</div>
         </div>
         <div class="ex-stat">${ww ? weightControlHTML(ww) : `<div class="v tabular">${weightDisplay}</div>`}<div class="k">Load</div></div>
         <div class="ex-stat"><div class="v tabular">${e.sets}×${e.reps}</div><div class="k">Vol</div></div>
         <div class="ex-rpe ${rpeCls}">RPE ${e.rpe}</div>
       </div>
+      ${torPrompt}
     `;
   }).join('');
+  wrap.querySelectorAll('.tor-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const box = btn.closest('.tor-prompt');
+      const yes = btn.dataset.tor === '1';
+      Store.update(st => {
+        if (!st.tor) st.tor = {};
+        const m = st.tor[key] || {};
+        m[box.dataset.key] = yes;
+        st.tor[key] = m;
+      }, `${yes ? 'Top of range' : 'Below range'}: ${box.dataset.name} (${s.title})`);
+    });
+  });
+  wrap.querySelectorAll('.tor-change').forEach(btn => {
+    btn.addEventListener('click', () => {
+      Store.update(st => {
+        if (st.tor && st.tor[key]) delete st.tor[key][btn.dataset.key];
+      }, `Reset top-of-range: ${btn.dataset.name} (${s.title})`);
+    });
+  });
   wrap.querySelectorAll('.exercise-row .ex-num').forEach(btn => {
     btn.addEventListener('click', (ev) => {
       const row = ev.currentTarget.closest('.exercise-row');

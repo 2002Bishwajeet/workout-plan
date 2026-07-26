@@ -1,5 +1,20 @@
 import { Store } from '../store.js';
+import { torStreak, suggestionFor, TOR_TARGET } from '../progression.js';
 import { weightControlHTML, bindWeightControls } from '../ui/weight-editor.js';
+
+// Primary strength lifts and the session type whose log entries drive
+// their top-of-range streak (see js/progression.js).
+const PRIMARY_SESSION = { bench: 'push-1', deadlift: 'pull-1', leg_press: 'legs-1', dip: 'upper-1' };
+
+function torStatusHTML(w) {
+  const sid = PRIMARY_SESSION[w.key];
+  if (!sid) return '';
+  const streak = torStreak(Store.state.log, sid, w.key, w.changed_at);
+  const sug = suggestionFor(w, streak);
+  return sug
+    ? `<div class="tor-status ready tabular">Top ${TOR_TARGET}/${TOR_TARGET} → ${sug.target} kg</div>`
+    : `<div class="tor-status tabular">Top ${Math.min(streak, TOR_TARGET)}/${TOR_TARGET}</div>`;
+}
 
 function renderWeightCells(targetId, list) {
   const wrap = document.getElementById(targetId);
@@ -8,6 +23,7 @@ function renderWeightCells(targetId, list) {
     <div class="weight-cell ${w.calibrate ? 'cal' : ''}" data-key="${w.key}">
       <div class="ex">${w.name}</div>
       <div class="val">${weightControlHTML(w)}</div>
+      ${torStatusHTML(w)}
     </div>
   `).join('');
   bindWeightControls(wrap);
