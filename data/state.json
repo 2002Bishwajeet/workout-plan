@@ -8,8 +8,9 @@
       {
         "key": "bench",
         "name": "Bench Press",
-        "weight": 62.5,
-        "unit": "kg"
+        "weight": 65,
+        "unit": "kg",
+        "changed_at": "2026-07-27T16:45:46.764Z"
       },
       {
         "key": "incline_bb",
@@ -392,5 +393,14 @@
       "focus": "Leg press intensity · quad + posterior chain"
     }
   ],
-  "updated_at": "2026-07-27T16:42:48.010Z"
+  "updated_at": "2026-07-27T16:45:47.017Z",
+  "weight_history": [
+    {
+      "date": "2026-07-27T16:45:46.764Z",
+      "key": "bench",
+      "name": "Bench Press",
+      "from": 62.5,
+      "to": 65
+    }
+  ]
 }
