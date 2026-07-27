@@ -180,7 +180,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "8-push-1": [
+      0
+    ]
+  },
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -393,7 +397,7 @@
       "focus": "Leg press intensity · quad + posterior chain"
     }
   ],
-  "updated_at": "2026-07-27T16:45:47.017Z",
+  "updated_at": "2026-07-27T16:58:42.125Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -402,5 +406,10 @@
       "from": 62.5,
       "to": 65
     }
-  ]
+  ],
+  "tor": {
+    "8-push-1": {
+      "bench": true
+    }
+  }
 }
