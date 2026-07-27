@@ -148,8 +148,9 @@
       {
         "key": "tri_pd",
         "name": "Tricep Pushdown",
-        "weight": 20,
-        "unit": "kg"
+        "weight": 22.5,
+        "unit": "kg",
+        "changed_at": "2026-07-27T17:48:14.545Z"
       },
       {
         "key": "dip",
@@ -401,7 +402,7 @@
       "focus": "Leg press intensity · quad + posterior chain"
     }
   ],
-  "updated_at": "2026-07-27T17:47:07.569Z",
+  "updated_at": "2026-07-27T17:48:14.817Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -409,6 +410,13 @@
       "name": "Bench Press",
       "from": 62.5,
       "to": 65
+    },
+    {
+      "date": "2026-07-27T17:48:14.545Z",
+      "key": "tri_pd",
+      "name": "Tricep Pushdown",
+      "from": 20,
+      "to": 22.5
     }
   ],
   "tor": {
