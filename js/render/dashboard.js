@@ -1,6 +1,7 @@
 import { Store } from '../store.js';
 import { sessionsForWeek } from '../data/sessions.js';
 import { blockForWeek } from '../data/programme.js';
+import { ensureHealthLoaded, healthWorkouts, matchWorkout } from '../health.js';
 
 let _openSession = null;
 
@@ -25,6 +26,23 @@ export function renderDashboardHero() {
   if (!Store.state) return;
   document.getElementById('blockNum').innerHTML = `<em>${String(blockForWeek(Store.state.current_week)).padStart(2,'0')}</em>`;
   document.getElementById('weekNum').textContent = String(Store.state.current_week).padStart(2,'0');
+  renderLastHr();
+}
+
+// Avg HR from the watch workout matching the most recent logged session.
+// Stays hidden (dashboard pixel-identical to today) unless watch data
+// exists and matches — watch data is read-only, never in Store.
+function renderLastHr() {
+  const label = document.getElementById('lastHrLabel');
+  const val = document.getElementById('lastHrVal');
+  if (!label || !val) return;
+  ensureHealthLoaded(renderLastHr);
+  const log = Store.state?.log || [];
+  const last = [...log].sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+  const w = last ? matchWorkout(last.date, healthWorkouts() || []) : null;
+  const show = w && w.avg_hr != null;
+  label.hidden = val.hidden = !show;
+  if (show) val.textContent = `${Math.round(w.avg_hr)} BPM`;
 }
 
 // Per-session-type completion across weeks 1..current. A required type done
