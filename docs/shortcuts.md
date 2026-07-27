@@ -92,6 +92,31 @@ few seconds of the phone syncing.
 - **Several missed days**: raise the Find Health Samples limit to 10 and run
   once — the server skips what it already has.
 
+## Backfill: import history from a Health export (one-off)
+
+Workouts from before the sync existed can be imported from the Health app's
+full export — no Worker involved, the files are committed by hand.
+
+1. On the iPhone: **Health app → profile picture → Export All Health Data**.
+   Share the resulting ZIP to the computer and unzip it; the file needed is
+   `apple_health_export/export.xml`. **Warning: this file is often 100+ MB**
+   (it contains every heart-rate sample ever recorded). The script streams
+   it, so size is fine — just don't open it in an editor.
+2. Preview what would be imported:
+
+   ```
+   node scripts/backfill-health.js path/to/export.xml --dry-run
+   ```
+
+3. Run it for real (same command without `--dry-run`). It filters the export
+   down to strength workouts — both `TraditionalStrengthTraining` and
+   `FunctionalStrengthTraining` count — and writes `data/health/YYYY-MM.json`
+   files in the same shape the Worker commits, keyed by the workout's start
+   month (UTC). Existing month files are merged, duplicates (same `start`)
+   skipped, entries kept sorted — re-running is harmless, same as the sync.
+4. Review with `git diff`, then commit the generated files manually, e.g.
+   `Backfill: 34 workouts from Health export`. Don't commit `export.xml`.
+
 ## Alternative: Health Auto Export
 
 The paid app **Health Auto Export** (App Store) can POST richer JSON (HR
