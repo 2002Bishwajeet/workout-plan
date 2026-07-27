@@ -38,6 +38,13 @@ test('completionPlan: last session of the week advances (did-everything path)', 
   assert.equal(plan.week, 5);
 });
 
+test('completionPlan: completing last required session without optional advances week', () => {
+  const plan = completionPlan(5, session('legs-1'), logged(['5-push-1', '5-pull-1']));
+  assert.equal(plan.finishing, true);
+  assert.equal(plan.finalWeek, 6);
+  assert.equal(plan.week, 5);
+});
+
 test('completionPlan: re-completing with core done starts next week (skip-optional path)', () => {
   const plan = completionPlan(5, session('push-1'),
     logged(['5-push-1', '5-pull-1', '5-legs-1']));

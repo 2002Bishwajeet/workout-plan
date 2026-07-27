@@ -40,6 +40,12 @@ export function completionPlan(startWeek, session, loggedKeys) {
   const after = new Set(loggedKeys); after.add(key);
   const finishing = week < 12
     && sessionsForWeek(week).every(ws => after.has(`${week}-${ws.id}`));
-  const finalWeek = finishing ? week + 1 : week;
-  return { week, key, startingNextWeek, finishing, finalWeek };
+  // Also advance when all required (non-optional) sessions are done, even if
+  // optional sessions were skipped — Upper+ is optional so skipping it is fine.
+  const coreJustFinished = !finishing && week < 12
+    && sessionsForWeek(week)
+        .filter(ws => !ws.optional)
+        .every(ws => after.has(`${week}-${ws.id}`));
+  const finalWeek = (finishing || coreJustFinished) ? week + 1 : week;
+  return { week, key, startingNextWeek, finishing: finishing || coreJustFinished, finalWeek };
 }
