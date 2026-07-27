@@ -181,15 +181,7 @@
       }
     ]
   },
-  "in_progress": {
-    "8-push-1": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -400,9 +392,22 @@
       "sets": 20,
       "vol": 11937,
       "focus": "Leg press intensity · quad + posterior chain"
+    },
+    {
+      "date": "2026-07-27T17:54:11.286Z",
+      "week": 8,
+      "name": "Push",
+      "sessionId": "push-1",
+      "sessionKey": "8-push-1",
+      "sets": 23,
+      "vol": 6009,
+      "focus": "Bench strength · pressing intensity · deficit pike",
+      "top_of_range": {
+        "bench": false
+      }
     }
   ],
-  "updated_at": "2026-07-27T17:48:14.817Z",
+  "updated_at": "2026-07-27T17:54:11.720Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -419,9 +424,5 @@
       "to": 22.5
     }
   ],
-  "tor": {
-    "8-push-1": {
-      "bench": false
-    }
-  }
+  "tor": {}
 }
