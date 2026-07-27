@@ -2,7 +2,7 @@
   "version": 1,
   "athlete": "Bishwajeet",
   "current_block": 2,
-  "current_week": 7,
+  "current_week": 8,
   "working_weights": {
     "push": [
       {
@@ -392,5 +392,5 @@
       "focus": "Leg press intensity · quad + posterior chain"
     }
   ],
-  "updated_at": "2026-07-23T16:21:54.487Z"
+  "updated_at": "2026-07-27T16:42:48.010Z"
 }
