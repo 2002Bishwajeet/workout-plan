@@ -75,9 +75,10 @@
       {
         "key": "cs_row",
         "name": "Chest Supported Row",
-        "weight": 60,
+        "weight": 65,
         "unit": "kg",
-        "step": 5
+        "step": 5,
+        "changed_at": "2026-07-28T18:39:53.517Z"
       },
       {
         "key": "face_pull",
@@ -412,7 +413,7 @@
       }
     }
   ],
-  "updated_at": "2026-07-28T18:31:05.595Z",
+  "updated_at": "2026-07-28T18:39:53.836Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -427,6 +428,13 @@
       "name": "Tricep Pushdown",
       "from": 20,
       "to": 22.5
+    },
+    {
+      "date": "2026-07-28T18:39:53.517Z",
+      "key": "cs_row",
+      "name": "Chest Supported Row",
+      "from": 60,
+      "to": 65
     }
   ],
   "tor": {
