@@ -2,7 +2,7 @@
   "version": 1,
   "athlete": "Bishwajeet",
   "current_block": 2,
-  "current_week": 8,
+  "current_week": 9,
   "working_weights": {
     "push": [
       {
@@ -184,14 +184,7 @@
       }
     ]
   },
-  "in_progress": {
-    "8-legs-1": [
-      0,
-      1,
-      2,
-      4
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -428,9 +421,22 @@
       "top_of_range": {
         "deadlift": false
       }
+    },
+    {
+      "date": "2026-07-30T10:19:22.180Z",
+      "week": 8,
+      "name": "Legs",
+      "sessionId": "legs-1",
+      "sessionKey": "8-legs-1",
+      "sets": 20,
+      "vol": 12250,
+      "focus": "Leg press intensity · quad + posterior chain",
+      "top_of_range": {
+        "leg_press": true
+      }
     }
   ],
-  "updated_at": "2026-07-30T10:11:31.542Z",
+  "updated_at": "2026-07-30T10:19:22.613Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -489,9 +495,5 @@
       "to": 45
     }
   ],
-  "tor": {
-    "8-legs-1": {
-      "leg_press": true
-    }
-  }
+  "tor": {}
 }
