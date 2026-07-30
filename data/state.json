@@ -121,9 +121,10 @@
       {
         "key": "leg_ext",
         "name": "Leg Extension",
-        "weight": 44,
+        "weight": 49,
         "unit": "kg",
-        "step": 5
+        "step": 5,
+        "changed_at": "2026-07-30T09:48:09.189Z"
       },
       {
         "key": "leg_curl",
@@ -427,7 +428,7 @@
       }
     }
   ],
-  "updated_at": "2026-07-30T09:46:26.510Z",
+  "updated_at": "2026-07-30T09:48:09.349Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -463,6 +464,13 @@
       "name": "Leg Press",
       "from": 230,
       "to": 235
+    },
+    {
+      "date": "2026-07-30T09:48:09.189Z",
+      "key": "leg_ext",
+      "name": "Leg Extension",
+      "from": 44,
+      "to": 49
     }
   ],
   "tor": {
