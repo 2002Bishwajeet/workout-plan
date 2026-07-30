@@ -121,10 +121,10 @@
       {
         "key": "leg_ext",
         "name": "Leg Extension",
-        "weight": 44,
+        "weight": 45,
         "unit": "kg",
         "step": 5,
-        "changed_at": "2026-07-30T09:48:09.801Z"
+        "changed_at": "2026-07-30T09:48:13.790Z"
       },
       {
         "key": "leg_curl",
@@ -428,7 +428,7 @@
       }
     }
   ],
-  "updated_at": "2026-07-30T09:48:09.909Z",
+  "updated_at": "2026-07-30T09:48:13.908Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -478,6 +478,13 @@
       "name": "Leg Extension",
       "from": 49,
       "to": 44
+    },
+    {
+      "date": "2026-07-30T09:48:13.790Z",
+      "key": "leg_ext",
+      "name": "Leg Extension",
+      "from": 44,
+      "to": 45
     }
   ],
   "tor": {
