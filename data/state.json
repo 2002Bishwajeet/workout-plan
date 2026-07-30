@@ -106,10 +106,10 @@
       {
         "key": "leg_press",
         "name": "Leg Press",
-        "weight": 230,
+        "weight": 235,
         "unit": "kg",
         "step": 5,
-        "changed_at": "2026-07-30T09:11:23.637Z"
+        "changed_at": "2026-07-30T09:11:24.313Z"
       },
       {
         "key": "bss",
@@ -422,7 +422,7 @@
       }
     }
   ],
-  "updated_at": "2026-07-30T09:11:23.982Z",
+  "updated_at": "2026-07-30T09:11:24.348Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -451,6 +451,13 @@
       "name": "Leg Press",
       "from": 225,
       "to": 230
+    },
+    {
+      "date": "2026-07-30T09:11:24.313Z",
+      "key": "leg_press",
+      "name": "Leg Press",
+      "from": 230,
+      "to": 235
     }
   ],
   "tor": {}
