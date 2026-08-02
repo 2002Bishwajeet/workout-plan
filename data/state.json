@@ -185,15 +185,7 @@
       }
     ]
   },
-  "in_progress": {
-    "9-upper-1": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -443,9 +435,22 @@
       "top_of_range": {
         "leg_press": true
       }
+    },
+    {
+      "date": "2026-08-02T14:54:37.730Z",
+      "week": 9,
+      "name": "Upper +",
+      "sessionId": "upper-1",
+      "sessionKey": "9-upper-1",
+      "sets": 21,
+      "vol": 1761,
+      "focus": "Bench peak · weighted dip · calisthenic tests",
+      "top_of_range": {
+        "dip": true
+      }
     }
   ],
-  "updated_at": "2026-08-02T14:45:14.427Z",
+  "updated_at": "2026-08-02T14:54:37.934Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -518,9 +523,5 @@
       "to": 60
     }
   ],
-  "tor": {
-    "9-upper-1": {
-      "dip": true
-    }
-  }
+  "tor": {}
 }
