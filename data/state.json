@@ -46,10 +46,10 @@
       {
         "key": "bench_bo",
         "name": "Bench Back-off",
-        "weight": 57.5,
+        "weight": 60,
         "unit": "kg",
         "step": 2.5,
-        "changed_at": "2026-08-02T14:15:04.703Z"
+        "changed_at": "2026-08-02T14:15:05.186Z"
       }
     ],
     "pull": [
@@ -441,7 +441,7 @@
       }
     }
   ],
-  "updated_at": "2026-08-02T14:15:04.826Z",
+  "updated_at": "2026-08-02T14:15:05.226Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -505,6 +505,13 @@
       "name": "Bench Back-off",
       "from": 55,
       "to": 57.5
+    },
+    {
+      "date": "2026-08-02T14:15:05.186Z",
+      "key": "bench_bo",
+      "name": "Bench Back-off",
+      "from": 57.5,
+      "to": 60
     }
   ],
   "tor": {}
