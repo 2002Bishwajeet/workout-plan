@@ -112,7 +112,7 @@ async function handlePostState(env, request, corsHeaders) {
 
 // Fields a workout entry may carry — anything else is dropped so the
 // payload contract stays forward-compatible but the stored data stays clean.
-const HEALTH_FIELDS = ['start', 'end', 'type', 'duration_min', 'avg_hr', 'max_hr', 'active_kcal'];
+const HEALTH_FIELDS = ['start', 'end', 'type', 'duration_min', 'avg_hr', 'max_hr', 'active_kcal', 'distance_km'];
 
 function sanitizeWorkout(raw) {
   const w = {};
