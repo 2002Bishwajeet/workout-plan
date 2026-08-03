@@ -1,0 +1,92 @@
+[
+  {
+    "start": "2025-05-03T08:51:48Z",
+    "end": "2025-05-03T10:53:19Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 121,
+    "avg_hr": 108,
+    "max_hr": 141,
+    "active_kcal": 555
+  },
+  {
+    "start": "2025-05-05T18:44:52Z",
+    "end": "2025-05-05T20:06:01Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 81,
+    "avg_hr": 100,
+    "max_hr": 143,
+    "active_kcal": 322
+  },
+  {
+    "start": "2025-05-07T16:30:18Z",
+    "end": "2025-05-07T18:08:44Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 73,
+    "avg_hr": 112,
+    "max_hr": 149,
+    "active_kcal": 206
+  },
+  {
+    "start": "2025-05-08T15:56:31Z",
+    "end": "2025-05-08T17:27:29Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 75,
+    "avg_hr": 102,
+    "max_hr": 144,
+    "active_kcal": 334
+  },
+  {
+    "start": "2025-05-13T18:10:55Z",
+    "end": "2025-05-13T19:37:38Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 87,
+    "avg_hr": 122,
+    "max_hr": 174,
+    "active_kcal": 580
+  },
+  {
+    "start": "2025-05-20T19:04:42Z",
+    "end": "2025-05-20T21:18:37Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 120,
+    "avg_hr": 108,
+    "max_hr": 141,
+    "active_kcal": 557
+  },
+  {
+    "start": "2025-05-21T19:25:06Z",
+    "end": "2025-05-21T20:44:57Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 76,
+    "avg_hr": 112,
+    "max_hr": 154,
+    "active_kcal": 409
+  },
+  {
+    "start": "2025-05-23T15:16:29Z",
+    "end": "2025-05-23T16:16:34Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 60,
+    "avg_hr": 103,
+    "max_hr": 166,
+    "active_kcal": 280
+  },
+  {
+    "start": "2025-05-27T18:48:50Z",
+    "end": "2025-05-27T20:28:53Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 100,
+    "avg_hr": 102,
+    "max_hr": 143,
+    "active_kcal": 439
+  },
+  {
+    "start": "2025-05-28T17:31:09Z",
+    "end": "2025-05-28T18:32:16Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 61,
+    "avg_hr": 109,
+    "max_hr": 145,
+    "active_kcal": 295
+  }
+]

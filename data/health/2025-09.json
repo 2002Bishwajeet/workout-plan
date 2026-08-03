@@ -1,0 +1,38 @@
+[
+  {
+    "start": "2025-09-06T16:52:28Z",
+    "end": "2025-09-06T18:34:54Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 102,
+    "avg_hr": 120,
+    "max_hr": 156,
+    "active_kcal": 749
+  },
+  {
+    "start": "2025-09-09T16:06:33Z",
+    "end": "2025-09-09T17:21:56Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 75,
+    "avg_hr": 110,
+    "max_hr": 141,
+    "active_kcal": 423
+  },
+  {
+    "start": "2025-09-10T15:11:58Z",
+    "end": "2025-09-10T16:12:02Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 60,
+    "avg_hr": 101,
+    "max_hr": 138,
+    "active_kcal": 308
+  },
+  {
+    "start": "2025-09-28T13:11:08Z",
+    "end": "2025-09-28T14:11:37Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 60,
+    "avg_hr": 127,
+    "max_hr": 155,
+    "active_kcal": 507
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "start": "2025-12-03T17:21:53Z",
+    "end": "2025-12-03T18:02:34Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 41,
+    "avg_hr": 106,
+    "max_hr": 143,
+    "active_kcal": 206
+  },
+  {
+    "start": "2025-12-04T17:58:37Z",
+    "end": "2025-12-04T19:24:14Z",
+    "type": "Functional Strength Training",
+    "duration_min": 83,
+    "avg_hr": 125,
+    "max_hr": 166,
+    "active_kcal": 661
+  },
+  {
+    "start": "2025-12-10T17:45:46Z",
+    "end": "2025-12-10T19:05:57Z",
+    "type": "Functional Strength Training",
+    "duration_min": 80,
+    "avg_hr": 117,
+    "max_hr": 151,
+    "active_kcal": 545
+  },
+  {
+    "start": "2025-12-14T17:02:33Z",
+    "end": "2025-12-14T18:37:34Z",
+    "type": "Functional Strength Training",
+    "duration_min": 95,
+    "avg_hr": 114,
+    "max_hr": 159,
+    "active_kcal": 636
+  },
+  {
+    "start": "2025-12-15T16:36:56Z",
+    "end": "2025-12-15T17:46:02Z",
+    "type": "Functional Strength Training",
+    "duration_min": 69,
+    "avg_hr": 121,
+    "max_hr": 172,
+    "active_kcal": 476
+  },
+  {
+    "start": "2025-12-22T16:50:26Z",
+    "end": "2025-12-22T18:06:11Z",
+    "type": "Functional Strength Training",
+    "duration_min": 76,
+    "avg_hr": 112,
+    "max_hr": 151,
+    "active_kcal": 458
+  },
+  {
+    "start": "2025-12-30T17:16:49Z",
+    "end": "2025-12-30T17:23:19Z",
+    "type": "Functional Strength Training",
+    "duration_min": 7,
+    "avg_hr": 100,
+    "max_hr": 117,
+    "active_kcal": 34
+  },
+  {
+    "start": "2025-12-30T17:23:23Z",
+    "end": "2025-12-30T18:53:01Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 90,
+    "avg_hr": 112,
+    "max_hr": 151,
+    "active_kcal": 541
+  }
+]

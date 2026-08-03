@@ -1,0 +1,65 @@
+[
+  {
+    "start": "2025-11-04T17:22:15Z",
+    "end": "2025-11-04T18:50:09Z",
+    "type": "Functional Strength Training",
+    "duration_min": 88,
+    "avg_hr": 122,
+    "max_hr": 164,
+    "active_kcal": 602
+  },
+  {
+    "start": "2025-11-06T18:18:12Z",
+    "end": "2025-11-06T19:41:19Z",
+    "type": "Functional Strength Training",
+    "duration_min": 81,
+    "avg_hr": 114,
+    "max_hr": 149,
+    "active_kcal": 486
+  },
+  {
+    "start": "2025-11-10T18:03:10Z",
+    "end": "2025-11-10T19:31:58Z",
+    "type": "Functional Strength Training",
+    "duration_min": 89,
+    "avg_hr": 111,
+    "max_hr": 160,
+    "active_kcal": 497
+  },
+  {
+    "start": "2025-11-11T16:54:12Z",
+    "end": "2025-11-11T18:27:36Z",
+    "type": "Functional Strength Training",
+    "duration_min": 93,
+    "avg_hr": 128,
+    "max_hr": 171,
+    "active_kcal": 673
+  },
+  {
+    "start": "2025-11-17T16:59:31Z",
+    "end": "2025-11-17T18:34:22Z",
+    "type": "Functional Strength Training",
+    "duration_min": 94,
+    "avg_hr": 119,
+    "max_hr": 158,
+    "active_kcal": 609
+  },
+  {
+    "start": "2025-11-25T17:38:20Z",
+    "end": "2025-11-25T18:38:43Z",
+    "type": "Functional Strength Training",
+    "duration_min": 41,
+    "avg_hr": 123,
+    "max_hr": 158,
+    "active_kcal": 248
+  },
+  {
+    "start": "2025-11-26T17:52:33Z",
+    "end": "2025-11-26T18:48:51Z",
+    "type": "Functional Strength Training",
+    "duration_min": 56,
+    "avg_hr": 117,
+    "max_hr": 158,
+    "active_kcal": 314
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "start": "2025-04-06T02:09:31Z",
+    "end": "2025-04-06T03:24:18Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 75,
+    "avg_hr": 132,
+    "max_hr": 171,
+    "active_kcal": 630
+  },
+  {
+    "start": "2025-04-10T12:40:44Z",
+    "end": "2025-04-10T14:00:38Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 80,
+    "avg_hr": 115,
+    "max_hr": 157,
+    "active_kcal": 477
+  }
+]

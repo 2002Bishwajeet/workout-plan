@@ -1,0 +1,47 @@
+[
+  {
+    "start": "2026-03-04T17:23:14Z",
+    "end": "2026-03-04T18:39:13Z",
+    "type": "Functional Strength Training",
+    "duration_min": 76,
+    "avg_hr": 111,
+    "max_hr": 153,
+    "active_kcal": 410
+  },
+  {
+    "start": "2026-03-06T18:31:37Z",
+    "end": "2026-03-06T19:33:05Z",
+    "type": "Functional Strength Training",
+    "duration_min": 61,
+    "avg_hr": 111,
+    "max_hr": 148,
+    "active_kcal": 331
+  },
+  {
+    "start": "2026-03-20T17:50:28Z",
+    "end": "2026-03-20T18:38:26Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 48,
+    "avg_hr": 110,
+    "max_hr": 149,
+    "active_kcal": 283
+  },
+  {
+    "start": "2026-03-23T18:18:19Z",
+    "end": "2026-03-23T19:03:19Z",
+    "type": "Traditional Strength Training",
+    "duration_min": 45,
+    "avg_hr": 110,
+    "max_hr": 147,
+    "active_kcal": 261
+  },
+  {
+    "start": "2026-03-26T18:26:57Z",
+    "end": "2026-03-26T19:34:54Z",
+    "type": "Functional Strength Training",
+    "duration_min": 68,
+    "avg_hr": 115,
+    "max_hr": 153,
+    "active_kcal": 444
+  }
+]
