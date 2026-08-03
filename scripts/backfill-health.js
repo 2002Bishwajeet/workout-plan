@@ -37,6 +37,14 @@ const ACTIVITY_TYPES = {
   HKWorkoutActivityTypeOther: 'Other',
 };
 
+// Distance arrives under a per-sport identifier; any of them is "the" distance
+// for that workout, since a workout only ever carries one.
+const DISTANCE_TYPES = new Set([
+  'HKQuantityTypeIdentifierDistanceCycling',
+  'HKQuantityTypeIdentifierDistanceWalkingRunning',
+  'HKQuantityTypeIdentifierDistanceSwimming',
+]);
+
 // ---------- streaming extraction ----------
 
 // Incremental extractor: feed it chunks, get back complete Workout
@@ -150,6 +158,17 @@ export function workoutToEntry(block) {
   // Older exports put energy on the Workout tag itself (totalEnergyBurned)
   const kcal = energy?.sum ?? attrs.totalEnergyBurned;
   if (kcal !== undefined && !Number.isNaN(+kcal)) entry.active_kcal = Math.round(+kcal);
+
+  // Unit is declared per stat (km for cycling/walking, m for swimming), so
+  // convert from the attribute rather than assuming the sport's unit.
+  const dist = stats.find(s => DISTANCE_TYPES.has(s.type));
+  if (dist?.sum !== undefined && !Number.isNaN(+dist.sum)) {
+    const n = +dist.sum;
+    const km = dist.unit === 'm' ? n / 1000
+      : dist.unit === 'mi' ? n * 1.609344
+      : n;
+    entry.distance_km = Math.round(km * 100) / 100;
+  }
 
   return entry;
 }

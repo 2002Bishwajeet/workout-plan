@@ -167,3 +167,29 @@ test('Walking is excluded', () => {
   const block = `<Workout workoutActivityType="HKWorkoutActivityTypeWalking" duration="12" durationUnit="min" startDate="2026-07-05 09:00:00 +0200" endDate="2026-07-05 09:12:00 +0200"/>`;
   assert.equal(workoutToEntry(block), null);
 });
+
+test('reads cycling distance in km', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeCycling" duration="58" durationUnit="min" startDate="2026-07-02 17:00:00 +0200" endDate="2026-07-02 17:58:00 +0200">
+  <WorkoutStatistics type="HKQuantityTypeIdentifierDistanceCycling" sum="24.137" unit="km"/>
+ </Workout>`;
+  assert.equal(workoutToEntry(block).distance_km, 24.14);
+});
+
+test('converts swimming distance from metres to km', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeSwimming" duration="35" durationUnit="min" startDate="2026-07-06 19:00:00 +0200" endDate="2026-07-06 19:35:00 +0200">
+  <WorkoutStatistics type="HKQuantityTypeIdentifierDistanceSwimming" sum="1450" unit="m"/>
+ </Workout>`;
+  assert.equal(workoutToEntry(block).distance_km, 1.45);
+});
+
+test('reads hiking distance from the walking/running identifier', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeHiking" duration="142" durationUnit="min" startDate="2026-07-30 09:00:00 +0200" endDate="2026-07-30 11:22:00 +0200">
+  <WorkoutStatistics type="HKQuantityTypeIdentifierDistanceWalkingRunning" sum="11.4" unit="km"/>
+ </Workout>`;
+  assert.equal(workoutToEntry(block).distance_km, 11.4);
+});
+
+test('omits distance_km when the export carries none', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeTraditionalStrengthTraining" duration="40" durationUnit="min" startDate="2026-07-07 17:00:00 +0200" endDate="2026-07-07 17:40:00 +0200"/>`;
+  assert.equal('distance_km' in workoutToEntry(block), false);
+});
