@@ -1,0 +1,42 @@
+[
+  {
+    "start": "2024-12-01T09:51:59Z",
+    "end": "2024-12-01T14:25:02Z",
+    "type": "Hiking",
+    "duration_min": 248,
+    "avg_hr": 122,
+    "max_hr": 157,
+    "active_kcal": 907,
+    "distance_km": 13.21
+  },
+  {
+    "start": "2024-12-05T19:14:08Z",
+    "end": "2024-12-05T19:18:10Z",
+    "type": "Hiking",
+    "duration_min": 4,
+    "avg_hr": 93,
+    "max_hr": 101,
+    "active_kcal": 4,
+    "distance_km": 0
+  },
+  {
+    "start": "2024-12-26T09:41:01Z",
+    "end": "2024-12-26T12:47:19Z",
+    "type": "Hiking",
+    "duration_min": 132,
+    "avg_hr": 145,
+    "max_hr": 173,
+    "active_kcal": 551,
+    "distance_km": 8.22
+  },
+  {
+    "start": "2024-12-26T13:01:30Z",
+    "end": "2024-12-26T14:22:17Z",
+    "type": "Hiking",
+    "duration_min": 81,
+    "avg_hr": 127,
+    "max_hr": 159,
+    "active_kcal": 264,
+    "distance_km": 4.17
+  }
+]

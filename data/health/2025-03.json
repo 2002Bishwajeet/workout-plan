@@ -27,6 +27,25 @@
     "active_kcal": 387
   },
   {
+    "start": "2025-03-09T16:39:06Z",
+    "end": "2025-03-09T17:17:55Z",
+    "type": "Core Training",
+    "duration_min": 39,
+    "avg_hr": 108,
+    "max_hr": 137,
+    "active_kcal": 209
+  },
+  {
+    "start": "2025-03-09T17:19:22Z",
+    "end": "2025-03-09T17:41:07Z",
+    "type": "Running",
+    "duration_min": 22,
+    "avg_hr": 151,
+    "max_hr": 176,
+    "active_kcal": 203,
+    "distance_km": 2.53
+  },
+  {
     "start": "2025-03-10T17:53:57Z",
     "end": "2025-03-10T19:15:27Z",
     "type": "Traditional Strength Training",
@@ -79,6 +98,45 @@
     "avg_hr": 114,
     "max_hr": 154,
     "active_kcal": 464
+  },
+  {
+    "start": "2025-03-21T15:53:36Z",
+    "end": "2025-03-21T18:45:05Z",
+    "type": "Hiking",
+    "duration_min": 171,
+    "avg_hr": 125,
+    "max_hr": 178,
+    "active_kcal": 628,
+    "distance_km": 8.36
+  },
+  {
+    "start": "2025-03-22T16:49:53Z",
+    "end": "2025-03-22T18:16:46Z",
+    "type": "Core Training",
+    "duration_min": 87,
+    "avg_hr": 110,
+    "max_hr": 145,
+    "active_kcal": 500
+  },
+  {
+    "start": "2025-03-22T18:18:36Z",
+    "end": "2025-03-22T18:45:14Z",
+    "type": "Running",
+    "duration_min": 27,
+    "avg_hr": 143,
+    "max_hr": 173,
+    "active_kcal": 212,
+    "distance_km": 3.05
+  },
+  {
+    "start": "2025-03-26T18:47:05Z",
+    "end": "2025-03-26T19:46:42Z",
+    "type": "Hiking",
+    "duration_min": 49,
+    "avg_hr": 112,
+    "max_hr": 145,
+    "active_kcal": 120,
+    "distance_km": 1.48
   },
   {
     "start": "2025-03-31T18:43:21Z",

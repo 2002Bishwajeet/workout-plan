@@ -18,6 +18,16 @@
     "active_kcal": 178
   },
   {
+    "start": "2025-10-17T09:02:01Z",
+    "end": "2025-10-17T09:05:09Z",
+    "type": "Cycling",
+    "duration_min": 3,
+    "avg_hr": 138,
+    "max_hr": 145,
+    "active_kcal": 17,
+    "distance_km": 0.94
+  },
+  {
     "start": "2025-10-20T14:33:25Z",
     "end": "2025-10-20T15:33:32Z",
     "type": "Functional Strength Training",
@@ -43,5 +53,15 @@
     "avg_hr": 117,
     "max_hr": 156,
     "active_kcal": 462
+  },
+  {
+    "start": "2025-10-28T17:25:34Z",
+    "end": "2025-10-28T17:40:46Z",
+    "type": "Cycling",
+    "duration_min": 15,
+    "avg_hr": 159,
+    "max_hr": 170,
+    "active_kcal": 98,
+    "distance_km": 3.86
   }
 ]

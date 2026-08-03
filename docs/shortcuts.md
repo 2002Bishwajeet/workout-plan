@@ -24,7 +24,8 @@ repo. Budget ~10 minutes.
   "duration_min": 65,
   "avg_hr": 121,
   "max_hr": 158,
-  "active_kcal": 410
+  "active_kcal": 410,
+  "distance_km": 2.34
 }
 ```
 
@@ -61,6 +62,7 @@ Open **Shortcuts** → **+** → name it `Sync Workout`.
      | `avg_hr` | Number | Average Heart Rate |
      | `max_hr` | Number | Maximum Heart Rate |
      | `active_kcal` | Number | Active Energy |
+     | `distance_km` | Number | Total Distance — make sure the value is in kilometres, not miles |
 
      For the dates, choose **Format Date** with format `ISO 8601` and turn
      **ISO 8601 Time** ON — the server rejects non-ISO timestamps.
@@ -108,12 +110,15 @@ full export — no Worker involved, the files are committed by hand.
    node scripts/backfill-health.js path/to/export.xml --dry-run
    ```
 
-3. Run it for real (same command without `--dry-run`). It filters the export
-   down to strength workouts — both `TraditionalStrengthTraining` and
-   `FunctionalStrengthTraining` count — and writes `data/health/YYYY-MM.json`
+3. Run it for real (same command without `--dry-run`). It imports every
+   activity type except Walking, and writes `data/health/YYYY-MM.json`
    files in the same shape the Worker commits, keyed by the workout's start
-   month (UTC). Existing month files are merged, duplicates (same `start`)
-   skipped, entries kept sorted — re-running is harmless, same as the sync.
+   month, taken from the UTC-normalised timestamp the script computes (the
+   Worker instead keys off the raw payload string it receives, so the two
+   can in theory file the same workout into different month files if a
+   Shortcut ever sends a non-UTC offset). Existing month files are merged,
+   duplicates (same `start`) skipped, entries kept sorted — re-running is
+   harmless, same as the sync.
 4. Review with `git diff`, then commit the generated files manually, e.g.
    `Backfill: 34 workouts from Health export`. Don't commit `export.xml`.
 

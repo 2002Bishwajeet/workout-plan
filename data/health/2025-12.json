@@ -45,6 +45,16 @@
     "active_kcal": 476
   },
   {
+    "start": "2025-12-21T10:08:05Z",
+    "end": "2025-12-21T16:32:35Z",
+    "type": "Hiking",
+    "duration_min": 323,
+    "avg_hr": 126,
+    "max_hr": 170,
+    "active_kcal": 1575,
+    "distance_km": 20.65
+  },
+  {
     "start": "2025-12-22T16:50:26Z",
     "end": "2025-12-22T18:06:11Z",
     "type": "Functional Strength Training",
@@ -52,6 +62,16 @@
     "avg_hr": 112,
     "max_hr": 151,
     "active_kcal": 458
+  },
+  {
+    "start": "2025-12-27T13:10:51Z",
+    "end": "2025-12-27T16:08:57Z",
+    "type": "Hiking",
+    "duration_min": 165,
+    "avg_hr": 123,
+    "max_hr": 169,
+    "active_kcal": 688,
+    "distance_km": 8.92
   },
   {
     "start": "2025-12-30T17:16:49Z",

@@ -9,8 +9,8 @@ import {
 } from '../scripts/backfill-health.js';
 
 // Small slice of an Apple Health export: one full strength workout with
-// HR + energy stats, one functional strength, one running workout (must
-// be filtered out), one strength workout with no stats children, and a
+// HR + energy stats, one functional strength, one running workout (also
+// imported), one strength workout with no stats children, and a
 // late-night workout whose +0530 offset moves it into the previous
 // month once converted to UTC.
 const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
@@ -95,11 +95,11 @@ test('workoutToEntry maps a full strength workout to the /health schema', () => 
   });
 });
 
-test('non-strength workouts are filtered, functional strength kept', () => {
+test('functional strength and running are both kept', () => {
   const entries = parseFixture().map(workoutToEntry).filter(Boolean);
-  assert.equal(entries.length, 4); // running workout dropped
+  assert.equal(entries.length, 5); // every type in the fixture is imported
   assert.ok(entries.some(e => e.type === 'Functional Strength Training'));
-  assert.ok(!entries.some(e => e.type && e.type.includes('Running')));
+  assert.ok(entries.some(e => e.type === 'Running'));
 });
 
 test('missing HR/energy stats are omitted, never null or NaN', () => {
@@ -120,7 +120,7 @@ test('files are keyed by START month in UTC — offset can shift the month', () 
   // 2026-06-01 02:00 +0530 is 2026-05-31 in UTC → lands in the May file
   assert.deepEqual([...byMonth.keys()].sort(), ['2026-05', '2026-06']);
   assert.equal(byMonth.get('2026-05').length, 1);
-  assert.equal(byMonth.get('2026-06').length, 3);
+  assert.equal(byMonth.get('2026-06').length, 4);
 });
 
 test('mergeMonth dedupes by start, keeps sorted, matches Worker semantics', () => {
@@ -146,4 +146,57 @@ test('mergeMonth dedupes by start, keeps sorted, matches Worker semantics', () =
   assert.equal(again.added, 0);
   assert.equal(again.skipped, 4);
   assert.deepEqual(again.entries, entries);
+});
+
+test('imports non-strength activities with a friendly type name', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeCycling" duration="58" durationUnit="min" startDate="2026-07-02 17:00:00 +0200" endDate="2026-07-02 17:58:00 +0200">
+  <WorkoutStatistics type="HKQuantityTypeIdentifierHeartRate" average="131" maximum="162" unit="count/min"/>
+ </Workout>`;
+  const got = workoutToEntry(block);
+  assert.equal(got.type, 'Cycling');
+  assert.equal(got.duration_min, 58);
+  assert.equal(got.avg_hr, 131);
+});
+
+test('maps CoreTraining to a spaced display name', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeCoreTraining" duration="20" durationUnit="min" startDate="2026-07-04 08:00:00 +0200" endDate="2026-07-04 08:20:00 +0200"/>`;
+  assert.equal(workoutToEntry(block).type, 'Core Training');
+});
+
+test('Walking is excluded', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeWalking" duration="12" durationUnit="min" startDate="2026-07-05 09:00:00 +0200" endDate="2026-07-05 09:12:00 +0200"/>`;
+  assert.equal(workoutToEntry(block), null);
+});
+
+test('reads cycling distance in km', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeCycling" duration="58" durationUnit="min" startDate="2026-07-02 17:00:00 +0200" endDate="2026-07-02 17:58:00 +0200">
+  <WorkoutStatistics type="HKQuantityTypeIdentifierDistanceCycling" sum="24.137" unit="km"/>
+ </Workout>`;
+  assert.equal(workoutToEntry(block).distance_km, 24.14);
+});
+
+test('converts swimming distance from metres to km', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeSwimming" duration="35" durationUnit="min" startDate="2026-07-06 19:00:00 +0200" endDate="2026-07-06 19:35:00 +0200">
+  <WorkoutStatistics type="HKQuantityTypeIdentifierDistanceSwimming" sum="1450" unit="m"/>
+ </Workout>`;
+  assert.equal(workoutToEntry(block).distance_km, 1.45);
+});
+
+test('reads hiking distance from the walking/running identifier', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeHiking" duration="142" durationUnit="min" startDate="2026-07-30 09:00:00 +0200" endDate="2026-07-30 11:22:00 +0200">
+  <WorkoutStatistics type="HKQuantityTypeIdentifierDistanceWalkingRunning" sum="11.4" unit="km"/>
+ </Workout>`;
+  assert.equal(workoutToEntry(block).distance_km, 11.4);
+});
+
+test('omits distance_km when the export carries none', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeTraditionalStrengthTraining" duration="40" durationUnit="min" startDate="2026-07-07 17:00:00 +0200" endDate="2026-07-07 17:40:00 +0200"/>`;
+  assert.equal('distance_km' in workoutToEntry(block), false);
+});
+
+test('rounds distance at a float-precision boundary', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeSwimming" duration="10" durationUnit="min" startDate="2026-07-08 19:00:00 +0200" endDate="2026-07-08 19:10:00 +0200">
+  <WorkoutStatistics type="HKQuantityTypeIdentifierDistanceSwimming" sum="145" unit="m"/>
+ </Workout>`;
+  assert.equal(workoutToEntry(block).distance_km, 0.15);
 });

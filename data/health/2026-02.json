@@ -1,5 +1,15 @@
 [
   {
+    "start": "2026-02-02T17:08:13Z",
+    "end": "2026-02-02T17:16:41Z",
+    "type": "Cycling",
+    "duration_min": 8,
+    "avg_hr": 119,
+    "max_hr": 139,
+    "active_kcal": 59,
+    "distance_km": 2.08
+  },
+  {
     "start": "2026-02-02T17:48:23Z",
     "end": "2026-02-02T18:52:05Z",
     "type": "Functional Strength Training",

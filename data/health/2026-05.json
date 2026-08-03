@@ -1,5 +1,15 @@
 [
   {
+    "start": "2026-05-23T15:50:07Z",
+    "end": "2026-05-23T17:43:52Z",
+    "type": "Hiking",
+    "duration_min": 114,
+    "avg_hr": 117,
+    "max_hr": 155,
+    "active_kcal": 429,
+    "distance_km": 6.4
+  },
+  {
     "start": "2026-05-28T16:48:22Z",
     "end": "2026-05-28T17:56:57Z",
     "type": "Traditional Strength Training",

@@ -112,11 +112,18 @@ async function handlePostState(env, request, corsHeaders) {
 
 // Fields a workout entry may carry — anything else is dropped so the
 // payload contract stays forward-compatible but the stored data stays clean.
-const HEALTH_FIELDS = ['start', 'end', 'type', 'duration_min', 'avg_hr', 'max_hr', 'active_kcal'];
+const HEALTH_FIELDS = ['start', 'end', 'type', 'duration_min', 'avg_hr', 'max_hr', 'active_kcal', 'distance_km'];
 
 function sanitizeWorkout(raw) {
   const w = {};
-  for (const f of HEALTH_FIELDS) if (raw[f] !== undefined && raw[f] !== null) w[f] = raw[f];
+  for (const f of HEALTH_FIELDS) {
+    if (raw[f] === undefined || raw[f] === null) continue;
+    // distance_km must be a finite number — a Shortcut can send it as Text
+    // (e.g. "5.2"), and that must not be committed: the client's distStat()
+    // assumes a number and would throw, aborting the whole Log render.
+    if (f === 'distance_km' && (typeof raw[f] !== 'number' || !Number.isFinite(raw[f]))) continue;
+    w[f] = raw[f];
+  }
   return w;
 }
 

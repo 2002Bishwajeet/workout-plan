@@ -22,12 +22,28 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// Strength workouts only — both flavours count (see docs/shortcuts.md).
-// Values match the type strings the iOS Shortcut sends to POST /health.
-const STRENGTH_TYPES = {
+// Every activity type worth importing, mapped to its display name.
+// Walking is deliberately absent — the watch auto-detects short incidental
+// walks, which outnumber real training 167 to 236 in the export and would
+// swamp the log. Adding a type here is the only change needed to widen scope.
+const ACTIVITY_TYPES = {
   HKWorkoutActivityTypeTraditionalStrengthTraining: 'Traditional Strength Training',
   HKWorkoutActivityTypeFunctionalStrengthTraining: 'Functional Strength Training',
+  HKWorkoutActivityTypeCycling: 'Cycling',
+  HKWorkoutActivityTypeHiking: 'Hiking',
+  HKWorkoutActivityTypeRunning: 'Running',
+  HKWorkoutActivityTypeCoreTraining: 'Core Training',
+  HKWorkoutActivityTypeSwimming: 'Swimming',
+  HKWorkoutActivityTypeOther: 'Other',
 };
+
+// Distance arrives under a per-sport identifier; any of them is "the" distance
+// for that workout, since a workout only ever carries one.
+const DISTANCE_TYPES = new Set([
+  'HKQuantityTypeIdentifierDistanceCycling',
+  'HKQuantityTypeIdentifierDistanceWalkingRunning',
+  'HKQuantityTypeIdentifierDistanceSwimming',
+]);
 
 // ---------- streaming extraction ----------
 
@@ -104,14 +120,14 @@ export function appleDateToISO(s) {
   return new Date(ms).toISOString().slice(0, 19) + 'Z';
 }
 
-// One Workout block → a /health-shaped entry, or null when it isn't a
-// strength workout (or lacks usable dates). Optional fields are omitted
+// One Workout block → a /health-shaped entry, or null when the activity
+// type isn't imported (or lacks usable dates). Optional fields are omitted
 // when the export doesn't carry them, matching the Worker's sanitizer.
 export function workoutToEntry(block) {
   const openEnd = block.indexOf('>');
   if (openEnd === -1) return null;
   const attrs = parseAttrs(block.slice(0, openEnd + 1));
-  const type = STRENGTH_TYPES[attrs.workoutActivityType];
+  const type = ACTIVITY_TYPES[attrs.workoutActivityType];
   if (!type) return null;
 
   const start = appleDateToISO(attrs.startDate);
@@ -143,12 +159,30 @@ export function workoutToEntry(block) {
   const kcal = energy?.sum ?? attrs.totalEnergyBurned;
   if (kcal !== undefined && !Number.isNaN(+kcal)) entry.active_kcal = Math.round(+kcal);
 
+  // Unit is declared per stat (km for cycling/walking, m for swimming), so
+  // convert from the attribute rather than assuming the sport's unit.
+  const dist = stats.find(s => DISTANCE_TYPES.has(s.type));
+  if (dist?.sum !== undefined && !Number.isNaN(+dist.sum)) {
+    const n = +dist.sum;
+    const km = dist.unit === 'm' ? n / 1000
+      : dist.unit === 'mi' ? n * 1.609344
+      : n;
+    entry.distance_km = Math.round((km + Number.EPSILON) * 100) / 100;
+  }
+
   return entry;
 }
 
 // ---------- month files ----------
 
-// Files are keyed by the workout's START month (UTC), same as the Worker.
+// Files are keyed by the workout's START month, taken from `e.start` after
+// it has already been normalised to UTC by appleDateToISO(). The Worker
+// instead keys off the raw payload string it receives (see sanitizeWorkout /
+// handlePostHealth in worker/src/index.js, `String(it.start).slice(0, 7)`) —
+// if a Shortcut ever sends a non-UTC offset, the two writers can file the
+// same workout under different month files, and since dedupe is only
+// exact-string-within-one-file, a later backfill re-run would not catch it
+// as a duplicate.
 export function groupByMonth(entries) {
   const byMonth = new Map();
   for (const e of entries) {
@@ -202,7 +236,7 @@ async function main() {
       if (entry) entries.push(entry);
     }
   }
-  console.log(`Scanned ${scanned} workouts, ${entries.length} strength (Traditional + Functional)`);
+  console.log(`Scanned ${scanned} workouts, ${entries.length} imported (Walking excluded)`);
 
   const healthDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'health');
   if (!dryRun) await mkdir(healthDir, { recursive: true });

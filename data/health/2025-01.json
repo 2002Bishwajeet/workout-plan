@@ -27,6 +27,15 @@
     "active_kcal": 444
   },
   {
+    "start": "2025-01-13T18:52:16Z",
+    "end": "2025-01-13T19:38:59Z",
+    "type": "Core Training",
+    "duration_min": 47,
+    "avg_hr": 110,
+    "max_hr": 140,
+    "active_kcal": 229
+  },
+  {
     "start": "2025-01-15T19:16:17Z",
     "end": "2025-01-15T20:50:53Z",
     "type": "Functional Strength Training",

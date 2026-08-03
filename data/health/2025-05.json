@@ -45,6 +45,56 @@
     "active_kcal": 580
   },
   {
+    "start": "2025-05-15T14:23:48Z",
+    "end": "2025-05-15T14:36:16Z",
+    "type": "Cycling",
+    "duration_min": 12,
+    "avg_hr": 144,
+    "max_hr": 164,
+    "active_kcal": 70,
+    "distance_km": 2.66
+  },
+  {
+    "start": "2025-05-15T15:08:08Z",
+    "end": "2025-05-15T15:15:13Z",
+    "type": "Cycling",
+    "duration_min": 7,
+    "avg_hr": 150,
+    "max_hr": 167,
+    "active_kcal": 18,
+    "distance_km": 1.25
+  },
+  {
+    "start": "2025-05-15T16:01:24Z",
+    "end": "2025-05-15T16:15:04Z",
+    "type": "Cycling",
+    "duration_min": 14,
+    "avg_hr": 127,
+    "max_hr": 149,
+    "active_kcal": 40,
+    "distance_km": 1.32
+  },
+  {
+    "start": "2025-05-15T19:25:40Z",
+    "end": "2025-05-15T19:57:48Z",
+    "type": "Cycling",
+    "duration_min": 32,
+    "avg_hr": 134,
+    "max_hr": 161,
+    "active_kcal": 80,
+    "distance_km": 4.89
+  },
+  {
+    "start": "2025-05-18T11:17:10Z",
+    "end": "2025-05-18T15:59:01Z",
+    "type": "Hiking",
+    "duration_min": 243,
+    "avg_hr": 114,
+    "max_hr": 158,
+    "active_kcal": 851,
+    "distance_km": 13.02
+  },
+  {
     "start": "2025-05-20T19:04:42Z",
     "end": "2025-05-20T21:18:37Z",
     "type": "Traditional Strength Training",
@@ -88,5 +138,25 @@
     "avg_hr": 109,
     "max_hr": 145,
     "active_kcal": 295
+  },
+  {
+    "start": "2025-05-31T13:33:24Z",
+    "end": "2025-05-31T13:55:50Z",
+    "type": "Cycling",
+    "duration_min": 22,
+    "avg_hr": 119,
+    "max_hr": 142,
+    "active_kcal": 83,
+    "distance_km": 3.99
+  },
+  {
+    "start": "2025-05-31T18:37:08Z",
+    "end": "2025-05-31T19:28:35Z",
+    "type": "Cycling",
+    "duration_min": 51,
+    "avg_hr": 132,
+    "max_hr": 163,
+    "active_kcal": 149,
+    "distance_km": 8.74
   }
 ]

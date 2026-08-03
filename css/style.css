@@ -1644,6 +1644,13 @@ body {
   color: var(--md-on-surface-variant);
   text-transform: uppercase;
 }
+
+/* Watch-only rows: same structure as a session, quieter, since there is no
+   programme session behind them. */
+.log-entry.watch .name {
+  font-size: 18px;
+  color: var(--md-on-surface-variant);
+}
 @media (max-width: 600px) {
   .log-entry {
     grid-template-columns: 1fr;

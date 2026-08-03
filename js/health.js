@@ -24,6 +24,14 @@ function sameDay(a, b) {
     && a.getDate() === b.getDate();
 }
 
+// A logged session is always a gym session, so only a strength workout can
+// belong to one. Without this filter the widened import lets a same-day bike
+// ride claim a Push session and render the ride's heart rate as the session's.
+const SESSION_TYPES = new Set([
+  'Traditional Strength Training',
+  'Functional Strength Training',
+]);
+
 // Best watch workout for a log entry: 0-distance when the entry's
 // timestamp falls inside a workout's start–end window, else the gap to
 // the nearest window edge — but only windows sharing a calendar day
@@ -34,6 +42,7 @@ export function matchWorkout(entryDate, workouts) {
   let best = null;
   let bestDist = Infinity;
   for (const w of workouts || []) {
+    if (!SESSION_TYPES.has(w.type)) continue;
     const s = new Date(w.start);
     const e = new Date(w.end);
     if (isNaN(s) || isNaN(e)) continue;
@@ -42,6 +51,22 @@ export function matchWorkout(entryDate, workouts) {
     if (dist < bestDist) { best = w; bestDist = dist; }
   }
   return best;
+}
+
+// Every workout no logged session claimed, newest first. The Log renders
+// these as their own rows; without the exclusion a session's own watch
+// workout would appear twice — once as stats on the session, once as a
+// standalone row. Pure, like matchWorkout: both inputs are parameters.
+export function unmatchedWorkouts(log, workouts) {
+  const all = workouts || [];
+  const claimed = new Set();
+  for (const entry of log || []) {
+    const w = matchWorkout(entry.date, all);
+    if (w) claimed.add(w.start);
+  }
+  return all
+    .filter(w => !claimed.has(w.start))
+    .sort((a, b) => (a.start < b.start ? 1 : -1));
 }
 
 // ---- loader (fetch once, cache in memory, never retry a failure) ----
