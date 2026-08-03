@@ -43,5 +43,15 @@
     "avg_hr": 124,
     "max_hr": 162,
     "active_kcal": 340
+  },
+  {
+    "start": "2026-04-26T08:32:58Z",
+    "end": "2026-04-26T10:05:39Z",
+    "type": "Hiking",
+    "duration_min": 93,
+    "avg_hr": 148,
+    "max_hr": 178,
+    "active_kcal": 437,
+    "distance_km": 2.96
   }
 ]
