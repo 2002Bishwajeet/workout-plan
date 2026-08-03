@@ -85,8 +85,8 @@ async function handlePostState(env, request, corsHeaders) {
   // client can't commit an essay.
   const lines = String(message || 'Update state').split('\n');
   const subject = lines.shift().slice(0, 120);
-  const body = lines.join('\n').slice(0, 2000);
-  const commitMsg = body ? `${subject}\n${body}` : subject;
+  const msgBody = lines.join('\n').slice(0, 2000);
+  const commitMsg = msgBody ? `${subject}\n${msgBody}` : subject;
   const content   = JSON.stringify(state, null, 2);
 
   // If client didn't provide a SHA, fetch latest (handles first write + race recovery)
