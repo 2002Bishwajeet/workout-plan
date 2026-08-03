@@ -5,7 +5,7 @@ process.env.TZ = 'UTC';
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-const { matchWorkout } = await import('../js/health.js');
+const { matchWorkout, unmatchedWorkouts } = await import('../js/health.js');
 
 const W = (start, end, extra = {}) =>
   ({ start, end, type: 'Traditional Strength Training', avg_hr: 120, max_hr: 155, active_kcal: 300, ...extra });
@@ -53,4 +53,38 @@ test('month boundary: workout starting in July matches an entry logged in August
   assert.equal(got3.avg_hr, 128);
   // An entry on 2 Aug shares no day with the window: no match.
   assert.equal(matchWorkout('2026-08-02T10:00:00Z', [late]), null);
+});
+
+test('unmatched: a workout claimed by a session is not returned', () => {
+  const claimed = W('2026-07-20T18:00:00Z', '2026-07-20T19:10:00Z');
+  const loose   = W('2026-07-22T07:00:00Z', '2026-07-22T08:00:00Z', { type: 'Cycling' });
+  const got = unmatchedWorkouts([{ date: '2026-07-20T19:05:00Z' }], [claimed, loose]);
+  assert.equal(got.length, 1);
+  assert.equal(got[0].type, 'Cycling');
+});
+
+test('unmatched: with no log, every workout is unmatched', () => {
+  const a = W('2026-07-20T18:00:00Z', '2026-07-20T19:10:00Z');
+  const b = W('2026-07-22T07:00:00Z', '2026-07-22T08:00:00Z');
+  assert.equal(unmatchedWorkouts([], [a, b]).length, 2);
+});
+
+test('unmatched: returned newest first', () => {
+  const older = W('2026-07-20T18:00:00Z', '2026-07-20T19:00:00Z', { type: 'Hiking' });
+  const newer = W('2026-07-25T18:00:00Z', '2026-07-25T19:00:00Z', { type: 'Swimming' });
+  assert.deepEqual(unmatchedWorkouts([], [older, newer]).map(w => w.type), ['Swimming', 'Hiking']);
+});
+
+test('unmatched: two sessions on the same day each claim their own workout', () => {
+  const morning = W('2026-07-20T07:00:00Z', '2026-07-20T08:00:00Z');
+  const evening = W('2026-07-20T18:00:00Z', '2026-07-20T19:00:00Z');
+  const got = unmatchedWorkouts([
+    { date: '2026-07-20T07:55:00Z' },
+    { date: '2026-07-20T18:55:00Z' },
+  ], [morning, evening]);
+  assert.equal(got.length, 0);
+});
+
+test('unmatched: handles null inputs', () => {
+  assert.deepEqual(unmatchedWorkouts(null, null), []);
 });

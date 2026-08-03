@@ -44,6 +44,22 @@ export function matchWorkout(entryDate, workouts) {
   return best;
 }
 
+// Every workout no logged session claimed, newest first. The Log renders
+// these as their own rows; without the exclusion a session's own watch
+// workout would appear twice — once as stats on the session, once as a
+// standalone row. Pure, like matchWorkout: both inputs are parameters.
+export function unmatchedWorkouts(log, workouts) {
+  const all = workouts || [];
+  const claimed = new Set();
+  for (const entry of log || []) {
+    const w = matchWorkout(entry.date, all);
+    if (w) claimed.add(w.start);
+  }
+  return all
+    .filter(w => !claimed.has(w.start))
+    .sort((a, b) => (a.start < b.start ? 1 : -1));
+}
+
 // ---- loader (fetch once, cache in memory, never retry a failure) ----
 
 let workouts = null;   // flattened across all monthly files, or null until loaded
