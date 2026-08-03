@@ -9,8 +9,8 @@ import {
 } from '../scripts/backfill-health.js';
 
 // Small slice of an Apple Health export: one full strength workout with
-// HR + energy stats, one functional strength, one running workout (must
-// be filtered out), one strength workout with no stats children, and a
+// HR + energy stats, one functional strength, one running workout (also
+// imported), one strength workout with no stats children, and a
 // late-night workout whose +0530 offset moves it into the previous
 // month once converted to UTC.
 const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
@@ -95,7 +95,7 @@ test('workoutToEntry maps a full strength workout to the /health schema', () => 
   });
 });
 
-test('non-strength workouts are filtered, functional strength kept', () => {
+test('functional strength and running are both kept', () => {
   const entries = parseFixture().map(workoutToEntry).filter(Boolean);
   assert.equal(entries.length, 5); // every type in the fixture is imported
   assert.ok(entries.some(e => e.type === 'Functional Strength Training'));

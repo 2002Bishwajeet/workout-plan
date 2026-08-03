@@ -108,9 +108,8 @@ full export — no Worker involved, the files are committed by hand.
    node scripts/backfill-health.js path/to/export.xml --dry-run
    ```
 
-3. Run it for real (same command without `--dry-run`). It filters the export
-   down to strength workouts — both `TraditionalStrengthTraining` and
-   `FunctionalStrengthTraining` count — and writes `data/health/YYYY-MM.json`
+3. Run it for real (same command without `--dry-run`). It imports every
+   activity type except Walking, and writes `data/health/YYYY-MM.json`
    files in the same shape the Worker commits, keyed by the workout's start
    month (UTC). Existing month files are merged, duplicates (same `start`)
    skipped, entries kept sorted — re-running is harmless, same as the sync.
