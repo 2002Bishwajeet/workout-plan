@@ -167,7 +167,7 @@ export function workoutToEntry(block) {
     const km = dist.unit === 'm' ? n / 1000
       : dist.unit === 'mi' ? n * 1.609344
       : n;
-    entry.distance_km = Math.round(km * 100) / 100;
+    entry.distance_km = Math.round((km + Number.EPSILON) * 100) / 100;
   }
 
   return entry;

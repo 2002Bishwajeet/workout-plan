@@ -193,3 +193,10 @@ test('omits distance_km when the export carries none', () => {
   const block = `<Workout workoutActivityType="HKWorkoutActivityTypeTraditionalStrengthTraining" duration="40" durationUnit="min" startDate="2026-07-07 17:00:00 +0200" endDate="2026-07-07 17:40:00 +0200"/>`;
   assert.equal('distance_km' in workoutToEntry(block), false);
 });
+
+test('rounds distance at a float-precision boundary', () => {
+  const block = `<Workout workoutActivityType="HKWorkoutActivityTypeSwimming" duration="10" durationUnit="min" startDate="2026-07-08 19:00:00 +0200" endDate="2026-07-08 19:10:00 +0200">
+  <WorkoutStatistics type="HKQuantityTypeIdentifierDistanceSwimming" sum="145" unit="m"/>
+ </Workout>`;
+  assert.equal(workoutToEntry(block).distance_km, 0.15);
+});
