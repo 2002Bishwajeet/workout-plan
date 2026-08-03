@@ -24,6 +24,14 @@ function sameDay(a, b) {
     && a.getDate() === b.getDate();
 }
 
+// A logged session is always a gym session, so only a strength workout can
+// belong to one. Without this filter the widened import lets a same-day bike
+// ride claim a Push session and render the ride's heart rate as the session's.
+const SESSION_TYPES = new Set([
+  'Traditional Strength Training',
+  'Functional Strength Training',
+]);
+
 // Best watch workout for a log entry: 0-distance when the entry's
 // timestamp falls inside a workout's start–end window, else the gap to
 // the nearest window edge — but only windows sharing a calendar day
@@ -34,6 +42,7 @@ export function matchWorkout(entryDate, workouts) {
   let best = null;
   let bestDist = Infinity;
   for (const w of workouts || []) {
+    if (!SESSION_TYPES.has(w.type)) continue;
     const s = new Date(w.start);
     const e = new Date(w.end);
     if (isNaN(s) || isNaN(e)) continue;

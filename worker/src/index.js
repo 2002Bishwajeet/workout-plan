@@ -116,7 +116,14 @@ const HEALTH_FIELDS = ['start', 'end', 'type', 'duration_min', 'avg_hr', 'max_hr
 
 function sanitizeWorkout(raw) {
   const w = {};
-  for (const f of HEALTH_FIELDS) if (raw[f] !== undefined && raw[f] !== null) w[f] = raw[f];
+  for (const f of HEALTH_FIELDS) {
+    if (raw[f] === undefined || raw[f] === null) continue;
+    // distance_km must be a finite number — a Shortcut can send it as Text
+    // (e.g. "5.2"), and that must not be committed: the client's distStat()
+    // assumes a number and would throw, aborting the whole Log render.
+    if (f === 'distance_km' && (typeof raw[f] !== 'number' || !Number.isFinite(raw[f]))) continue;
+    w[f] = raw[f];
+  }
   return w;
 }
 

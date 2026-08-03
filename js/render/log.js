@@ -22,7 +22,7 @@ function esc(s) {
 // Distance keeps 2 dp — stat() rounds to whole numbers, which would turn
 // a 24.14 km ride into "24".
 function distStat(km) {
-  if (km === undefined || km === null) return '';
+  if (typeof km !== 'number' || !Number.isFinite(km)) return '';
   return `<div class="stat"><div class="v tabular">${km.toFixed(2)}</div><div class="k">Km</div></div>`;
 }
 

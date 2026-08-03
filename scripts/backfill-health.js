@@ -175,7 +175,14 @@ export function workoutToEntry(block) {
 
 // ---------- month files ----------
 
-// Files are keyed by the workout's START month (UTC), same as the Worker.
+// Files are keyed by the workout's START month, taken from `e.start` after
+// it has already been normalised to UTC by appleDateToISO(). The Worker
+// instead keys off the raw payload string it receives (see sanitizeWorkout /
+// handlePostHealth in worker/src/index.js, `String(it.start).slice(0, 7)`) —
+// if a Shortcut ever sends a non-UTC offset, the two writers can file the
+// same workout under different month files, and since dedupe is only
+// exact-string-within-one-file, a later backfill re-run would not catch it
+// as a duplicate.
 export function groupByMonth(entries) {
   const byMonth = new Map();
   for (const e of entries) {

@@ -55,6 +55,21 @@ test('month boundary: workout starting in July matches an entry logged in August
   assert.equal(matchWorkout('2026-08-02T10:00:00Z', [late]), null);
 });
 
+test('non-strength workout hours away on the same day is not matched', () => {
+  // Same scenario as the "no overlap: falls back to nearest window on the
+  // same day" test above, except the candidate is a Cycling ride, not a
+  // strength session. A logged session can only ever be a gym session, so
+  // a same-day bike ride must never be picked up as its match — the ride
+  // three hours away must stay unmatched (and therefore still surface via
+  // unmatchedWorkouts) rather than donating its heart rate to the session.
+  const ride = W('2026-07-20T13:17:00Z', '2026-07-20T13:27:00Z', { type: 'Cycling', avg_hr: 143 });
+  const got = matchWorkout('2026-07-20T10:17:00Z', [ride]);
+  assert.equal(got, null);
+  const unmatched = unmatchedWorkouts([{ date: '2026-07-20T10:17:00Z' }], [ride]);
+  assert.equal(unmatched.length, 1);
+  assert.equal(unmatched[0].type, 'Cycling');
+});
+
 test('unmatched: a workout claimed by a session is not returned', () => {
   const claimed = W('2026-07-20T18:00:00Z', '2026-07-20T19:10:00Z');
   const loose   = W('2026-07-22T07:00:00Z', '2026-07-22T08:00:00Z', { type: 'Cycling' });
