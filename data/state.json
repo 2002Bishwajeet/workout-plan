@@ -15,9 +15,9 @@
       {
         "key": "incline_bb",
         "name": "Incline BB Press",
-        "weight": 52.5,
+        "weight": 55,
         "unit": "kg",
-        "changed_at": "2026-08-05T09:37:39.160Z"
+        "changed_at": "2026-08-05T09:41:25.468Z"
       },
       {
         "key": "incline_db",
@@ -455,7 +455,7 @@
       }
     }
   ],
-  "updated_at": "2026-08-05T09:37:39.433Z",
+  "updated_at": "2026-08-05T09:41:25.705Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -540,6 +540,13 @@
       "name": "Incline BB Press",
       "from": 50,
       "to": 52.5
+    },
+    {
+      "date": "2026-08-05T09:41:25.468Z",
+      "key": "incline_bb",
+      "name": "Incline BB Press",
+      "from": 52.5,
+      "to": 55
     }
   ],
   "tor": {
