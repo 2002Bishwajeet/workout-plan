@@ -186,15 +186,7 @@
       }
     ]
   },
-  "in_progress": {
-    "9-push-1": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -457,9 +449,22 @@
       "top_of_range": {
         "dip": true
       }
+    },
+    {
+      "date": "2026-08-05T10:16:18.948Z",
+      "week": 9,
+      "name": "Push",
+      "sessionId": "push-1",
+      "sessionKey": "9-push-1",
+      "sets": 21,
+      "vol": 4739,
+      "focus": "Heavy bench · low-rep press · pike test (wk11)",
+      "top_of_range": {
+        "bench": false
+      }
     }
   ],
-  "updated_at": "2026-08-05T10:11:17.655Z",
+  "updated_at": "2026-08-05T10:16:19.452Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -553,9 +558,5 @@
       "to": 55
     }
   ],
-  "tor": {
-    "9-push-1": {
-      "bench": false
-    }
-  }
+  "tor": {}
 }
