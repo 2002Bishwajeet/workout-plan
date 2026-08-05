@@ -8,9 +8,9 @@
       {
         "key": "bench",
         "name": "Bench Press",
-        "weight": 65,
+        "weight": 67.5,
         "unit": "kg",
-        "changed_at": "2026-07-27T16:45:46.764Z"
+        "changed_at": "2026-08-05T09:26:40.179Z"
       },
       {
         "key": "incline_bb",
@@ -450,7 +450,7 @@
       }
     }
   ],
-  "updated_at": "2026-08-02T14:54:37.934Z",
+  "updated_at": "2026-08-05T09:26:40.398Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -521,6 +521,13 @@
       "name": "Bench Back-off",
       "from": 57.5,
       "to": 60
+    },
+    {
+      "date": "2026-08-05T09:26:40.179Z",
+      "key": "bench",
+      "name": "Bench Press",
+      "from": 65,
+      "to": 67.5
     }
   ],
   "tor": {}
