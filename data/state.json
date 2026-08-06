@@ -57,9 +57,10 @@
       {
         "key": "deadlift",
         "name": "Deadlift",
-        "weight": 90,
+        "weight": 95,
         "unit": "kg",
-        "step": 5
+        "step": 5,
+        "changed_at": "2026-08-06T15:51:51.521Z"
       },
       {
         "key": "pulldown",
@@ -464,7 +465,7 @@
       }
     }
   ],
-  "updated_at": "2026-08-05T10:16:19.452Z",
+  "updated_at": "2026-08-06T15:51:51.770Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -556,6 +557,13 @@
       "name": "Incline BB Press",
       "from": 52.5,
       "to": 55
+    },
+    {
+      "date": "2026-08-06T15:51:51.521Z",
+      "key": "deadlift",
+      "name": "Deadlift",
+      "from": 90,
+      "to": 95
     }
   ],
   "tor": {}
