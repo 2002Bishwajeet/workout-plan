@@ -28,8 +28,9 @@
       {
         "key": "ohp",
         "name": "OHP",
-        "weight": 35,
-        "unit": "kg"
+        "weight": 37.5,
+        "unit": "kg",
+        "changed_at": "2026-08-10T15:29:15.486Z"
       },
       {
         "key": "lat_raise",
@@ -498,7 +499,7 @@
       }
     }
   ],
-  "updated_at": "2026-08-10T15:25:32.865Z",
+  "updated_at": "2026-08-10T15:29:15.673Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -632,6 +633,13 @@
       "name": "Leg Press",
       "from": 235,
       "to": 243
+    },
+    {
+      "date": "2026-08-10T15:29:15.486Z",
+      "key": "ohp",
+      "name": "OHP",
+      "from": 35,
+      "to": 37.5
     }
   ],
   "tor": {
