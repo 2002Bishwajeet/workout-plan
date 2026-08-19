@@ -80,10 +80,10 @@
       {
         "key": "cs_row",
         "name": "Chest Supported Row",
-        "weight": 83,
+        "weight": 88,
         "unit": "kg",
         "step": 5,
-        "changed_at": "2026-08-19T16:38:11.855Z"
+        "changed_at": "2026-08-19T16:38:13.334Z"
       },
       {
         "key": "face_pull",
@@ -511,7 +511,7 @@
       }
     }
   ],
-  "updated_at": "2026-08-19T16:38:11.983Z",
+  "updated_at": "2026-08-19T16:38:13.456Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -680,6 +680,13 @@
       "name": "Chest Supported Row",
       "from": 78,
       "to": 83
+    },
+    {
+      "date": "2026-08-19T16:38:13.334Z",
+      "key": "cs_row",
+      "name": "Chest Supported Row",
+      "from": 83,
+      "to": 88
     }
   ],
   "tor": {
