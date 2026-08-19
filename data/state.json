@@ -80,10 +80,10 @@
       {
         "key": "cs_row",
         "name": "Chest Supported Row",
-        "weight": 73,
+        "weight": 83,
         "unit": "kg",
         "step": 5,
-        "changed_at": "2026-08-06T16:20:52.063Z"
+        "changed_at": "2026-08-19T16:38:11.855Z"
       },
       {
         "key": "face_pull",
@@ -511,7 +511,7 @@
       }
     }
   ],
-  "updated_at": "2026-08-19T16:35:09.177Z",
+  "updated_at": "2026-08-19T16:38:11.983Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -666,6 +666,20 @@
       "name": "Deadlift",
       "from": 100,
       "to": 105
+    },
+    {
+      "date": "2026-08-19T16:38:11.463Z",
+      "key": "cs_row",
+      "name": "Chest Supported Row",
+      "from": 73,
+      "to": 78
+    },
+    {
+      "date": "2026-08-19T16:38:11.855Z",
+      "key": "cs_row",
+      "name": "Chest Supported Row",
+      "from": 78,
+      "to": 83
     }
   ],
   "tor": {
