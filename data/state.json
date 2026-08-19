@@ -58,10 +58,10 @@
       {
         "key": "deadlift",
         "name": "Deadlift",
-        "weight": 100,
+        "weight": 105,
         "unit": "kg",
         "step": 5,
-        "changed_at": "2026-08-06T15:51:55.998Z"
+        "changed_at": "2026-08-19T16:18:02.370Z"
       },
       {
         "key": "pulldown",
@@ -189,7 +189,9 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "10-pull-1": []
+  },
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -506,7 +508,7 @@
       }
     }
   ],
-  "updated_at": "2026-08-10T15:49:14.031Z",
+  "updated_at": "2026-08-19T16:18:02.971Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -654,7 +656,16 @@
       "name": "OHP",
       "from": 37.5,
       "to": 40
+    },
+    {
+      "date": "2026-08-19T16:18:02.370Z",
+      "key": "deadlift",
+      "name": "Deadlift",
+      "from": 100,
+      "to": 105
     }
   ],
-  "tor": {}
+  "tor": {
+    "10-pull-1": {}
+  }
 }
