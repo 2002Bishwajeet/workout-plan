@@ -111,10 +111,10 @@
       {
         "key": "leg_press",
         "name": "Leg Press",
-        "weight": 243,
+        "weight": 253,
         "unit": "kg",
         "step": 5,
-        "changed_at": "2026-08-08T10:00:26.157Z"
+        "changed_at": "2026-08-22T08:55:22.317Z"
       },
       {
         "key": "bss",
@@ -519,7 +519,7 @@
       }
     }
   ],
-  "updated_at": "2026-08-19T17:01:00.567Z",
+  "updated_at": "2026-08-22T08:55:22.492Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -709,6 +709,13 @@
       "name": "Chest Supported Row",
       "from": 93,
       "to": 91
+    },
+    {
+      "date": "2026-08-22T08:55:22.317Z",
+      "key": "leg_press",
+      "name": "Leg Press",
+      "from": 243,
+      "to": 253
     }
   ],
   "tor": {}
