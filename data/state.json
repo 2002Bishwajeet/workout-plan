@@ -58,10 +58,10 @@
       {
         "key": "deadlift",
         "name": "Deadlift",
-        "weight": 105,
+        "weight": 100,
         "unit": "kg",
         "step": 5,
-        "changed_at": "2026-08-19T16:18:02.370Z"
+        "changed_at": "2026-08-27T15:47:15.980Z"
       },
       {
         "key": "pulldown",
@@ -539,7 +539,7 @@
       }
     }
   ],
-  "updated_at": "2026-08-25T17:14:24.946Z",
+  "updated_at": "2026-08-27T15:47:16.237Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -736,6 +736,13 @@
       "name": "Leg Press",
       "from": 243,
       "to": 253
+    },
+    {
+      "date": "2026-08-27T15:47:15.980Z",
+      "key": "deadlift",
+      "name": "Deadlift",
+      "from": 105,
+      "to": 100
     }
   ],
   "tor": {
