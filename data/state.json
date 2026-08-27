@@ -195,12 +195,6 @@
       1,
       2,
       3
-    ],
-    "11-pull-1": [
-      0,
-      1,
-      2,
-      3
     ]
   },
   "log": [
@@ -543,9 +537,22 @@
       "top_of_range": {
         "leg_press": true
       }
+    },
+    {
+      "date": "2026-08-27T16:51:50.181Z",
+      "week": 11,
+      "name": "Pull",
+      "sessionId": "pull-1",
+      "sessionKey": "11-pull-1",
+      "sets": 22,
+      "vol": 5633,
+      "focus": "Heavy deadlift triples · pull-up test · back strength",
+      "top_of_range": {
+        "deadlift": true
+      }
     }
   ],
-  "updated_at": "2026-08-27T16:36:58.839Z",
+  "updated_at": "2026-08-27T16:51:50.477Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -768,9 +775,6 @@
   "tor": {
     "11-push-1": {
       "bench": false
-    },
-    "11-pull-1": {
-      "deadlift": true
     }
   }
 }
