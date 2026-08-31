@@ -2,7 +2,7 @@
   "version": 1,
   "athlete": "Bishwajeet",
   "current_block": 2,
-  "current_week": 11,
+  "current_week": 12,
   "working_weights": {
     "push": [
       {
@@ -189,13 +189,7 @@
       }
     ]
   },
-  "in_progress": {
-    "11-legs-1": [
-      0,
-      1,
-      2
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -562,9 +556,22 @@
       "top_of_range": {
         "bench": false
       }
+    },
+    {
+      "date": "2026-08-31T17:07:49.742Z",
+      "week": 11,
+      "name": "Legs",
+      "sessionId": "legs-1",
+      "sessionKey": "11-legs-1",
+      "sets": 20,
+      "vol": 10736,
+      "focus": "Heavy leg press · strength-biased lower",
+      "top_of_range": {
+        "leg_press": true
+      }
     }
   ],
-  "updated_at": "2026-08-31T16:54:15.124Z",
+  "updated_at": "2026-08-31T17:07:49.940Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -791,9 +798,5 @@
       "to": 263
     }
   ],
-  "tor": {
-    "11-legs-1": {
-      "leg_press": true
-    }
-  }
+  "tor": {}
 }
