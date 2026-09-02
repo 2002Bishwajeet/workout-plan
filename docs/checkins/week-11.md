@@ -10,14 +10,14 @@
 |---------|------|-----:|------------:|--------|
 | Pull | Wed 2026-08-27 | 22 | 5,633 | -45 (-0.8%) |
 | Push | Thu 2026-08-28 | 21 | 4,821 | flat |
-| Legs | — | — | — | **missed** |
+| Legs | Mon 2026-08-31 | 20 | 10,736 | +220 (+2.1%) |
 | Upper+ | — | — | — | **missed** |
-| **W11 total (2 sessions)** | | **43** | **10,454** | — |
+| **W11 total (3 of 4 sessions)** | | **63** | **21,190** | +175 (+0.8%) |
 
 **W10 PPL baseline (3 sessions):** 63 sets / 21,015 kg  
-W11 has only two sessions logged. The Legs and Upper+ sessions were not completed. W11 was the final working week of the 12-week programme; the missed sessions cannot be recovered — the deload is next.
+Push, Pull, and Legs all landed; Upper+ was not logged. W11 was the final working week of the 12-week programme — Upper+ (and its dip/pull-up content) is now gone for good, the deload is next. PPL volume is essentially flat vs W10, consistent with a peak week holding load rather than adding more.
 
-Volume on the two sessions that did land is flat-to-slightly-down vs W10 equivalents, which is expected in a peak week.
+*(Legs was logged on 2026-08-31, after this review was first drafted — the section below has been updated to reflect it.)*
 
 ---
 
@@ -41,7 +41,11 @@ The app currently shows 100 kg. This should be updated to 105 kg before or after
 
 Bench is at 67.5 kg. Three sessions in Block 3 (3×3–5 @ RPE 8.5–9) without hitting the top of the rep range. This is not a failure — it means the weight is in the right zone for the peak block. **Hold at 67.5 kg through the deload.** If continuing to a second programme, re-enter Block 1 at 67.5 kg and let the progression rule drive it.
 
-### Remaining working weights — no changes this week
+### Leg Press — advanced again, again by +10 kg not +5 kg
+
+W11 Legs logged `top_of_range.leg_press: true`, and `leg_press` was bumped 253 → **263 kg**. That's +10 kg, double the standard lower-body compound step, and the same pattern flagged in the Week 10 check-in (243 → 253 was also +10 kg there). Leg press has now cleared top-of-range for four consecutive logged sessions (W8–W11) with two of those advances taken at double step size. If 263 kg feels appropriately heavy (RPE 8) going into the deload, the larger jumps were fine; if it was above RPE 9, note it and consider settling at a smaller step for the next block.
+
+### Remaining working weights — status going into the deload
 
 | Key | Name | Current weight | Status |
 |-----|------|---------------:|--------|
@@ -51,25 +55,25 @@ Bench is at 67.5 kg. Three sessions in Block 3 (3×3–5 @ RPE 8.5–9) without 
 | `deadlift` | Deadlift | 100 kg | **Advance to 105 kg** (see above) |
 | `pulldown` | Lat Pulldown | 59 kg | No W11 data for rule |
 | `cs_row` | Chest Supported Row | 91 kg | First real W11 test done; hold |
+| `leg_press` | Leg Press | 263 kg | Advanced W11 — see note above |
 | `hack_sq` | Hack Squat | 140 kg | **Unchanged for entire programme** |
-| `leg_press` | Leg Press | 253 kg | W11 Legs missed |
 | `bss` | BSS | 10 kg | **Unchanged since W1 calibration** |
 | `leg_curl` | Leg Curl | 65 kg | **Unchanged for 10+ sessions** |
-| `dip` | Dip | 0 BW | **Never loaded — see Flag 3** |
+| `dip` | Dip | 0 BW | **Never loaded — see Flag 2** |
 
 ---
 
 ## Flags
 
-### 1. Legs missed — programme closes without a single progression on hack squat, BSS, or leg curl
+### 1. Hack Squat, BSS, Leg Curl — programme closes without a single progression, despite Legs running
 
-W11 was the final working legs session of the 12-week programme. The deload (W12) uses ~50% volume and reduced RPE; it is not a training stimulus. The three lower-body accessories that were flagged across five consecutive check-ins never moved:
+W11 Legs did run (the session above), but only `leg_press` moved. The three lower-body accessories flagged across five consecutive check-ins as needing action *before* this exact session never got touched:
 
 - **Hack Squat (`hack_sq`):** 140 kg since the Week 1 calibration session. 11 weeks, three complete blocks, zero progression.
 - **BSS (`bss`):** 10 kg since Week 1 calibration. Same.
 - **Leg Curl (`leg_curl`):** 65 kg since at least Week 5. No movement across Blocks 2 and 3.
 
-These stalls are on record. The programme's lower-body accessory development is incomplete. When beginning a new block or programme, set realistic starting points: hack squat 145 kg, BSS 12.5 kg, leg curl 67.5 kg, and apply the progression rule properly from there.
+This was the last working legs session of the programme — the deload (W12) is ~50% volume at RPE 6–7, not a training stimulus, so these will not move again this cycle. The stalls are now permanent for this programme. When beginning a new block, set realistic starting points: hack squat 145 kg, BSS 12.5 kg, leg curl 67.5 kg, and apply the progression rule properly from there rather than carrying the same numbers forward untested.
 
 ### 2. Upper+ missed — dip never loaded across Blocks 2 and 3
 
@@ -89,9 +93,9 @@ Decision tree for next programme:
 
 Per the analysis above, two consecutive `top_of_range: true` at 100 kg (W10 and W11). The advance to 105 was applied and then reversed before the W11 session. **Update `deadlift` to 105 kg in the app.** The deload prescription is 3×3 @ RPE 6–7 — running it at 100 or 105 during a deload is immaterial, but closing the programme with the correct state avoids confusion at the next start.
 
-### 5. current_block shows 2 in state.json
+### 5. current_block still shows 2 in state.json
 
-`state.json` reports `"current_block": 2`. Weeks 9–11 are Block 3. This is a display issue only — the app dashboard may show incorrect block labels. Update via the app.
+`current_week` has correctly advanced to 12. `current_block` still reports 2 — weeks 9–11 were Block 3, and week 12 is Block 4 (deload). This is a display issue only, but the dashboard block label is wrong. Update via the app.
 
 ---
 
@@ -105,7 +109,7 @@ This is not a training stimulus. The goal is to flush accumulated fatigue before
 |---------|-------------|
 | **Push** | Bench 3×5 @ 67.5 kg (RPE 6–7) · Incline BB 2×8 @ 55 kg · Machine Press 2×10 · Lat Raise 2×12 · Pike Push-up 2×submax |
 | **Pull** | Deadlift 3×3 @ 100 kg (RPE 6–7) · Pull-up 3×submax BW · CS Row 2×10 · Pulldown 2×12 @ 59 kg · Face Pull 2×15 |
-| **Legs** | Hack Squat 3×8 @ 140 kg · BSS 2×10 @ 10 kg · Leg Curl 2×10 @ 65 kg · Standing Calf 2×12 · Hanging Leg Raise 2×12 |
+| **Legs** | Leg Press 3×8 @ 263 kg · BSS 2×10 @ 10 kg · Leg Curl 2×10 @ 65 kg · Standing Calf 2×12 · Hanging Leg Raise 2×12 |
 | **Upper+** | Bench 3×5 · Dip 2×8 BW · Pull-up 2×submax · Incline DB Curl 2×12 · Ab Wheel 2×10 |
 
 **Post-deload checklist (set these in the app before starting any new block):**
