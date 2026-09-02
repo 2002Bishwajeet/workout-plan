@@ -2,7 +2,7 @@
   "version": 1,
   "athlete": "Bishwajeet",
   "current_block": 2,
-  "current_week": 11,
+  "current_week": 12,
   "working_weights": {
     "push": [
       {
@@ -111,10 +111,10 @@
       {
         "key": "leg_press",
         "name": "Leg Press",
-        "weight": 253,
+        "weight": 263,
         "unit": "kg",
         "step": 5,
-        "changed_at": "2026-08-22T08:55:22.317Z"
+        "changed_at": "2026-08-31T16:04:38.266Z"
       },
       {
         "key": "bss",
@@ -556,9 +556,22 @@
       "top_of_range": {
         "bench": false
       }
+    },
+    {
+      "date": "2026-08-31T17:07:49.742Z",
+      "week": 11,
+      "name": "Legs",
+      "sessionId": "legs-1",
+      "sessionKey": "11-legs-1",
+      "sets": 20,
+      "vol": 10736,
+      "focus": "Heavy leg press · strength-biased lower",
+      "top_of_range": {
+        "leg_press": true
+      }
     }
   ],
-  "updated_at": "2026-08-28T12:31:25.307Z",
+  "updated_at": "2026-08-31T17:07:49.940Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -776,6 +789,13 @@
       "name": "Deadlift",
       "from": 105,
       "to": 100
+    },
+    {
+      "date": "2026-08-31T16:04:38.266Z",
+      "key": "leg_press",
+      "name": "Leg Press",
+      "from": 253,
+      "to": 263
     }
   ],
   "tor": {}
