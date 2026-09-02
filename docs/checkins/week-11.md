@@ -23,19 +23,11 @@ Volume on the two sessions that did land is flat-to-slightly-down vs W10 equival
 
 ## Progression
 
-### Deadlift — anomaly
+### Deadlift — autoregulated down, still cleared range
 
-The weight_history shows the following on 2026-08-27 (W11 Pull day, session started ~16:51 UTC):
+The weight_history shows the deadlift bouncing on 2026-08-27 (W11 Pull day) before settling at 100 kg ahead of the session (logged ~16:51 UTC). Volume confirms it: W10 Pull was 5,678 kg with deadlift at 105 kg; W11 Pull is 5,633 kg — exactly 45 kg less, i.e. 5 kg × 9 reps (3×3) — consistent with 100 kg.
 
-| Time | Change |
-|------|--------|
-| 15:47:15 | 105 → 100 kg |
-| 15:47:32 | 100 → 105 kg |
-| 15:59:21 | 105 → **100 kg** (final) |
-
-The session was logged at 16:51 with the weight already at 100 kg. Volume confirmation: W10 Pull was 5,678 kg with deadlift at 105 kg; W11 Pull is 5,633 kg — a difference of exactly 45 kg, which equals 5 kg × 9 reps (3×3), placing the W11 deadlift at 100 kg.
-
-The athlete intentionally dropped from 105 back to 100 before the session and logged `top_of_range.deadlift: true`. This is now the second consecutive `top_of_range: true` at 100 kg (W10 also cleared at 100 kg before the advance was applied). The progression rule is satisfied again: **advance deadlift to 105 kg**.
+Athlete confirmed: this was a deliberate call, not an app error — fatigue that day, so the load was dropped from 105 to 100 kg before the session. Even at the reduced weight, `top_of_range.deadlift: true` was still logged. That's the second consecutive session clearing the range at 100 kg (W10 also cleared it there before the advance to 105 was applied), so the progression rule still stands: **advance deadlift to 105 kg** for the next working block. Autoregulating down on a tired day and still hitting the range is a good sign, not a concern.
 
 The app currently shows 100 kg. This should be updated to 105 kg before or after the deload so the post-programme state is clean.
 
