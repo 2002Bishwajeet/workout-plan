@@ -189,14 +189,7 @@
       }
     ]
   },
-  "in_progress": {
-    "12-push-1": [
-      0,
-      1,
-      2,
-      3
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -576,9 +569,22 @@
       "top_of_range": {
         "leg_press": true
       }
+    },
+    {
+      "date": "2026-09-07T16:57:54.484Z",
+      "week": 12,
+      "name": "Push",
+      "sessionId": "push-1",
+      "sessionKey": "12-push-1",
+      "sets": 11,
+      "vol": 3230,
+      "focus": "Deload · technique · ~50% volume",
+      "top_of_range": {
+        "bench": false
+      }
     }
   ],
-  "updated_at": "2026-09-07T16:57:03.461Z",
+  "updated_at": "2026-09-07T16:57:54.774Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -826,9 +832,5 @@
       "to": 70
     }
   ],
-  "tor": {
-    "12-push-1": {
-      "bench": false
-    }
-  }
+  "tor": {}
 }
