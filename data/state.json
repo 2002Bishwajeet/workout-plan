@@ -8,9 +8,9 @@
       {
         "key": "bench",
         "name": "Bench Press",
-        "weight": 67.5,
+        "weight": 70,
         "unit": "kg",
-        "changed_at": "2026-09-07T16:38:10.564Z"
+        "changed_at": "2026-09-07T16:41:59.601Z"
       },
       {
         "key": "incline_bb",
@@ -189,7 +189,9 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "12-push-1": []
+  },
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -571,7 +573,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-07T16:41:36.465Z",
+  "updated_at": "2026-09-07T16:41:59.757Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -810,7 +812,16 @@
       "name": "Bench Press",
       "from": 65,
       "to": 67.5
+    },
+    {
+      "date": "2026-09-07T16:41:59.601Z",
+      "key": "bench",
+      "name": "Bench Press",
+      "from": 67.5,
+      "to": 70
     }
   ],
-  "tor": {}
+  "tor": {
+    "12-push-1": {}
+  }
 }
