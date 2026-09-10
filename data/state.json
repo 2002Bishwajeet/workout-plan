@@ -189,13 +189,7 @@
       }
     ]
   },
-  "in_progress": {
-    "12-pull-1": [
-      0,
-      1,
-      2
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -588,9 +582,22 @@
       "top_of_range": {
         "bench": false
       }
+    },
+    {
+      "date": "2026-09-10T17:30:41.608Z",
+      "week": 12,
+      "name": "Pull",
+      "sessionId": "pull-1",
+      "sessionKey": "12-pull-1",
+      "sets": 12,
+      "vol": 4661,
+      "focus": "Deload · light pulls · movement quality",
+      "top_of_range": {
+        "deadlift": true
+      }
     }
   ],
-  "updated_at": "2026-09-10T17:24:12.698Z",
+  "updated_at": "2026-09-10T17:30:41.906Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -838,9 +845,5 @@
       "to": 70
     }
   ],
-  "tor": {
-    "12-pull-1": {
-      "deadlift": true
-    }
-  }
+  "tor": {}
 }
