@@ -8,15 +8,15 @@
 
 | Session | Date | Sets | Volume (kg) | vs W11 |
 |---------|------|-----:|------------:|--------|
-| Push | Sun 2026-09-07 | 11 | 3,230 | −1,591 (−33%) vs W11 |
-| Pull | Thu 2026-09-10 | 12 | 4,661 | −972 (−17%) vs W11 |
-| Legs | — | — | — | **in progress / not completed** |
+| Push | Sun 2026-09-07 | 11 | 3,230 | −1,591 (−33%) vs W11 Push |
+| Pull | Thu 2026-09-10 | 12 | 4,661 | −972 (−17%) vs W11 Pull |
+| Legs | Mon 2026-09-14 | 11 | 9,252 | −1,484 (−14%) vs W11 Legs |
 | Upper+ | — | — | — | **not logged** |
-| **W12 total (2 of 4 sessions logged)** | | **23** | **7,891** | |
+| **W12 total (3 of 4 sessions logged)** | | **34** | **17,143** | −4,047 (−19%) vs W11 |
 
 W11 baseline (3 PPL sessions): 63 sets / 21,190 kg.
 
-Push deload landed cleanly at 52% of W11 set count — correct. Pull dropped to 55% of W11 sets; volume remains 83% of W11 because the deadlift weight is unchanged (100 kg, not the reduced deload load one might expect, but the prescription allowed the same working weight at lower RPE). Legs is partially ticked in `in_progress` (3 exercises done, `leg_press` TOR flagged — see below) but the session was not completed and does not appear in the log. Upper+ was not started.
+Push deload landed at 52% of W11 set count; Legs at 55%; Pull at 55% — all in the right zone for a ~50% volume deload. Volume reduction is more modest (19% overall) because compound weights are unchanged and only set count drops, which is consistent with the prescription. Upper+ was not logged.
 
 ---
 
@@ -48,9 +48,9 @@ For the next programme: **bench opens at 70 kg**. This is actually the original 
 
 This was flagged in the W11 check-in. The advance from 100 → 105 kg was applied and reversed before the W11 session; W11 cleared top-of-range at 100 kg. W12 Pull (`top_of_range.deadlift: true`) is now the fourth consecutive clear at this weight or at 100 kg. **The progression rule has been satisfied for multiple cycles. Advance deadlift to 105 kg in the app before starting any new block.** This is a high-priority post-deload action.
 
-### Leg Press — TOR: true again in W12 Legs (in progress)
+### Leg Press — TOR: true in W12 Legs (deload); hold at 263 kg
 
-The `tor["12-legs-1"] = { leg_press: true }` flag was set during the partially-completed W12 Legs session. This is the fifth consecutive TOR signal (W8–W12 in progress). The deload prescription runs leg press at lower RPE — clearing TOR on a deload set at 263 kg with RPE 6 is expected and does not itself justify an advance. **Hold leg press at 263 kg.** When starting a new programme, run the first legs session and apply the rule from there.
+W12 Legs logged `top_of_range.leg_press: true`. This is the fifth consecutive TOR signal (W8–W12). The deload prescription runs leg press at lower RPE — clearing TOR on a deload set at 263 kg with RPE 6 is expected and does not itself justify an advance. **Hold leg press at 263 kg.** Re-evaluate from the first legs session of the next programme.
 
 ### Remaining working weights — end-of-programme state
 
@@ -76,9 +76,9 @@ The `tor["12-legs-1"] = { leg_press: true }` flag was set during the partially-c
 
 Flagged in W11, still not done. Four consecutive `top_of_range: true` at 100 kg. **Action required in the app: set `deadlift` → 105 kg.** Do this now, during or immediately after the deload, so the state is correct before Block 1 Week 1 opens.
 
-### 2. W12 Legs not completed; Upper+ not logged
+### 2. Upper+ not logged
 
-Legs has 3 exercises ticked in `in_progress` but the session was never completed — it will not appear in the log. If the remaining exercises have been done in the gym but not logged, complete the session in the app before the programme closes. Upper+ was not logged for the second consecutive week; this is the last opportunity to log the calisthenic test content (dip, pull-up submax).
+W12 Legs is now complete (logged 2026-09-14: 11 sets, 9,252 kg). Upper+ was not logged — the deload dip and pull-up submax content goes unrecorded. No action needed; the programme is finished regardless.
 
 ### 3. Hack Squat, BSS, Leg Curl — no progression across 12 weeks
 
@@ -123,7 +123,7 @@ The 12-week PPL programme is finished. Week 12 is the deload; there is no Week 1
 | Advance deadlift (redundant reminder) | `deadlift` | 105 kg | High |
 | Note pull-up max-rep count | — | — | High |
 | Update current_block | — | **1 (if restarting)** | Medium |
-| Complete W12 Legs in app if done in gym | — | — | Low |
+| ~~Complete W12 Legs in app~~ | — | done | ✓ |
 
 **Block 1 opening weights (for reference):**
 
