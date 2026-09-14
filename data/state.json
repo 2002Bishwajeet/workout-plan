@@ -189,13 +189,7 @@
       }
     ]
   },
-  "in_progress": {
-    "12-legs-1": [
-      0,
-      1,
-      2
-    ]
-  },
+  "in_progress": {},
   "log": [
     {
       "date": "2026-06-01T18:46:14.576Z",
@@ -601,9 +595,22 @@
       "top_of_range": {
         "deadlift": true
       }
+    },
+    {
+      "date": "2026-09-14T10:07:32.946Z",
+      "week": 12,
+      "name": "Legs",
+      "sessionId": "legs-1",
+      "sessionKey": "12-legs-1",
+      "sets": 11,
+      "vol": 9252,
+      "focus": "Deload · light lower · mobility",
+      "top_of_range": {
+        "leg_press": true
+      }
     }
   ],
-  "updated_at": "2026-09-12T17:15:29.014Z",
+  "updated_at": "2026-09-14T10:07:33.239Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -851,9 +858,5 @@
       "to": 70
     }
   ],
-  "tor": {
-    "12-legs-1": {
-      "leg_press": true
-    }
-  }
+  "tor": {}
 }
