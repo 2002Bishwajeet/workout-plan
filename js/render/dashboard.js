@@ -2,6 +2,7 @@ import { Store } from '../store.js';
 import { sessionsForWeek } from '../data/sessions.js';
 import { blockForWeek } from '../data/programme.js';
 import { ensureHealthLoaded, healthWorkouts, matchWorkout } from '../health.js';
+import { sessionKeyFor } from '../session-logic.js';
 
 let _openSession = null;
 
@@ -62,12 +63,12 @@ export function setDate() {
     d.toLocaleDateString('en-GB', { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
 }
 
-function weekStreak(log, currentWeek) {
+function weekStreak(log, currentWeek, cycle) {
   const SESSION_IDS = ['push-1', 'pull-1', 'legs-1', 'upper-1'];
   const logged = new Set(log.map(l => l.sessionKey));
   let streak = 0;
   for (let w = currentWeek; w >= 1; w--) {
-    const done = SESSION_IDS.filter(id => logged.has(`${w}-${id}`)).length;
+    const done = SESSION_IDS.filter(id => logged.has(sessionKeyFor(cycle, w, id))).length;
     if (done >= 3) streak++;
     else break;
   }
@@ -78,7 +79,7 @@ export function renderDashboardHero() {
   if (!Store.state) return;
   document.getElementById('blockNum').innerHTML = `<em>${String(blockForWeek(Store.state.current_week)).padStart(2,'0')}</em>`;
   document.getElementById('weekNum').textContent = String(Store.state.current_week).padStart(2,'0');
-  const streak = weekStreak(Store.state.log || [], Store.state.current_week || 1);
+  const streak = weekStreak(Store.state.log || [], Store.state.current_week || 1, Store.state.cycle);
   const streakEl = document.getElementById('weekStreakVal');
   const streakWrap = document.getElementById('weekStreakWrap');
   if (streakEl) streakEl.textContent = String(streak).padStart(2, '0');
@@ -109,11 +110,12 @@ export function renderAdherence() {
   const row = document.getElementById('adherenceRow');
   if (!row || !Store.state) return;
   const week = Store.state.current_week || 1;
+  const cycle = Store.state.cycle;
   const logged = new Set((Store.state.log || []).map(l => l.sessionKey));
   row.innerHTML = sessionsForWeek(week).map(s => {
     let hit = 0;
-    for (let w = 1; w <= week; w++) if (logged.has(`${w}-${s.id}`)) hit++;
-    const doneNow = logged.has(`${week}-${s.id}`);
+    for (let w = 1; w <= week; w++) if (logged.has(sessionKeyFor(cycle, w, s.id))) hit++;
+    const doneNow = logged.has(sessionKeyFor(cycle, week, s.id));
     const behind = !s.optional && week >= 3 && hit < week / 2;
     return `<span class="adh-pill${behind ? ' behind' : ''}" title="${s.title}: completed ${hit} of ${week} weeks">
       <span class="adh-dot${doneNow ? ' on' : ''}"></span>
@@ -133,7 +135,7 @@ export function renderWeekGrid() {
   const todayId = todayMap[dow];
 
   grid.innerHTML = sessionsForWeek(week).map(s => {
-    const key = `${week}-${s.id}`;
+    const key = sessionKeyFor(Store.state?.cycle, week, s.id);
     const done = Store.state?.log?.some(l => l.sessionKey === key);
     const isToday = s.id === todayId && !done;
     const cls = done ? 'done' : (isToday ? 'today' : '');

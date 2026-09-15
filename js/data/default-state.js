@@ -4,6 +4,7 @@ export function defaultState() {
     athlete: 'Bishwajeet',
     current_block: 1,
     current_week: 1,
+    cycle: 1,
     working_weights: {
       push: [
         { key: 'bench',         name: 'Bench Press',      weight: 77, unit: 'kg', step: 2.5 },

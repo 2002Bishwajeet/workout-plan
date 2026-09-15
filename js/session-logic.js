@@ -5,6 +5,14 @@
 // ─────────────────────────────────────────────────────────────
 import { sessionsForWeek } from './data/sessions.js';
 
+// Session log/in-progress key for (cycle, week, sessionId). Cycle 1 keeps the
+// original `${week}-${id}` form (back-compat with every entry logged before
+// `cycle` existed); cycle 2+ is prefixed so a restarted programme's Week 1
+// never collides with the first run's Week 1.
+export function sessionKeyFor(cycle, week, id) {
+  return (cycle && cycle > 1) ? `${cycle}-${week}-${id}` : `${week}-${id}`;
+}
+
 // "6-8" → 7, "5" → 5, "AMRAP-1" → 1 (first numbers found); no digits → 8.
 export function parseAvgReps(reps) {
   const m = String(reps).match(/\d+/g);
@@ -28,24 +36,25 @@ export function sessionVolume(exercises, weightOf) {
 // the completion is logged under that next week. Did-everything path: filling
 // the last session of the week (Upper+ included) advances too. Both capped
 // at the 12-week block.
-export function completionPlan(startWeek, session, loggedKeys) {
+export function completionPlan(startWeek, session, loggedKeys, cycle = 1) {
+  const keyFor = (w, id) => sessionKeyFor(cycle, w, id);
   const coreDone = sessionsForWeek(startWeek)
     .filter(ws => !ws.optional)
-    .every(ws => loggedKeys.has(`${startWeek}-${ws.id}`));
+    .every(ws => loggedKeys.has(keyFor(startWeek, ws.id)));
   const startingNextWeek = coreDone && startWeek < 12
-    && loggedKeys.has(`${startWeek}-${session.id}`);
+    && loggedKeys.has(keyFor(startWeek, session.id));
   const week = startingNextWeek ? startWeek + 1 : startWeek;
-  const key = `${week}-${session.id}`;
+  const key = keyFor(week, session.id);
 
   const after = new Set(loggedKeys); after.add(key);
   const finishing = week < 12
-    && sessionsForWeek(week).every(ws => after.has(`${week}-${ws.id}`));
+    && sessionsForWeek(week).every(ws => after.has(keyFor(week, ws.id)));
   // Also advance when all required (non-optional) sessions are done, even if
   // optional sessions were skipped — Upper+ is optional so skipping it is fine.
   const coreJustFinished = !finishing && week < 12
     && sessionsForWeek(week)
         .filter(ws => !ws.optional)
-        .every(ws => after.has(`${week}-${ws.id}`));
+        .every(ws => after.has(keyFor(week, ws.id)));
   const finalWeek = (finishing || coreJustFinished) ? week + 1 : week;
   return { week, key, startingNextWeek, finishing: finishing || coreJustFinished, finalWeek };
 }
