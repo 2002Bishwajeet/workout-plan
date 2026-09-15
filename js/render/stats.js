@@ -1,6 +1,7 @@
 import { Store, getWeight } from '../store.js';
 import { torStreak, suggestionFor, TOR_TARGET } from '../progression.js';
 import { renderCheckins } from './checkins.js';
+import { sessionKeyFor } from '../session-logic.js';
 
 // Session types in display order; every week uses the same four ids.
 const TYPES = [
@@ -16,13 +17,13 @@ function entryFor(log, key) {
   return null;
 }
 
-function renderTonnageChart(log, week) {
+function renderTonnageChart(log, week, cycle) {
   const el = document.getElementById('tonnageChart');
   if (!el) return;
   const weeks = [];
   for (let w = 1; w <= week; w++) {
     const total = TYPES.reduce((a, [id]) => {
-      const e = entryFor(log, `${w}-${id}`);
+      const e = entryFor(log, sessionKeyFor(cycle, w, id));
       return a + (e ? e.vol : 0);
     }, 0);
     weeks.push({ w, total });
@@ -45,11 +46,11 @@ function renderTonnageChart(log, week) {
   el.innerHTML = `<svg width="100%" viewBox="0 0 ${svgW} ${H + 22}" preserveAspectRatio="xMinYMid meet" style="overflow:visible">${bars}</svg>`;
 }
 
-function renderVolumeTable(log, week) {
+function renderVolumeTable(log, week, cycle) {
   const weeks = [];
   let maxTotal = 0;
   for (let w = 1; w <= week; w++) {
-    const cells = TYPES.map(([id]) => entryFor(log, `${w}-${id}`));
+    const cells = TYPES.map(([id]) => entryFor(log, sessionKeyFor(cycle, w, id)));
     const total = cells.reduce((a, e) => a + (e ? e.vol : 0), 0);
     maxTotal = Math.max(maxTotal, total);
     weeks.push({ w, cells, total });
@@ -114,8 +115,9 @@ export function renderStats() {
   if (!Store.state) return;
   const log = Store.state.log || [];
   const week = Store.state.current_week || 1;
-  renderTonnageChart(log, week);
-  renderVolumeTable(log, week);
+  const cycle = Store.state.cycle;
+  renderTonnageChart(log, week, cycle);
+  renderVolumeTable(log, week, cycle);
   renderProgression(log);
   renderWeightHistory();
   const tonnage = log.reduce((a, l) => a + (l.vol || 0), 0);

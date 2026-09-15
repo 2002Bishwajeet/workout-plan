@@ -1,7 +1,7 @@
 import { Store, exerciseWeight, fmtWeight, getWeight } from '../store.js';
 import { sessionsForWeek } from '../data/sessions.js';
 import { blockForWeek } from '../data/programme.js';
-import { completionPlan, sessionVolume } from '../session-logic.js';
+import { completionPlan, sessionVolume, sessionKeyFor } from '../session-logic.js';
 import { WARMUPS, rampSets } from '../data/warmups.js';
 import { HOME_SESSIONS, HOME_PREP } from '../data/home-sessions.js';
 import { primaryKeyFor, torStreak, suggestionFor, TOR_TARGET } from '../progression.js';
@@ -10,8 +10,8 @@ import { weightControlHTML, bindWeightControls } from '../ui/weight-editor.js';
 let activeSession = null;
 let _showView = null;
 // Home mode swaps the exercise list for the band+BW variant. Ticks live under
-// `${week}-${id}-home` so indices never collide with the gym list; completion
-// logs the SAME sessionKey as the gym twin, so advancement/adherence just work.
+// `${sessionKeyFor(...)}-home` so indices never collide with the gym list;
+// completion logs the SAME sessionKey as the gym twin, so advancement/adherence just work.
 let homeMode = false;
 
 // ─── Rest timer ──────────────────────────────────────────────────────────────
@@ -46,7 +46,10 @@ function stopRestTimer() {
 
 const homeVariant = s => HOME_SESSIONS[s.id] || null;
 const activeExercises = s => (homeMode && homeVariant(s)) ? homeVariant(s).exercises : s.exercises;
-const tickKey = (week, s) => homeMode ? `${week}-${s.id}-home` : `${week}-${s.id}`;
+const tickKey = (week, s) => {
+  const base = sessionKeyFor(Store.state.cycle, week, s.id);
+  return homeMode ? `${base}-home` : base;
+};
 
 function setVariant(home) {
   const s = activeSession;
@@ -71,13 +74,14 @@ export function initSession(showViewFn) {
     const s = activeSession;
     const pad = n => String(n).padStart(2, '0');
     const startWeek = Store.state.current_week;
+    const cycle = Store.state.cycle || 1;
     const noteEl = document.getElementById('sessionNote');
     const noteText = noteEl ? noteEl.value.trim() : '';
 
     // Week attribution + advancement rules live in js/session-logic.js.
     const loggedKeys = new Set((Store.state.log || []).map(l => l.sessionKey));
     const { week, key, startingNextWeek, finishing, finalWeek } =
-      completionPlan(startWeek, s, loggedKeys);
+      completionPlan(startWeek, s, loggedKeys, cycle);
     const advanced = finalWeek !== startWeek;
 
     const exs = activeExercises(s);
@@ -94,7 +98,8 @@ export function initSession(showViewFn) {
       if (!st.log) st.log = [];
       // Move any mid-session top-of-range answers onto the log entry —
       // gym only; a home completion must not carry gym rep-quality data.
-      const tor = !homeMode && st.tor && (st.tor[key] || st.tor[`${startWeek}-${s.id}`]);
+      const startKey = sessionKeyFor(cycle, startWeek, s.id);
+      const tor = !homeMode && st.tor && (st.tor[key] || st.tor[startKey]);
       st.log.push({
         date: new Date().toISOString(),
         week, name: title, sessionId: s.id, sessionKey: key,
@@ -107,13 +112,13 @@ export function initSession(showViewFn) {
       if (noteEl) noteEl.value = '';
       if (st.in_progress) {
         delete st.in_progress[key];
-        delete st.in_progress[`${startWeek}-${s.id}`];
-        delete st.in_progress[`${week}-${s.id}-home`];
-        delete st.in_progress[`${startWeek}-${s.id}-home`];
+        delete st.in_progress[startKey];
+        delete st.in_progress[`${key}-home`];
+        delete st.in_progress[`${startKey}-home`];
       }
       if (st.tor) {
         delete st.tor[key];
-        delete st.tor[`${startWeek}-${s.id}`];
+        delete st.tor[startKey];
       }
       if (st.current_week !== finalWeek) st.current_week = finalWeek;
     }, msg, { flush: true });
@@ -144,8 +149,9 @@ export function openSession(id) {
   document.getElementById('sessionMeta').textContent = `Block ${String(blockForWeek(wk)).padStart(2,'0')} · Week ${String(wk).padStart(2,'0')} · ${s.day}`;
   // Resume in home mode when a home session is already in progress.
   const ip = Store.state.in_progress || {};
-  const homeStarted = (ip[`${wk}-${s.id}-home`] || []).length > 0;
-  const gymStarted = (ip[`${wk}-${s.id}`] || []).length > 0;
+  const baseKey = sessionKeyFor(Store.state.cycle, wk, s.id);
+  const homeStarted = (ip[`${baseKey}-home`] || []).length > 0;
+  const gymStarted = (ip[baseKey] || []).length > 0;
   setVariant(homeStarted && !gymStarted);
   _showView('session');
 }

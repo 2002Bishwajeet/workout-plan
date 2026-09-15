@@ -58,6 +58,7 @@ The single-file approach is deliberate for now — easy to host, easy to read, n
   "athlete": "Bishwajeet",
   "current_block": 1,
   "current_week": 1,
+  "cycle": 1,
   "working_weights": {
     "push": [{ "key": "bench", "name": "Bench Press", "weight": 77, "unit": "kg" }, ...],
     "pull": [...],
@@ -65,7 +66,7 @@ The single-file approach is deliberate for now — easy to host, easy to read, n
     "acc":  [...]
   },
   "in_progress": {
-    "1-push-1": [0, 2, 3]   // week-sessionId → completed exercise indices
+    "1-push-1": [0, 2, 3]   // sessionKey → completed exercise indices
   },
   "log": [
     { "date": "2026-05-18T...", "week": 1, "name": "Push", "sessionId": "push-1",
@@ -74,6 +75,8 @@ The single-file approach is deliberate for now — easy to host, easy to read, n
   "updated_at": "ISO timestamp"
 }
 ```
+
+`cycle` counts how many times the 12-week programme has been run through; it defaults to `1` when absent (every entry logged before this field existed is cycle 1). `sessionKey` is built by `sessionKeyFor(cycle, week, sessionId)` in `js/session-logic.js`: cycle 1 keeps the plain `${week}-${sessionId}` form for back-compat, cycle 2+ is prefixed `${cycle}-${week}-${sessionId}` so a restarted programme's Week 1 doesn't collide with (and show as already "done" against) the first run's Week 1. **Every place that builds or reads a session key — dashboard done/adherence/streak, stats tonnage/volume, `completionPlan`, in-progress ticks — must go through `sessionKeyFor`, never re-derive `${week}-${id}` by hand.**
 
 Anything that mutates goes through `Store.update(mutator, message)` in `index.html`. Never mutate `Store.state` directly — the update function handles dirty-flagging, debounced save, and commit-message tagging.
 
@@ -135,6 +138,18 @@ Working weights are in `data/state.json`, not in the source. Don't quote weights
 ---
 
 ## Common tasks (cookbook)
+
+### Restarting the programme (new 12-week cycle)
+
+When Week 12 is finished and it's time to loop back to Week 1, don't just reset `current_week`/`current_block` to 1 — also increment `cycle`, or the new Week 1 will collide with the first run's Week 1 log entries and the dashboard will show everything as already done. Via `Store.update`:
+
+```js
+Store.update(st => {
+  st.current_block = 1;
+  st.current_week = 1;
+  st.cycle = (st.cycle || 1) + 1;
+}, 'Reset to Block 01 Week 01 — cycle N start', { flush: true });
+```
 
 ### Add weeks 2-12 of session data
 
