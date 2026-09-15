@@ -145,9 +145,9 @@
       {
         "key": "tri_pd",
         "name": "Tricep Pushdown",
-        "weight": 22.5,
+        "weight": 25,
         "unit": "kg",
-        "changed_at": "2026-07-27T17:48:14.545Z"
+        "changed_at": "2026-09-15T17:18:24.372Z"
       },
       {
         "key": "dip",
@@ -608,7 +608,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-15T17:15:42.285Z",
+  "updated_at": "2026-09-15T17:18:24.951Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1022,6 +1022,13 @@
       "name": "Reverse Pec Deck",
       "from": 59,
       "to": 54
+    },
+    {
+      "date": "2026-09-15T17:18:24.372Z",
+      "key": "tri_pd",
+      "name": "Tricep Pushdown",
+      "from": 22.5,
+      "to": 25
     }
   ],
   "tor": {
