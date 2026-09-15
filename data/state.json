@@ -36,10 +36,10 @@
       {
         "key": "machine_press",
         "name": "Reverse Pec Deck",
-        "weight": 45,
+        "weight": 55,
         "unit": "kg",
         "step": 5,
-        "changed_at": "2026-09-15T17:11:49.951Z"
+        "changed_at": "2026-09-15T17:11:52.070Z"
       },
       {
         "key": "bench_bo",
@@ -607,7 +607,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-15T17:11:51.716Z",
+  "updated_at": "2026-09-15T17:11:52.902Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -993,6 +993,20 @@
       "name": "Reverse Pec Deck",
       "from": 40,
       "to": 45
+    },
+    {
+      "date": "2026-09-15T17:11:51.718Z",
+      "key": "machine_press",
+      "name": "Reverse Pec Deck",
+      "from": 45,
+      "to": 50
+    },
+    {
+      "date": "2026-09-15T17:11:52.070Z",
+      "key": "machine_press",
+      "name": "Reverse Pec Deck",
+      "from": 50,
+      "to": 55
     }
   ],
   "tor": {
