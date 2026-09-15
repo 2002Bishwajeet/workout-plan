@@ -14,6 +14,7 @@ export const Store = {
   pendingMsgs: [],
   dirty: false,
   onRender: null,
+  _saveChain: null,
 
   readPassword() {
     try { return localStorage.getItem('protocol_password'); }
@@ -85,7 +86,19 @@ export const Store = {
       + msgs.slice(0, -1).map(m => '- ' + m).join('\n');
   },
 
-  async save(forceMsg, opts = {}) {
+  // Queued rather than fired directly: a flush (weight edit, complete session)
+  // can land while a previous save is still in flight (e.g. two quick taps on
+  // the +/- stepper). Firing both at once means the second reaches the Worker
+  // with the sha the first is about to invalidate, gets rejected with 409, and
+  // its edit is reloaded away. Chaining onto the prior save's promise means
+  // each save only starts once the last one has updated `this.sha`.
+  save(forceMsg, opts = {}) {
+    this._saveChain = (this._saveChain || Promise.resolve())
+      .then(() => this._doSave(forceMsg, opts));
+    return this._saveChain;
+  },
+
+  async _doSave(forceMsg, opts = {}) {
     if (!this.state || !this.password) return;
     setStatus('saving');
     const batch = this.pendingMsgs.slice();
