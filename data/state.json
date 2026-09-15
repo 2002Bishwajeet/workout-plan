@@ -23,9 +23,9 @@
       {
         "key": "ohp",
         "name": "OHP",
-        "weight": 35,
+        "weight": 32.5,
         "unit": "kg",
-        "changed_at": "2026-09-15T16:53:22.536Z"
+        "changed_at": "2026-09-15T16:53:25.931Z"
       },
       {
         "key": "lat_raise",
@@ -605,7 +605,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-15T16:53:23.337Z",
+  "updated_at": "2026-09-15T16:53:26.141Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -935,6 +935,13 @@
       "name": "OHP",
       "from": 37.5,
       "to": 35
+    },
+    {
+      "date": "2026-09-15T16:53:25.931Z",
+      "key": "ohp",
+      "name": "OHP",
+      "from": 35,
+      "to": 32.5
     }
   ],
   "tor": {
