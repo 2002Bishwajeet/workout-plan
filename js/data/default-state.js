@@ -10,7 +10,7 @@ export function defaultState() {
         { key: 'incline_bb',    name: 'Incline BB Press',    weight: 45, unit: 'kg', step: 2.5 },
         { key: 'ohp',           name: 'OHP',                 weight: 35, unit: 'kg', step: 2.5 },
         { key: 'lat_raise',     name: 'Lateral Raise',       weight: 10, unit: 'kg', step: 2.5 },
-        { key: 'machine_press', name: 'Machine Chest Press', weight: 0,  unit: 'kg', step: 5 },
+        { key: 'machine_press', name: 'Reverse Pec Deck',    weight: 0,  unit: 'kg', step: 5 },
         { key: 'bench_bo',      name: 'Bench Back-off',      weight: 65, unit: 'kg', step: 2.5 }
       ],
       pull: [

@@ -13,18 +13,19 @@
 // gets weightKey-tracked from Block 2.
 // Every loadable movement — including the bench back-off and the accessories —
 // references a weightKey so it is editable + saved on the Weights tab.
-// Lower-body bilateral quad work is Leg Press (no hack-squat machine available);
-// Leg Extension covers quad-isolation volume. No cable pull-through / ab wheel.
+// Lower-body bilateral quad work is Leg Press; Leg Extension covers quad isolation.
+// Push: Machine Chest Press replaced by Reverse Pec Deck (key reused: machine_press).
+// OHP elevated to 4 sets in Blocks 1–2; Lateral Raise 4 sets across Blocks 1–3.
 // ─────────────────────────────────────────────────────────────
 
 // ===== BLOCK 1 — Volume Base (weeks 1–4) =====
-const B1_PUSH = { id: 'push-1', day: 'Day 01 · Mon', title: 'Push', focus: 'Bench primary · vertical press · lateral volume', rpe: '7 — 8',
+const B1_PUSH = { id: 'push-1', day: 'Day 01 · Mon', title: 'Push', focus: 'Bench primary · OHP co-primary · lateral + rear delt volume', rpe: '7 — 8',
   exercises: [
     { name: 'Barbell Bench Press',   sets: 4, reps: '6-8',     weightKey: 'bench',         rpe: '7-8' },
     { name: 'Incline Barbell Press', sets: 3, reps: '8-10',    weightKey: 'incline_bb',    rpe: '7-8' },
-    { name: 'Machine Chest Press',   sets: 3, reps: '10-12',   weightKey: 'machine_press', rpe: '7' },
-    { name: 'Dumbbell OHP',          sets: 3, reps: '8-10',    weightKey: 'ohp',           rpe: '7-8' },
-    { name: 'Lateral Raise (DB)',    sets: 3, reps: '12-15',   weightKey: 'lat_raise',     rpe: '7-8' },
+    { name: 'Dumbbell OHP',          sets: 4, reps: '8-10',    weightKey: 'ohp',           rpe: '7-8' },
+    { name: 'Lateral Raise (DB)',    sets: 4, reps: '12-15',   weightKey: 'lat_raise',     rpe: '7-8' },
+    { name: 'Reverse Pec Deck',      sets: 3, reps: '12-15',   weightKey: 'machine_press', rpe: '7-8' },
     { name: 'Tricep Pushdown',       sets: 3, reps: '10-12',   weightKey: 'tri_pd',        rpe: '7-8' },
     { name: 'Pike Push-up',          sets: 3, reps: 'AMRAP-1', weight: 'BW',               rpe: '8' }
   ]};
@@ -64,13 +65,13 @@ const B1_UPPER = { id: 'upper-1', optional: true, day: 'Day 04 · Sat', title: '
   ]};
 
 // ===== BLOCK 2 — Intensification (weeks 5–8) =====
-const B2_PUSH = { id: 'push-1', day: 'Day 01 · Mon', title: 'Push', focus: 'Bench strength · pressing intensity · deficit pike', rpe: '8 — 8.5',
+const B2_PUSH = { id: 'push-1', day: 'Day 01 · Mon', title: 'Push', focus: 'Bench strength · OHP intensity · lateral + rear delt', rpe: '8 — 8.5',
   exercises: [
     { name: 'Barbell Bench Press',   sets: 4, reps: '5-6',     weightKey: 'bench',         rpe: '8' },
     { name: 'Incline Barbell Press', sets: 4, reps: '6-8',     weightKey: 'incline_bb',    rpe: '8' },
-    { name: 'Machine Chest Press',   sets: 3, reps: '8-10',    weightKey: 'machine_press', rpe: '8' },
-    { name: 'Dumbbell OHP',          sets: 3, reps: '6-8',     weightKey: 'ohp',           rpe: '8' },
-    { name: 'Lateral Raise (DB)',    sets: 3, reps: '12-15',   weightKey: 'lat_raise',     rpe: '8' },
+    { name: 'Dumbbell OHP',          sets: 4, reps: '6-8',     weightKey: 'ohp',           rpe: '8' },
+    { name: 'Lateral Raise (DB)',    sets: 4, reps: '12-15',   weightKey: 'lat_raise',     rpe: '8' },
+    { name: 'Reverse Pec Deck',      sets: 3, reps: '12-15',   weightKey: 'machine_press', rpe: '8' },
     { name: 'Tricep Pushdown',       sets: 3, reps: '8-10',    weightKey: 'tri_pd',        rpe: '8' },
     { name: 'Deficit Pike Push-up',  sets: 3, reps: 'AMRAP-1', weight: 'BW',               rpe: '8.5' }
   ]};
@@ -105,13 +106,13 @@ const B2_UPPER = { id: 'upper-1', optional: true, day: 'Day 04 · Sat', title: '
   ]};
 
 // ===== BLOCK 3 — Strength Peak (weeks 9–11) =====
-const B3_PUSH = { id: 'push-1', day: 'Day 01 · Mon', title: 'Push', focus: 'Heavy bench · low-rep press · pike test (wk11)', rpe: '8.5 — 9',
+const B3_PUSH = { id: 'push-1', day: 'Day 01 · Mon', title: 'Push', focus: 'Heavy bench · shoulder peak · pike test (wk11)', rpe: '8.5 — 9',
   exercises: [
     { name: 'Barbell Bench Press',   sets: 3, reps: '3-5',     weightKey: 'bench',         rpe: '8.5-9' },
     { name: 'Incline Barbell Press', sets: 3, reps: '5-6',     weightKey: 'incline_bb',    rpe: '8.5' },
-    { name: 'Machine Chest Press',   sets: 3, reps: '8-10',    weightKey: 'machine_press', rpe: '8' },
     { name: 'Dumbbell OHP',          sets: 3, reps: '5-6',     weightKey: 'ohp',           rpe: '8.5' },
-    { name: 'Lateral Raise (DB)',    sets: 3, reps: '12-15',   weightKey: 'lat_raise',     rpe: '8' },
+    { name: 'Lateral Raise (DB)',    sets: 4, reps: '12-15',   weightKey: 'lat_raise',     rpe: '8' },
+    { name: 'Reverse Pec Deck',      sets: 3, reps: '12-15',   weightKey: 'machine_press', rpe: '8' },
     { name: 'Tricep Pushdown',       sets: 3, reps: '8-10',    weightKey: 'tri_pd',        rpe: '8' },
     { name: 'Pike Push-up',          sets: 3, reps: 'AMRAP-1', weight: 'BW',               rpe: '9' }
   ]};
@@ -149,9 +150,9 @@ const B3_UPPER = { id: 'upper-1', optional: true, day: 'Day 04 · Sat', title: '
 const B4_PUSH = { id: 'push-1', day: 'Day 01 · Mon', title: 'Push', focus: 'Deload · technique · ~50% volume', rpe: '6 — 7',
   exercises: [
     { name: 'Barbell Bench Press',   sets: 3, reps: '5',       weightKey: 'bench',         rpe: '6-7' },
-    { name: 'Incline Barbell Press', sets: 2, reps: '8',       weightKey: 'incline_bb',    rpe: '6' },
-    { name: 'Machine Chest Press',   sets: 2, reps: '10',      weightKey: 'machine_press', rpe: '6' },
+    { name: 'Dumbbell OHP',          sets: 2, reps: '8',       weightKey: 'ohp',           rpe: '6' },
     { name: 'Lateral Raise (DB)',    sets: 2, reps: '12',      weightKey: 'lat_raise',     rpe: '6' },
+    { name: 'Reverse Pec Deck',      sets: 2, reps: '12',      weightKey: 'machine_press', rpe: '6' },
     { name: 'Pike Push-up',          sets: 2, reps: 'submax',  weight: 'BW',               rpe: '6' }
   ]};
 const B4_PULL = { id: 'pull-1', day: 'Day 02 · Tue', title: 'Pull', focus: 'Deload · light pulls · movement quality', rpe: '6 — 7',
