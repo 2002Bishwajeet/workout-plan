@@ -97,13 +97,6 @@
     ],
     "legs": [
       {
-        "key": "hack_sq",
-        "name": "Hack Squat",
-        "weight": 140,
-        "unit": "kg",
-        "step": 5
-      },
-      {
         "key": "leg_press",
         "name": "Leg Press",
         "weight": 263,
@@ -605,7 +598,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-15T15:06:45.000Z",
+  "updated_at": "2026-09-15T15:16:39.000Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
