@@ -1,7 +1,7 @@
 import { Store } from './store.js';
 import { initStatus, setStatus } from './ui/status.js';
 import { initSetupModal, openSetup } from './ui/setup-modal.js';
-import { initDashboard, setDate, renderDashboardHero, renderWeekGrid, renderAdherence } from './render/dashboard.js';
+import { initDashboard, setDate, renderDashboardHero, renderWeekGrid, renderAdherence, renderBodyweight } from './render/dashboard.js';
 import { renderProgramme } from './render/programme.js';
 import { renderWeights } from './render/weights.js';
 import { renderLog } from './render/log.js';
@@ -22,6 +22,7 @@ function renderAll() {
   renderDashboardHero();
   renderAdherence();
   renderWeekGrid();
+  renderBodyweight();
   renderWeights();
   renderProgramme();
   renderLog();

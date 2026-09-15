@@ -8,12 +8,41 @@ const TYPES = [
 ];
 
 // Primary strength lifts and the session type driving their streak.
-const PRIMARY_SESSION = { bench: 'push-1', deadlift: 'pull-1', leg_press: 'legs-1', dip: 'upper-1' };
+const PRIMARY_SESSION = { bench: 'push-1', ohp: 'push-1', deadlift: 'pull-1', leg_press: 'legs-1', dip: 'upper-1' };
 
 // Latest log entry for a session key (re-completions overwrite older ones).
 function entryFor(log, key) {
   for (let i = log.length - 1; i >= 0; i--) if (log[i].sessionKey === key) return log[i];
   return null;
+}
+
+function renderTonnageChart(log, week) {
+  const el = document.getElementById('tonnageChart');
+  if (!el) return;
+  const weeks = [];
+  for (let w = 1; w <= week; w++) {
+    const total = TYPES.reduce((a, [id]) => {
+      const e = entryFor(log, `${w}-${id}`);
+      return a + (e ? e.vol : 0);
+    }, 0);
+    weeks.push({ w, total });
+  }
+  const maxTotal = Math.max(...weeks.map(x => x.total), 1);
+  const show = weeks.slice(-12);
+  const barW = 28, gap = 6, H = 60;
+  const svgW = show.length * (barW + gap) - gap;
+  const bars = show.map(({ w, total }, i) => {
+    const x = i * (barW + gap);
+    const h = total ? Math.max(4, Math.round((total / maxTotal) * H)) : 0;
+    const y = H - h;
+    const isCurrent = w === week;
+    return `<g>
+      <rect x="${x}" y="${y}" width="${barW}" height="${h}" fill="${isCurrent ? 'var(--torch)' : 'var(--md-outline-variant)'}" rx="2"/>
+      <text x="${x + barW / 2}" y="${H + 14}" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--md-on-surface-variant)">${String(w).padStart(2,'0')}</text>
+      ${total ? `<text x="${x + barW / 2}" y="${y - 3}" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="${isCurrent ? 'var(--torch)' : 'var(--md-on-surface-variant)'}">${(total/1000).toFixed(1)}t</text>` : ''}
+    </g>`;
+  }).join('');
+  el.innerHTML = `<svg width="100%" viewBox="0 0 ${svgW} ${H + 22}" preserveAspectRatio="xMinYMid meet" style="overflow:visible">${bars}</svg>`;
 }
 
 function renderVolumeTable(log, week) {
@@ -84,7 +113,9 @@ function renderWeightHistory() {
 export function renderStats() {
   if (!Store.state) return;
   const log = Store.state.log || [];
-  renderVolumeTable(log, Store.state.current_week || 1);
+  const week = Store.state.current_week || 1;
+  renderTonnageChart(log, week);
+  renderVolumeTable(log, week);
   renderProgression(log);
   renderWeightHistory();
   const tonnage = log.reduce((a, l) => a + (l.vol || 0), 0);

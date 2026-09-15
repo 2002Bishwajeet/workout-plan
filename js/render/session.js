@@ -14,6 +14,36 @@ let _showView = null;
 // logs the SAME sessionKey as the gym twin, so advancement/adherence just work.
 let homeMode = false;
 
+// ─── Rest timer ──────────────────────────────────────────────────────────────
+let _restTimerHandle = null;
+const REST_SECS = 90;
+
+function startRestTimer() {
+  const el = document.getElementById('restTimer');
+  const bar = document.getElementById('restTimerBar');
+  const lbl = document.getElementById('restTimerLabel');
+  if (!el) return;
+  clearInterval(_restTimerHandle);
+  let remaining = REST_SECS;
+  el.hidden = false;
+  const tick = () => {
+    lbl.textContent = remaining > 0 ? `Rest  ${remaining}s` : 'Go';
+    bar.style.width = `${(remaining / REST_SECS) * 100}%`;
+    if (remaining-- <= 0) {
+      clearInterval(_restTimerHandle);
+      setTimeout(() => { el.hidden = true; }, 800);
+    }
+  };
+  tick();
+  _restTimerHandle = setInterval(tick, 1000);
+}
+
+function stopRestTimer() {
+  clearInterval(_restTimerHandle);
+  const el = document.getElementById('restTimer');
+  if (el) el.hidden = true;
+}
+
 const homeVariant = s => HOME_SESSIONS[s.id] || null;
 const activeExercises = s => (homeMode && homeVariant(s)) ? homeVariant(s).exercises : s.exercises;
 const tickKey = (week, s) => homeMode ? `${week}-${s.id}-home` : `${week}-${s.id}`;
@@ -31,15 +61,18 @@ function setVariant(home) {
 export function initSession(showViewFn) {
   _showView = showViewFn;
 
-  document.getElementById('backBtn').addEventListener('click', () => _showView('dashboard'));
+  document.getElementById('backBtn').addEventListener('click', () => { stopRestTimer(); _showView('dashboard'); });
   document.getElementById('variantGym').addEventListener('click', () => setVariant(false));
   document.getElementById('variantHome').addEventListener('click', () => setVariant(true));
 
   document.getElementById('completeBtn').addEventListener('click', () => {
     if (!activeSession) return;
+    stopRestTimer();
     const s = activeSession;
     const pad = n => String(n).padStart(2, '0');
     const startWeek = Store.state.current_week;
+    const noteEl = document.getElementById('sessionNote');
+    const noteText = noteEl ? noteEl.value.trim() : '';
 
     // Week attribution + advancement rules live in js/session-logic.js.
     const loggedKeys = new Set((Store.state.log || []).map(l => l.sessionKey));
@@ -68,8 +101,10 @@ export function initSession(showViewFn) {
         sets: totalSets, vol: Math.round(totalVol),
         focus,
         ...(tor ? { top_of_range: tor } : {}),
-        ...(homeMode ? { variant: 'home' } : {})
+        ...(homeMode ? { variant: 'home' } : {}),
+        ...(noteText ? { notes: noteText } : {})
       });
+      if (noteEl) noteEl.value = '';
       if (st.in_progress) {
         delete st.in_progress[key];
         delete st.in_progress[`${startWeek}-${s.id}`];
@@ -230,8 +265,10 @@ export function renderExerciseList() {
         if (!st.in_progress) st.in_progress = {};
         const arr = st.in_progress[key] || [];
         const i = arr.indexOf(idx);
+        const ticking = i < 0;
         if (i >= 0) arr.splice(i, 1); else arr.push(idx);
         st.in_progress[key] = arr;
+        if (ticking) startRestTimer();
       }, `Tick: ${exName} (${s.title}${homeMode ? ' · Home' : ''})`);
     });
   });

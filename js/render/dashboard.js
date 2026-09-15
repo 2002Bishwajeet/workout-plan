@@ -14,6 +14,46 @@ export function initDashboard(openSessionFn) {
     const pad = n => String(n).padStart(2, '0');
     Store.update(st => { st.current_week = next; }, `Advance to Week ${pad(next)}`, { flush: true });
   });
+
+  const bwBtn = document.getElementById('bwLogBtn');
+  const bwInput = document.getElementById('bwInput');
+  if (bwBtn && bwInput) {
+    bwBtn.addEventListener('click', () => {
+      if (!Store.editable) return;
+      const v = parseFloat(bwInput.value);
+      if (isNaN(v) || v < 30 || v > 250) return;
+      Store.update(st => {
+        if (!st.bodyweight_log) st.bodyweight_log = [];
+        st.bodyweight_log.push({ date: new Date().toISOString(), weight: v });
+        if (st.bodyweight_log.length > 200) st.bodyweight_log.splice(0, st.bodyweight_log.length - 200);
+      }, `Log bodyweight: ${v} kg`, { flush: true });
+      bwInput.value = '';
+    });
+    bwInput.addEventListener('keydown', e => { if (e.key === 'Enter') bwBtn.click(); });
+  }
+}
+
+export function renderBodyweight() {
+  const log = (Store.state && Store.state.bodyweight_log) || [];
+  const meta = document.getElementById('bwMeta');
+  const hist = document.getElementById('bwHistory');
+  if (!meta || !hist) return;
+  if (!log.length) {
+    meta.textContent = 'No entries yet';
+    hist.innerHTML = '';
+    return;
+  }
+  const recent = log.slice(-7).reverse();
+  const latest = recent[0];
+  const prev = recent[1];
+  const delta = prev ? (latest.weight - prev.weight) : null;
+  meta.textContent = `${latest.weight} kg${delta != null ? (delta >= 0 ? ` +${delta.toFixed(1)}` : ` ${delta.toFixed(1)}`) : ''}`;
+  const fmt = d => new Date(d).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' }).toUpperCase();
+  hist.innerHTML = recent.map(e => `
+    <div class="bw-row">
+      <span class="bw-date label">${fmt(e.date)}</span>
+      <span class="bw-val tabular">${e.weight} kg</span>
+    </div>`).join('');
 }
 
 export function setDate() {
@@ -22,10 +62,27 @@ export function setDate() {
     d.toLocaleDateString('en-GB', { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
 }
 
+function weekStreak(log, currentWeek) {
+  const SESSION_IDS = ['push-1', 'pull-1', 'legs-1', 'upper-1'];
+  const logged = new Set(log.map(l => l.sessionKey));
+  let streak = 0;
+  for (let w = currentWeek; w >= 1; w--) {
+    const done = SESSION_IDS.filter(id => logged.has(`${w}-${id}`)).length;
+    if (done >= 3) streak++;
+    else break;
+  }
+  return streak;
+}
+
 export function renderDashboardHero() {
   if (!Store.state) return;
   document.getElementById('blockNum').innerHTML = `<em>${String(blockForWeek(Store.state.current_week)).padStart(2,'0')}</em>`;
   document.getElementById('weekNum').textContent = String(Store.state.current_week).padStart(2,'0');
+  const streak = weekStreak(Store.state.log || [], Store.state.current_week || 1);
+  const streakEl = document.getElementById('weekStreakVal');
+  const streakWrap = document.getElementById('weekStreakWrap');
+  if (streakEl) streakEl.textContent = String(streak).padStart(2, '0');
+  if (streakWrap) streakWrap.hidden = streak < 2;
   renderLastHr();
 }
 
