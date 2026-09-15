@@ -9,9 +9,9 @@
       {
         "key": "bench",
         "name": "Bench Press",
-        "weight": 70,
+        "weight": 67.5,
         "unit": "kg",
-        "changed_at": "2026-09-07T16:41:59.601Z"
+        "changed_at": "2026-09-15T16:33:07.698Z"
       },
       {
         "key": "incline_bb",
@@ -189,7 +189,7 @@
       "sessionKey": "1-push-1",
       "sets": 22,
       "vol": 5185,
-      "focus": "Bench primary \u00b7 vertical press \u00b7 lateral volume"
+      "focus": "Bench primary · vertical press · lateral volume"
     },
     {
       "date": "2026-06-04T14:24:50.115Z",
@@ -199,7 +199,7 @@
       "sessionKey": "1-pull-1",
       "sets": 23,
       "vol": 5620,
-      "focus": "Deadlift primary \u00b7 vertical + horizontal volume"
+      "focus": "Deadlift primary · vertical + horizontal volume"
     },
     {
       "date": "2026-06-05T18:41:11.000Z",
@@ -209,7 +209,7 @@
       "sessionKey": "1-legs-1",
       "sets": 20,
       "vol": 6895,
-      "focus": "Calibration \u00b7 leg press, BSS, leg extension starting weights"
+      "focus": "Calibration · leg press, BSS, leg extension starting weights"
     },
     {
       "date": "2026-06-08T17:43:48.180Z",
@@ -219,7 +219,7 @@
       "sessionKey": "1-upper-1",
       "sets": 20,
       "vol": 2636,
-      "focus": "Bench top-set + back-offs \u00b7 dip + pull-up volume"
+      "focus": "Bench top-set + back-offs · dip + pull-up volume"
     },
     {
       "date": "2026-06-13T15:16:11.850Z",
@@ -229,7 +229,7 @@
       "sessionKey": "2-upper-1",
       "sets": 20,
       "vol": 2516,
-      "focus": "Bench top-set + back-offs \u00b7 dip + pull-up volume"
+      "focus": "Bench top-set + back-offs · dip + pull-up volume"
     },
     {
       "date": "2026-06-15T10:17:18.426Z",
@@ -239,7 +239,7 @@
       "sessionKey": "2-pull-1",
       "sets": 23,
       "vol": 6040,
-      "focus": "Deadlift primary \u00b7 vertical + horizontal volume"
+      "focus": "Deadlift primary · vertical + horizontal volume"
     },
     {
       "date": "2026-06-16T17:49:20.227Z",
@@ -249,7 +249,7 @@
       "sessionKey": "3-push-1",
       "sets": 22,
       "vol": 6654,
-      "focus": "Bench primary \u00b7 vertical press \u00b7 lateral volume"
+      "focus": "Bench primary · vertical press · lateral volume"
     },
     {
       "date": "2026-06-18T09:54:46.261Z",
@@ -259,7 +259,7 @@
       "sessionKey": "3-pull-1",
       "sets": 23,
       "vol": 6549,
-      "focus": "Deadlift primary \u00b7 vertical + horizontal volume"
+      "focus": "Deadlift primary · vertical + horizontal volume"
     },
     {
       "date": "2026-06-23T15:45:41.707Z",
@@ -269,7 +269,7 @@
       "sessionKey": "4-push-1",
       "sets": 22,
       "vol": 6654,
-      "focus": "Bench primary \u00b7 vertical press \u00b7 lateral volume"
+      "focus": "Bench primary · vertical press · lateral volume"
     },
     {
       "date": "2026-06-23T17:40:33.848Z",
@@ -279,7 +279,7 @@
       "sessionKey": "4-pull-1",
       "sets": 23,
       "vol": 6549,
-      "focus": "Deadlift primary \u00b7 vertical + horizontal volume"
+      "focus": "Deadlift primary · vertical + horizontal volume"
     },
     {
       "date": "2026-06-29T18:32:19.454Z",
@@ -289,7 +289,7 @@
       "sessionKey": "4-legs-1",
       "sets": 20,
       "vol": 10382,
-      "focus": "Quad + posterior volume \u00b7 calf + core"
+      "focus": "Quad + posterior volume · calf + core"
     },
     {
       "date": "2026-07-01T19:58:03.996Z",
@@ -299,7 +299,7 @@
       "sessionKey": "4-upper-1",
       "sets": 20,
       "vol": 2346,
-      "focus": "Bench top-set + back-offs \u00b7 dip + pull-up volume"
+      "focus": "Bench top-set + back-offs · dip + pull-up volume"
     },
     {
       "date": "2026-07-03T12:44:03.278Z",
@@ -309,7 +309,7 @@
       "sessionKey": "5-pull-1",
       "sets": 25,
       "vol": 6174,
-      "focus": "Heavy deadlift \u00b7 pull-up density \u00b7 row volume"
+      "focus": "Heavy deadlift · pull-up density · row volume"
     },
     {
       "date": "2026-07-06T21:47:46.052Z",
@@ -319,7 +319,7 @@
       "sessionKey": "5-push-1",
       "sets": 23,
       "vol": 5831,
-      "focus": "Bench strength \u00b7 pressing intensity \u00b7 deficit pike"
+      "focus": "Bench strength · pressing intensity · deficit pike"
     },
     {
       "date": "2026-07-08T17:57:50.880Z",
@@ -329,7 +329,7 @@
       "sessionKey": "5-legs-1",
       "sets": 20,
       "vol": 11132,
-      "focus": "Leg press intensity \u00b7 quad + posterior chain"
+      "focus": "Leg press intensity · quad + posterior chain"
     },
     {
       "date": "2026-07-11T16:14:02.403Z",
@@ -339,7 +339,7 @@
       "sessionKey": "5-upper-1",
       "sets": 21,
       "vol": 1926,
-      "focus": "Bench intensity \u00b7 weighted dip primary \u00b7 pull volume"
+      "focus": "Bench intensity · weighted dip primary · pull volume"
     },
     {
       "date": "2026-07-16T16:39:44.720Z",
@@ -349,7 +349,7 @@
       "sessionKey": "6-push-1",
       "sets": 23,
       "vol": 5831,
-      "focus": "Bench strength \u00b7 pressing intensity \u00b7 deficit pike"
+      "focus": "Bench strength · pressing intensity · deficit pike"
     },
     {
       "date": "2026-07-18T16:24:43.987Z",
@@ -359,7 +359,7 @@
       "sessionKey": "6-legs-1",
       "sets": 20,
       "vol": 11132,
-      "focus": "Leg press intensity \u00b7 quad + posterior chain"
+      "focus": "Leg press intensity · quad + posterior chain"
     },
     {
       "date": "2026-07-20T17:17:38.946Z",
@@ -369,7 +369,7 @@
       "sessionKey": "7-push-1",
       "sets": 23,
       "vol": 5886,
-      "focus": "Bench strength \u00b7 pressing intensity \u00b7 deficit pike"
+      "focus": "Bench strength · pressing intensity · deficit pike"
     },
     {
       "date": "2026-07-21T17:19:17.939Z",
@@ -379,7 +379,7 @@
       "sessionKey": "7-pull-1",
       "sets": 25,
       "vol": 6287,
-      "focus": "Heavy deadlift \u00b7 pull-up density \u00b7 row volume"
+      "focus": "Heavy deadlift · pull-up density · row volume"
     },
     {
       "date": "2026-07-23T16:21:51.535Z",
@@ -389,7 +389,7 @@
       "sessionKey": "7-legs-1",
       "sets": 20,
       "vol": 11937,
-      "focus": "Leg press intensity \u00b7 quad + posterior chain"
+      "focus": "Leg press intensity · quad + posterior chain"
     },
     {
       "date": "2026-07-27T17:54:11.286Z",
@@ -399,7 +399,7 @@
       "sessionKey": "8-push-1",
       "sets": 23,
       "vol": 6009,
-      "focus": "Bench strength \u00b7 pressing intensity \u00b7 deficit pike",
+      "focus": "Bench strength · pressing intensity · deficit pike",
       "top_of_range": {
         "bench": false
       }
@@ -412,7 +412,7 @@
       "sessionKey": "8-pull-1",
       "sets": 25,
       "vol": 6427,
-      "focus": "Heavy deadlift \u00b7 pull-up density \u00b7 row volume",
+      "focus": "Heavy deadlift · pull-up density · row volume",
       "top_of_range": {
         "deadlift": false
       }
@@ -425,7 +425,7 @@
       "sessionKey": "8-legs-1",
       "sets": 20,
       "vol": 12250,
-      "focus": "Leg press intensity \u00b7 quad + posterior chain",
+      "focus": "Leg press intensity · quad + posterior chain",
       "top_of_range": {
         "leg_press": true
       }
@@ -438,7 +438,7 @@
       "sessionKey": "9-upper-1",
       "sets": 21,
       "vol": 1761,
-      "focus": "Bench peak \u00b7 weighted dip \u00b7 calisthenic tests",
+      "focus": "Bench peak · weighted dip · calisthenic tests",
       "top_of_range": {
         "dip": true
       }
@@ -451,7 +451,7 @@
       "sessionKey": "9-push-1",
       "sets": 21,
       "vol": 4739,
-      "focus": "Heavy bench \u00b7 low-rep press \u00b7 pike test (wk11)",
+      "focus": "Heavy bench · low-rep press · pike test (wk11)",
       "top_of_range": {
         "bench": false
       }
@@ -464,7 +464,7 @@
       "sessionKey": "9-pull-1",
       "sets": 22,
       "vol": 5255,
-      "focus": "Heavy deadlift triples \u00b7 pull-up test \u00b7 back strength",
+      "focus": "Heavy deadlift triples · pull-up test · back strength",
       "top_of_range": {
         "deadlift": true
       }
@@ -477,7 +477,7 @@
       "sessionKey": "9-legs-1",
       "sets": 20,
       "vol": 10296,
-      "focus": "Heavy leg press \u00b7 strength-biased lower",
+      "focus": "Heavy leg press · strength-biased lower",
       "top_of_range": {
         "leg_press": true
       }
@@ -490,7 +490,7 @@
       "sessionKey": "10-push-1",
       "sets": 21,
       "vol": 4821,
-      "focus": "Heavy bench \u00b7 low-rep press \u00b7 pike test (wk11)",
+      "focus": "Heavy bench · low-rep press · pike test (wk11)",
       "top_of_range": {
         "bench": false
       }
@@ -503,7 +503,7 @@
       "sessionKey": "10-pull-1",
       "sets": 22,
       "vol": 5678,
-      "focus": "Heavy deadlift triples \u00b7 pull-up test \u00b7 back strength",
+      "focus": "Heavy deadlift triples · pull-up test · back strength",
       "top_of_range": {
         "deadlift": true
       }
@@ -516,7 +516,7 @@
       "sessionKey": "10-legs-1",
       "sets": 20,
       "vol": 10516,
-      "focus": "Heavy leg press \u00b7 strength-biased lower",
+      "focus": "Heavy leg press · strength-biased lower",
       "top_of_range": {
         "leg_press": true
       }
@@ -529,7 +529,7 @@
       "sessionKey": "11-pull-1",
       "sets": 22,
       "vol": 5633,
-      "focus": "Heavy deadlift triples \u00b7 pull-up test \u00b7 back strength",
+      "focus": "Heavy deadlift triples · pull-up test · back strength",
       "top_of_range": {
         "deadlift": true
       }
@@ -542,7 +542,7 @@
       "sessionKey": "11-push-1",
       "sets": 21,
       "vol": 4821,
-      "focus": "Heavy bench \u00b7 low-rep press \u00b7 pike test (wk11)",
+      "focus": "Heavy bench · low-rep press · pike test (wk11)",
       "top_of_range": {
         "bench": false
       }
@@ -555,7 +555,7 @@
       "sessionKey": "11-legs-1",
       "sets": 20,
       "vol": 10736,
-      "focus": "Heavy leg press \u00b7 strength-biased lower",
+      "focus": "Heavy leg press · strength-biased lower",
       "top_of_range": {
         "leg_press": true
       }
@@ -568,7 +568,7 @@
       "sessionKey": "12-push-1",
       "sets": 11,
       "vol": 3230,
-      "focus": "Deload \u00b7 technique \u00b7 ~50% volume",
+      "focus": "Deload · technique · ~50% volume",
       "top_of_range": {
         "bench": false
       }
@@ -581,7 +581,7 @@
       "sessionKey": "12-pull-1",
       "sets": 12,
       "vol": 4661,
-      "focus": "Deload \u00b7 light pulls \u00b7 movement quality",
+      "focus": "Deload · light pulls · movement quality",
       "top_of_range": {
         "deadlift": true
       }
@@ -594,13 +594,13 @@
       "sessionKey": "12-legs-1",
       "sets": 11,
       "vol": 9252,
-      "focus": "Deload \u00b7 light lower \u00b7 mobility",
+      "focus": "Deload · light lower · mobility",
       "top_of_range": {
         "leg_press": true
       }
     }
   ],
-  "updated_at": "2026-09-15T15:16:39.000Z",
+  "updated_at": "2026-09-15T16:33:08.018Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -846,6 +846,13 @@
       "name": "Bench Press",
       "from": 67.5,
       "to": 70
+    },
+    {
+      "date": "2026-09-15T16:33:07.698Z",
+      "key": "bench",
+      "name": "Bench Press",
+      "from": 70,
+      "to": 67.5
     }
   ],
   "tor": {}
