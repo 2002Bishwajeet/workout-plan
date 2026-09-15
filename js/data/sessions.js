@@ -37,7 +37,7 @@ const B1_PULL = { id: 'pull-1', day: 'Day 02 · Tue', title: 'Pull', focus: 'Dea
     { name: 'Lat Pulldown (neutral)',sets: 3, reps: '10-12',   weightKey: 'pulldown',   rpe: '7' },
     { name: 'Face Pull',             sets: 3, reps: '12-15',   weightKey: 'face_pull',  rpe: '7' },
     { name: 'Barbell Curl',          sets: 3, reps: '8-10',    weightKey: 'bb_curl',    rpe: '7-8' },
-    { name: 'Hammer Curl',           sets: 3, reps: '10-12',   weightKey: 'hammer',     rpe: '7' }
+    { name: 'Hanging Leg Raise',     sets: 3, reps: '10-15',   weight: 'BW',            rpe: '7-8' }
   ]};
 const B1_LEGS = { id: 'legs-1', day: 'Day 03 · Thu', title: 'Legs', focus: 'Quad + posterior volume · calf + core', rpe: '7 — 8',
   exercises: [
@@ -83,7 +83,7 @@ const B2_PULL = { id: 'pull-1', day: 'Day 02 · Tue', title: 'Pull', focus: 'Hea
     { name: 'Lat Pulldown (neutral)',sets: 3, reps: '8-10',    weightKey: 'pulldown',   rpe: '8' },
     { name: 'Face Pull',             sets: 3, reps: '15',      weightKey: 'face_pull',  rpe: '7' },
     { name: 'Barbell Curl',          sets: 3, reps: '6-8',     weightKey: 'bb_curl',    rpe: '8' },
-    { name: 'Hammer Curl',           sets: 3, reps: '8-10',    weightKey: 'hammer',     rpe: '8' }
+    { name: 'Hanging Leg Raise',     sets: 3, reps: '12-15',   weight: 'BW',            rpe: '8' }
   ]};
 const B2_LEGS = { id: 'legs-1', day: 'Day 03 · Thu', title: 'Legs', focus: 'Leg press intensity · quad + posterior chain', rpe: '8 — 8.5',
   exercises: [
@@ -124,7 +124,7 @@ const B3_PULL = { id: 'pull-1', day: 'Day 02 · Tue', title: 'Pull', focus: 'Hea
     { name: 'Lat Pulldown (neutral)',sets: 3, reps: '6-8',     weightKey: 'pulldown',   rpe: '8' },
     { name: 'Face Pull',             sets: 3, reps: '15',      weightKey: 'face_pull',  rpe: '7' },
     { name: 'Barbell Curl',          sets: 3, reps: '6-8',     weightKey: 'bb_curl',    rpe: '8.5' },
-    { name: 'Hammer Curl',           sets: 3, reps: '8-10',    weightKey: 'hammer',     rpe: '8' }
+    { name: 'Hanging Leg Raise',     sets: 3, reps: '12-15',   weight: 'BW',            rpe: '8' }
   ]};
 const B3_LEGS = { id: 'legs-1', day: 'Day 03 · Thu', title: 'Legs', focus: 'Heavy leg press · strength-biased lower', rpe: '8.5 — 9',
   exercises: [

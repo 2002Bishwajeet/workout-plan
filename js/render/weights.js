@@ -4,7 +4,7 @@ import { weightControlHTML, bindWeightControls } from '../ui/weight-editor.js';
 
 // Primary strength lifts and the session type whose log entries drive
 // their top-of-range streak (see js/progression.js).
-const PRIMARY_SESSION = { bench: 'push-1', deadlift: 'pull-1', leg_press: 'legs-1', dip: 'upper-1' };
+const PRIMARY_SESSION = { bench: 'push-1', ohp: 'push-1', deadlift: 'pull-1', leg_press: 'legs-1', dip: 'upper-1' };
 
 function torStatusHTML(w) {
   const sid = PRIMARY_SESSION[w.key];
