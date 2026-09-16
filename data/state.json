@@ -178,15 +178,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-1-push-1": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
-  },
+  "in_progress": {},
   "bodyweight_log": [],
   "log": [
     {
@@ -606,9 +598,22 @@
       "top_of_range": {
         "leg_press": true
       }
+    },
+    {
+      "date": "2026-09-15T17:22:13.968Z",
+      "week": 1,
+      "name": "Push",
+      "sessionId": "push-1",
+      "sessionKey": "2-1-push-1",
+      "sets": 24,
+      "vol": 7733,
+      "focus": "Bench primary · OHP co-primary · lateral + rear delt volume",
+      "top_of_range": {
+        "bench": false
+      }
     }
   ],
-  "updated_at": "2026-09-15T17:18:28.371Z",
+  "updated_at": "2026-09-16T06:24:05.443Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1038,9 +1043,5 @@
       "to": 27
     }
   ],
-  "tor": {
-    "2-1-push-1": {
-      "bench": false
-    }
-  }
+  "tor": {}
 }
