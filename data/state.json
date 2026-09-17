@@ -178,15 +178,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-1-pull-1": [
-      0,
-      1,
-      2,
-      3,
-      5
-    ]
-  },
+  "in_progress": {},
   "bodyweight_log": [],
   "log": [
     {
@@ -619,9 +611,22 @@
       "top_of_range": {
         "bench": false
       }
+    },
+    {
+      "date": "2026-09-17T17:50:48.189Z",
+      "week": 1,
+      "name": "Pull",
+      "sessionId": "pull-1",
+      "sessionKey": "2-1-pull-1",
+      "sets": 23,
+      "vol": 7623,
+      "focus": "Deadlift primary · vertical + horizontal volume",
+      "top_of_range": {
+        "deadlift": true
+      }
     }
   ],
-  "updated_at": "2026-09-17T17:46:57.098Z",
+  "updated_at": "2026-09-17T17:50:49.150Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1058,9 +1063,5 @@
       "to": 54
     }
   ],
-  "tor": {
-    "2-1-pull-1": {
-      "deadlift": true
-    }
-  }
+  "tor": {}
 }
