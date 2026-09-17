@@ -178,7 +178,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "2-1-pull-1": [
+      0
+    ]
+  },
   "bodyweight_log": [],
   "log": [
     {
@@ -613,7 +617,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-16T06:24:05.443Z",
+  "updated_at": "2026-09-17T17:09:36.409Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1043,5 +1047,9 @@
       "to": 27
     }
   ],
-  "tor": {}
+  "tor": {
+    "2-1-pull-1": {
+      "deadlift": true
+    }
+  }
 }
