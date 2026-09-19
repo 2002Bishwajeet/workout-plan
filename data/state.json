@@ -178,7 +178,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "2-1-legs-1": [
+      0
+    ]
+  },
   "bodyweight_log": [],
   "log": [
     {
@@ -626,7 +630,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-17T17:50:49.150Z",
+  "updated_at": "2026-09-19T15:07:43.399Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1063,5 +1067,9 @@
       "to": 54
     }
   ],
-  "tor": {}
+  "tor": {
+    "2-1-legs-1": {
+      "leg_press": true
+    }
+  }
 }
