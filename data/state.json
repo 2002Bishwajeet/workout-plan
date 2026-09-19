@@ -2,7 +2,7 @@
   "version": 1,
   "athlete": "Bishwajeet",
   "current_block": 1,
-  "current_week": 1,
+  "current_week": 2,
   "cycle": 2,
   "working_weights": {
     "push": [
@@ -178,14 +178,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-1-legs-1": [
-      0,
-      1,
-      2,
-      4
-    ]
-  },
+  "in_progress": {},
   "bodyweight_log": [],
   "log": [
     {
@@ -631,9 +624,22 @@
       "top_of_range": {
         "deadlift": true
       }
+    },
+    {
+      "date": "2026-09-19T15:46:29.500Z",
+      "week": 1,
+      "name": "Legs",
+      "sessionId": "legs-1",
+      "sessionKey": "2-1-legs-1",
+      "sets": 20,
+      "vol": 13904,
+      "focus": "Calibration · leg press, BSS, leg extension starting weights",
+      "top_of_range": {
+        "leg_press": true
+      }
     }
   ],
-  "updated_at": "2026-09-19T15:40:35.282Z",
+  "updated_at": "2026-09-19T15:46:29.780Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1070,9 +1076,5 @@
       "to": 54
     }
   ],
-  "tor": {
-    "2-1-legs-1": {
-      "leg_press": true
-    }
-  }
+  "tor": {}
 }
