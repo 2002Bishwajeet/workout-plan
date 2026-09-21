@@ -6,6 +6,28 @@ import { weightControlHTML, bindWeightControls } from '../ui/weight-editor.js';
 // their top-of-range streak (see js/progression.js).
 const PRIMARY_SESSION = { bench: 'push-1', ohp: 'push-1', deadlift: 'pull-1', leg_press: 'legs-1', dip: 'upper-1' };
 
+function renderSectionReminder(targetId, list) {
+  const el = document.getElementById(targetId);
+  if (!el) return;
+  const log = Store.state.log || [];
+  const ready = list
+    .filter(w => PRIMARY_SESSION[w.key])
+    .map(w => {
+      const streak = torStreak(log, PRIMARY_SESSION[w.key], w.key, w.changed_at);
+      const sug = suggestionFor(w, streak);
+      return sug ? { name: w.name, from: w.weight, to: sug.target } : null;
+    })
+    .filter(Boolean);
+  if (!ready.length) { el.innerHTML = ''; return; }
+  el.innerHTML = `<div class="section-reminder">
+    ${ready.map(r => `<span class="sec-rem-item">
+      <span class="sec-rem-arrow">↑</span>
+      <span class="sec-rem-name">${r.name}</span>
+      <span class="sec-rem-change tabular">${r.from} → ${r.to} kg</span>
+    </span>`).join('')}
+  </div>`;
+}
+
 function torStatusHTML(w) {
   const sid = PRIMARY_SESSION[w.key];
   if (!sid) return '';
@@ -68,9 +90,13 @@ export function renderWeights() {
   ].filter(Boolean);
   renderWeightCells('weightsGrid', snapshot);
   renderWeightCells('weightsPush', ww.push);
+  renderSectionReminder('remPush', ww.push);
   renderWeightCells('weightsPull', ww.pull);
+  renderSectionReminder('remPull', ww.pull);
   renderWeightCells('weightsLegs', ww.legs);
+  renderSectionReminder('remLegs', ww.legs);
   renderWeightCells('weightsAcc',  ww.acc);
+  renderSectionReminder('remAcc',  ww.acc);
   document.getElementById('pushMeta').textContent = `${ww.push.length} lifts`;
   document.getElementById('pullMeta').textContent = `${ww.pull.length} lifts`;
   const calibrating = ww.legs.filter(l => l.calibrate).length;

@@ -2083,3 +2083,24 @@ body {
   font-weight: 600;
   white-space: nowrap;
 }
+
+/* ── Section-level weight step reminder (Weights view) ─────── */
+.section-reminder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 12px;
+  border-left: 3px solid var(--torch);
+  background: var(--md-sc-low);
+  margin-bottom: 8px;
+}
+.sec-rem-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+}
+.sec-rem-arrow { color: var(--torch); font-weight: 700; }
+.sec-rem-name { color: var(--md-on-surface-variant); }
+.sec-rem-change { color: var(--torch); font-weight: 600; }

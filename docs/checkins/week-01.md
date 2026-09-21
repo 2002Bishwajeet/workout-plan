@@ -71,15 +71,7 @@ Incline BB (45 kg), OHP (30 kg), pulldown (54 kg), cs_row (91 kg), and all acces
 
 This was flagged in the W11 and W12 check-ins and classed critical. It is now the third written reminder. **Set `deadlift` to 105 kg in the app before the next Pull session.** No further analysis is needed; the progression rule is unambiguous.
 
-### 2. `hack_sq` key is missing from working weights
-
-`hack_sq` is absent from `working_weights.legs` in `state.json`. The programme spec lists Hack Squat as the primary quad compound in the Legs session (4×6–8, RPE 7–8). The W12 check-in recommended opening cycle 2 at 145 kg.
-
-Current state of `working_weights.legs`: leg_press, bss, leg_ext, leg_curl, calf. No hack_sq.
-
-Possible causes: the key was removed during a session edit, or accidentally dropped during the cycle reset. **Verify in the app: if Hack Squat is in your Legs session, re-add the key at 145 kg.** If it has been intentionally removed from the programme, note that here; this check-in cannot distinguish that from an accidental deletion.
-
-### 3. Deload checklist — items still outstanding from cycle 1
+### 2. Deload checklist — items still outstanding from cycle 1
 
 The W12 check-in closed with a prioritised action list. Current status:
 
@@ -88,7 +80,6 @@ The W12 check-in closed with a prioritised action list. Current status:
 | Advance deadlift | `deadlift` | 105 kg | 100 kg | **NOT DONE** |
 | Set BSS opening weight | `bss` | 12.5 kg | 10 kg | **NOT DONE** |
 | Set Leg Curl opening weight | `leg_curl` | 67.5 kg | 65 kg | **NOT DONE** |
-| Restore/re-add Hack Squat | `hack_sq` | 145 kg | MISSING | **NOT DONE** |
 | Load dip for Block 2 | `dip` | 5 kg (unit → kg) | 0 BW | Not due until W5 |
 
 BSS and leg_curl are small corrections; apply them before the next Legs session so W2 progression is measured against the correct baseline.
@@ -107,6 +98,5 @@ Block 1 continues unchanged. Session structure is identical to Week 1 (calibrati
 
 1. **Set `deadlift` to 105 kg in the app** — do this before Pull day.
 2. **Update `bss` to 12.5 kg and `leg_curl` to 67.5 kg** — before Legs day.
-3. **Resolve `hack_sq`** — re-add at 145 kg or confirm it has been intentionally removed.
-4. Log all four sessions including Upper+.
-5. Track TOR flags on every set — specifically incline_bb and OHP (reset weights may be too easy) and leg_press (one more TOR → advance to 268 kg).
+3. Log all four sessions including Upper+.
+4. Track TOR flags on every set — specifically incline_bb and OHP (reset weights may be too easy) and leg_press (one more TOR → advance to 268 kg).

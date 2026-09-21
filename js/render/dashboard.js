@@ -149,14 +149,8 @@ export function renderCoachReminders() {
     const streak = torStreak(log, sessionId, key, w.changed_at);
     const sug = suggestionFor(w, streak);
     if (sug) {
-      items.push({ type: 'step', name: w.name, key: w.key, from: w.weight, to: sug.target, unit: w.unit === 'BW' ? 'BW' : 'kg' });
+      items.push({ name: w.name, from: w.weight, to: sug.target, unit: w.unit === 'BW' ? 'BW' : 'kg' });
     }
-  }
-
-  // Static checks: missing expected keys
-  const legsKeys = (ww.legs || []).map(x => x.key);
-  if (!legsKeys.includes('hack_sq')) {
-    items.push({ type: 'missing', label: 'HACK SQUAT missing from Legs weights — add at 145 kg' });
   }
 
   if (!items.length) { el.innerHTML = ''; return; }
@@ -166,17 +160,11 @@ export function renderCoachReminders() {
       <span class="coach-rem-title">Action Required</span>
       <button class="coach-rem-goto" data-view="weights">Update Weights</button>
     </div>
-    ${items.map(item => item.type === 'step'
-      ? `<div class="coach-rem-item coach-rem-step">
-           <span class="coach-rem-arrow">↑</span>
-           <span class="coach-rem-name">${item.name}</span>
-           <span class="coach-rem-change tabular">${item.from} → ${item.to} ${item.unit}</span>
-         </div>`
-      : `<div class="coach-rem-item coach-rem-warn">
-           <span class="coach-rem-arrow">!</span>
-           <span class="coach-rem-name">${item.label}</span>
-         </div>`
-    ).join('')}
+    ${items.map(item => `<div class="coach-rem-item coach-rem-step">
+      <span class="coach-rem-arrow">↑</span>
+      <span class="coach-rem-name">${item.name}</span>
+      <span class="coach-rem-change tabular">${item.from} → ${item.to} ${item.unit}</span>
+    </div>`).join('')}
   </div>`;
 
   el.querySelector('.coach-rem-goto')?.addEventListener('click', e => {
