@@ -3,6 +3,7 @@ import { sessionsForWeek } from '../data/sessions.js';
 import { blockForWeek } from '../data/programme.js';
 import { ensureHealthLoaded, healthWorkouts, matchWorkout } from '../health.js';
 import { sessionKeyFor } from '../session-logic.js';
+import { torStreak, suggestionFor, primaryKeyFor } from '../progression.js';
 
 let _openSession = null;
 
@@ -124,6 +125,63 @@ export function renderAdherence() {
       ${behind ? '<span class="adh-flag">Behind</span>' : ''}
     </span>`;
   }).join('');
+}
+
+export function renderCoachReminders() {
+  const el = document.getElementById('coachReminders');
+  if (!el || !Store.state) return;
+
+  const items = [];
+  const ww = Store.state.working_weights || {};
+  const log = Store.state.log || [];
+  const week = Store.state.current_week || 1;
+  const allWeights = [
+    ...(ww.push || []), ...(ww.pull || []),
+    ...(ww.legs || []), ...(ww.acc || []),
+  ];
+
+  // Auto-detect primary lifts ready to step (TOR streak met)
+  for (const sessionId of ['push-1', 'pull-1', 'legs-1', 'upper-1']) {
+    const key = primaryKeyFor(sessionId, week);
+    if (!key) continue;
+    const w = allWeights.find(x => x.key === key);
+    if (!w) continue;
+    const streak = torStreak(log, sessionId, key, w.changed_at);
+    const sug = suggestionFor(w, streak);
+    if (sug) {
+      items.push({ type: 'step', name: w.name, key: w.key, from: w.weight, to: sug.target, unit: w.unit === 'BW' ? 'BW' : 'kg' });
+    }
+  }
+
+  // Static checks: missing expected keys
+  const legsKeys = (ww.legs || []).map(x => x.key);
+  if (!legsKeys.includes('hack_sq')) {
+    items.push({ type: 'missing', label: 'HACK SQUAT missing from Legs weights — add at 145 kg' });
+  }
+
+  if (!items.length) { el.innerHTML = ''; return; }
+
+  el.innerHTML = `<div class="coach-reminders">
+    <div class="coach-rem-head">
+      <span class="coach-rem-title">Action Required</span>
+      <button class="coach-rem-goto" data-view="weights">Update Weights</button>
+    </div>
+    ${items.map(item => item.type === 'step'
+      ? `<div class="coach-rem-item coach-rem-step">
+           <span class="coach-rem-arrow">↑</span>
+           <span class="coach-rem-name">${item.name}</span>
+           <span class="coach-rem-change tabular">${item.from} → ${item.to} ${item.unit}</span>
+         </div>`
+      : `<div class="coach-rem-item coach-rem-warn">
+           <span class="coach-rem-arrow">!</span>
+           <span class="coach-rem-name">${item.label}</span>
+         </div>`
+    ).join('')}
+  </div>`;
+
+  el.querySelector('.coach-rem-goto')?.addEventListener('click', e => {
+    document.querySelector(`.nav button[data-view="${e.currentTarget.dataset.view}"]`)?.click();
+  });
 }
 
 export function renderWeekGrid() {
