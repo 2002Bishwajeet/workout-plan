@@ -30,8 +30,9 @@
       {
         "key": "lat_raise",
         "name": "Lateral Raise",
-        "weight": 10,
-        "unit": "kg"
+        "weight": 7.5,
+        "unit": "kg",
+        "changed_at": "2026-09-22T17:32:06.228Z"
       },
       {
         "key": "machine_press",
@@ -181,7 +182,8 @@
   "in_progress": {
     "2-2-push-1": [
       0,
-      1
+      1,
+      2
     ]
   },
   "bodyweight_log": [],
@@ -644,7 +646,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-22T17:22:47.576Z",
+  "updated_at": "2026-09-22T17:32:06.521Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1093,6 +1095,13 @@
       "name": "Bench Press",
       "from": 62.5,
       "to": 60
+    },
+    {
+      "date": "2026-09-22T17:32:06.228Z",
+      "key": "lat_raise",
+      "name": "Lateral Raise",
+      "from": 10,
+      "to": 7.5
     }
   ],
   "tor": {
