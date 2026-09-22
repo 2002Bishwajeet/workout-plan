@@ -30,9 +30,9 @@
       {
         "key": "lat_raise",
         "name": "Lateral Raise",
-        "weight": 7.5,
+        "weight": 10,
         "unit": "kg",
-        "changed_at": "2026-09-22T17:32:06.228Z"
+        "changed_at": "2026-09-22T17:32:06.836Z"
       },
       {
         "key": "machine_press",
@@ -646,7 +646,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-22T17:32:06.521Z",
+  "updated_at": "2026-09-22T17:32:07.716Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1102,6 +1102,13 @@
       "name": "Lateral Raise",
       "from": 10,
       "to": 7.5
+    },
+    {
+      "date": "2026-09-22T17:32:06.836Z",
+      "key": "lat_raise",
+      "name": "Lateral Raise",
+      "from": 7.5,
+      "to": 10
     }
   ],
   "tor": {
