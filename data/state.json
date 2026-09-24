@@ -63,10 +63,10 @@
       {
         "key": "pulldown",
         "name": "Lat Pulldown",
-        "weight": 54,
+        "weight": 52,
         "unit": "kg",
         "step": 5,
-        "changed_at": "2026-09-17T17:41:37.395Z"
+        "changed_at": "2026-09-24T15:46:42.154Z"
       },
       {
         "key": "pullup",
@@ -651,7 +651,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-24T15:42:30.793Z",
+  "updated_at": "2026-09-24T15:46:42.299Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1142,6 +1142,13 @@
       "name": "Deadlift",
       "from": 105,
       "to": 102.5
+    },
+    {
+      "date": "2026-09-24T15:46:42.154Z",
+      "key": "pulldown",
+      "name": "Lat Pulldown",
+      "from": 54,
+      "to": 52
     }
   ],
   "tor": {
