@@ -185,13 +185,6 @@
       1,
       2,
       3
-    ],
-    "2-2-pull-1": [
-      0,
-      1,
-      3,
-      4,
-      5
     ]
   },
   "bodyweight_log": [],
@@ -652,9 +645,23 @@
       "top_of_range": {
         "leg_press": true
       }
+    },
+    {
+      "date": "2026-09-24T16:07:03.359Z",
+      "week": 2,
+      "name": "Pull",
+      "sessionId": "pull-1",
+      "sessionKey": "2-2-pull-1",
+      "sets": 23,
+      "vol": 7607,
+      "focus": "Deadlift primary · vertical + horizontal volume",
+      "top_of_range": {
+        "deadlift": false
+      },
+      "notes": "Deadlift -3 set 3 rep (tirey week)"
     }
   ],
-  "updated_at": "2026-09-24T16:04:56.101Z",
+  "updated_at": "2026-09-24T16:07:03.562Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1157,9 +1164,6 @@
   "tor": {
     "2-2-push-1": {
       "bench": false
-    },
-    "2-2-pull-1": {
-      "deadlift": false
     }
   }
 }
