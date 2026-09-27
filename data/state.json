@@ -101,10 +101,10 @@
       {
         "key": "leg_press",
         "name": "Leg Press",
-        "weight": 263,
+        "weight": 268,
         "unit": "kg",
         "step": 5,
-        "changed_at": "2026-08-31T16:04:38.266Z"
+        "changed_at": "2026-09-27T15:35:22.505Z"
       },
       {
         "key": "bss",
@@ -667,7 +667,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-27T15:22:27.697Z",
+  "updated_at": "2026-09-27T15:35:22.960Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1165,6 +1165,13 @@
       "name": "Lat Pulldown",
       "from": 54,
       "to": 52
+    },
+    {
+      "date": "2026-09-27T15:35:22.505Z",
+      "key": "leg_press",
+      "name": "Leg Press",
+      "from": 263,
+      "to": 268
     }
   ],
   "tor": {}
