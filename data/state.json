@@ -179,14 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-3-push-1": [
-      0,
-      1,
-      2,
-      3
-    ]
-  },
+  "in_progress": {},
   "bodyweight_log": [],
   "log": [
     {
@@ -685,9 +678,23 @@
       "top_of_range": {
         "leg_press": false
       }
+    },
+    {
+      "date": "2026-09-29T17:48:25.542Z",
+      "week": 3,
+      "name": "Push",
+      "sessionId": "push-1",
+      "sessionKey": "2-3-push-1",
+      "sets": 24,
+      "vol": 7913,
+      "focus": "Bench primary · OHP co-primary · lateral + rear delt volume",
+      "top_of_range": {
+        "bench": false
+      },
+      "notes": "Instead of pec deck i did the shoulder trap exercise with dumbells"
     }
   ],
-  "updated_at": "2026-09-29T17:39:05.354Z",
+  "updated_at": "2026-09-29T17:48:32.258Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1222,9 +1229,5 @@
       "to": 35
     }
   ],
-  "tor": {
-    "2-3-push-1": {
-      "bench": false
-    }
-  }
+  "tor": {}
 }
