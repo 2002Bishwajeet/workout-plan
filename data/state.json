@@ -9,9 +9,9 @@
       {
         "key": "bench",
         "name": "Bench Press",
-        "weight": 60,
+        "weight": 62.5,
         "unit": "kg",
-        "changed_at": "2026-09-22T17:06:20.346Z"
+        "changed_at": "2026-09-29T16:34:04.980Z"
       },
       {
         "key": "incline_bb",
@@ -680,7 +680,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-27T16:29:20.004Z",
+  "updated_at": "2026-09-29T16:34:05.091Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1185,6 +1185,13 @@
       "name": "Leg Press",
       "from": 263,
       "to": 268
+    },
+    {
+      "date": "2026-09-29T16:34:04.980Z",
+      "key": "bench",
+      "name": "Bench Press",
+      "from": 60,
+      "to": 62.5
     }
   ],
   "tor": {}
