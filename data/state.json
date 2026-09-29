@@ -23,9 +23,9 @@
       {
         "key": "ohp",
         "name": "OHP",
-        "weight": 30,
+        "weight": 32.5,
         "unit": "kg",
-        "changed_at": "2026-09-15T16:53:26.245Z"
+        "changed_at": "2026-09-29T17:21:08.996Z"
       },
       {
         "key": "lat_raise",
@@ -181,7 +181,8 @@
   },
   "in_progress": {
     "2-3-push-1": [
-      0
+      0,
+      1
     ]
   },
   "bodyweight_log": [],
@@ -684,7 +685,7 @@
       }
     }
   ],
-  "updated_at": "2026-09-29T16:57:10.781Z",
+  "updated_at": "2026-09-29T17:21:09.266Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1203,6 +1204,13 @@
       "name": "Bench Press",
       "from": 62.5,
       "to": 65
+    },
+    {
+      "date": "2026-09-29T17:21:08.996Z",
+      "key": "ohp",
+      "name": "OHP",
+      "from": 30,
+      "to": 32.5
     }
   ],
   "tor": {
