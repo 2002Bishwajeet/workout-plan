@@ -179,7 +179,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "2-3-pull-1": [
+      1
+    ]
+  },
   "bodyweight_log": [],
   "log": [
     {
@@ -694,7 +698,7 @@
       "notes": "Instead of pec deck i did the shoulder trap exercise with dumbells"
     }
   ],
-  "updated_at": "2026-09-29T17:48:32.258Z",
+  "updated_at": "2026-10-01T13:40:02.754Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
