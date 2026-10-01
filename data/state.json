@@ -179,12 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-3-pull-1": [
-      1,
-      2
-    ]
-  },
+  "in_progress": {},
   "bodyweight_log": [],
   "log": [
     {
@@ -697,9 +692,20 @@
         "bench": false
       },
       "notes": "Instead of pec deck i did the shoulder trap exercise with dumbells"
+    },
+    {
+      "date": "2026-10-01T13:53:15.507Z",
+      "week": 3,
+      "name": "Pull",
+      "sessionId": "pull-1",
+      "sessionKey": "2-3-pull-1",
+      "sets": 23,
+      "vol": 7607,
+      "focus": "Deadlift primary · vertical + horizontal volume",
+      "notes": "Did 2 sets deadlift- had sharp sudden pain in glutes, nausea dizziness so did what i could and called it a day"
     }
   ],
-  "updated_at": "2026-10-01T13:46:55.458Z",
+  "updated_at": "2026-10-01T13:53:15.671Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
