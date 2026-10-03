@@ -2,7 +2,7 @@
   "version": 1,
   "athlete": "Bishwajeet",
   "current_block": 1,
-  "current_week": 3,
+  "current_week": 4,
   "cycle": 2,
   "working_weights": {
     "push": [
@@ -179,14 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-3-legs-1": [
-      0,
-      1,
-      2,
-      4
-    ]
-  },
+  "in_progress": {},
   "bodyweight_log": [],
   "log": [
     {
@@ -710,9 +703,22 @@
       "vol": 7607,
       "focus": "Deadlift primary · vertical + horizontal volume",
       "notes": "Did 2 sets deadlift- had sharp sudden pain in glutes, nausea dizziness so did what i could and called it a day"
+    },
+    {
+      "date": "2026-10-03T15:24:43.548Z",
+      "week": 3,
+      "name": "Legs",
+      "sessionId": "legs-1",
+      "sessionKey": "2-3-legs-1",
+      "sets": 20,
+      "vol": 14044,
+      "focus": "Quad + posterior volume · calf + core",
+      "top_of_range": {
+        "leg_press": false
+      }
     }
   ],
-  "updated_at": "2026-10-03T15:21:53.917Z",
+  "updated_at": "2026-10-03T15:24:43.780Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1247,9 +1253,5 @@
       "to": 35
     }
   ],
-  "tor": {
-    "2-3-legs-1": {
-      "leg_press": false
-    }
-  }
+  "tor": {}
 }
