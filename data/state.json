@@ -179,7 +179,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "2-3-legs-1": [
+      0
+    ]
+  },
   "bodyweight_log": [],
   "log": [
     {
@@ -705,7 +709,7 @@
       "notes": "Did 2 sets deadlift- had sharp sudden pain in glutes, nausea dizziness so did what i could and called it a day"
     }
   ],
-  "updated_at": "2026-10-01T13:53:15.671Z",
+  "updated_at": "2026-10-03T14:46:58.258Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1240,5 +1244,9 @@
       "to": 35
     }
   ],
-  "tor": {}
+  "tor": {
+    "2-3-legs-1": {
+      "leg_press": false
+    }
+  }
 }
