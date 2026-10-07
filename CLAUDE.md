@@ -155,6 +155,8 @@ Store.update(st => {
 
 Check-ins live in `docs/checkins/c<cycle>-week-<WW>.md` (e.g. `c2-week-03.md`), rendered newest-first by `js/render/checkins.js`. Always include the cycle prefix: a bare `week-<WW>.md` is read as cycle 1, so a cycle 2+ review written without it overwrites the first run's review for that week. Log entries don't carry `cycle`; derive it from the `sessionKey` prefix (`2-3-push-1` → cycle 2), and a key without the prefix is cycle 1.
 
+The Monday check-in routine also applies what it recommends: working weights in `data/state.json`, sets/reps/exercise swaps in `js/data/sessions.js`, and app fixes or features, committed straight to `main` once `node --test tests/*.test.mjs` passes. A direct `state.json` commit is safe: the app's next save gets a 409 and reloads the fresh state.
+
 ### Add weeks 2-12 of session data
 
 Currently `SESSIONS_W1` is a single array for Week 1. To support all 12 weeks:
