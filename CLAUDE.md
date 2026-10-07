@@ -151,6 +151,10 @@ Store.update(st => {
 }, 'Reset to Block 01 Week 01 — cycle N start', { flush: true });
 ```
 
+### Weekly check-ins
+
+Check-ins live in `docs/checkins/c<cycle>-week-<WW>.md` (e.g. `c2-week-03.md`), rendered newest-first by `js/render/checkins.js`. Always include the cycle prefix: a bare `week-<WW>.md` is read as cycle 1, so a cycle 2+ review written without it overwrites the first run's review for that week. Log entries don't carry `cycle`; derive it from the `sessionKey` prefix (`2-3-push-1` → cycle 2), and a key without the prefix is cycle 1.
+
 ### Add weeks 2-12 of session data
 
 Currently `SESSIONS_W1` is a single array for Week 1. To support all 12 weeks:

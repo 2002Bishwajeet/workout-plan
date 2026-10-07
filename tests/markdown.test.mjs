@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
-import { mdToHTML } from '../js/render/checkins.js';
+import { mdToHTML, parseCheckinName, sortCheckins } from '../js/render/checkins.js';
 
 test('headings, bold, code, lists, hr', () => {
   const html = mdToHTML('# Title\n\nSome **bold** and `code`.\n\n- one\n- two\n\n---');
@@ -33,4 +33,17 @@ test('renders every real check-in doc without raw markdown leaking through', () 
     assert.ok(!/^#{1,4}\s/m.test(html), `${name}: unrendered heading`);
     assert.ok(!html.includes('**'), `${name}: unrendered bold`);
   }
+});
+
+test('check-in names parse cycle + week; legacy names are cycle 1', () => {
+  assert.deepEqual(parseCheckinName('c2-week-03.md'), { cycle: 2, week: 3 });
+  assert.deepEqual(parseCheckinName('week-12.md'), { cycle: 1, week: 12 });
+  assert.equal(parseCheckinName('notes.md'), null);
+});
+
+test('check-ins sort newest cycle first, then highest week', () => {
+  const names = ['c1-week-12.md', 'c2-week-01.md', 'week-11.md', 'c2-week-03.md', 'c1-week-02.md']
+    .map(name => ({ name }));
+  assert.deepEqual(sortCheckins(names).map(f => f.name),
+    ['c2-week-03.md', 'c2-week-01.md', 'c1-week-12.md', 'week-11.md', 'c1-week-02.md']);
 });

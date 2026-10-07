@@ -77,9 +77,23 @@ export function mdToHTML(md) {
   return out.join('\n');
 }
 
+// Files are named `c<cycle>-week-<WW>.md`; a bare `week-<WW>.md` is cycle 1
+// (written before cycles existed). The cycle prefix keeps a restarted
+// programme's Week 1 from overwriting the first run's Week 1 review.
+export function parseCheckinName(name) {
+  const m = name.match(/^(?:c(\d+)-)?week-(\d+)\.md$/);
+  return m ? { cycle: m[1] ? +m[1] : 1, week: +m[2] } : null;
+}
+
+// Newest first: highest cycle, then highest week; unrecognised names last.
+export function sortCheckins(list) {
+  const rank = f => { const p = parseCheckinName(f.name); return p ? p.cycle * 100 + p.week : -1; };
+  return [...list].sort((a, b) => rank(b) - rank(a) || (a.name < b.name ? 1 : -1));
+}
+
 function itemTitle(name) {
-  const m = name.match(/week-(\d+)/);
-  return m ? `Week ${m[1].padStart(2, '0')}` : name.replace(/\.md$/, '');
+  const p = parseCheckinName(name);
+  return p ? `Cycle ${p.cycle} · Week ${String(p.week).padStart(2, '0')}` : name.replace(/\.md$/, '');
 }
 
 function renderList() {
@@ -133,8 +147,7 @@ export function renderCheckins() {
   fetch(LIST_URL)
     .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
     .then(list => {
-      files = list.filter(f => f.name.endsWith('.md'))
-        .sort((a, b) => (a.name < b.name ? 1 : -1)); // newest (highest week) first
+      files = sortCheckins(list.filter(f => f.name.endsWith('.md')));
       renderList();
     })
     .catch(() => { failed = true; renderList(); })
