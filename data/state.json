@@ -55,10 +55,10 @@
       {
         "key": "deadlift",
         "name": "Deadlift",
-        "weight": 102.5,
+        "weight": 90,
         "unit": "kg",
         "step": 5,
-        "changed_at": "2026-09-24T15:15:13.046Z"
+        "changed_at": "2026-10-07T16:54:16.373Z"
       },
       {
         "key": "pulldown",
@@ -731,7 +731,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-06T08:13:46.979Z",
+  "updated_at": "2026-10-07T17:01:17.870Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1264,6 +1264,13 @@
       "name": "OHP",
       "from": 32.5,
       "to": 35
+    },
+    {
+      "date": "2026-10-07T16:54:16.373Z",
+      "key": "deadlift",
+      "name": "Deadlift",
+      "from": 102.5,
+      "to": 90
     }
   ],
   "tor": {}
