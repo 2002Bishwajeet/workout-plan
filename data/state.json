@@ -179,15 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-4-upper-1": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
-  },
+  "in_progress": {},
   "bodyweight_log": [],
   "log": [
     {
@@ -750,9 +742,22 @@
       "top_of_range": {
         "deadlift": true
       }
+    },
+    {
+      "date": "2026-10-10T08:43:49.071Z",
+      "week": 4,
+      "name": "Upper +",
+      "sessionId": "upper-1",
+      "sessionKey": "2-4-upper-1",
+      "sets": 20,
+      "vol": 2491,
+      "focus": "Bench top-set + back-offs · dip + pull-up volume",
+      "top_of_range": {
+        "bench": true
+      }
     }
   ],
-  "updated_at": "2026-10-09T17:08:04.905Z",
+  "updated_at": "2026-10-10T08:43:49.219Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1294,9 +1299,5 @@
       "to": 90
     }
   ],
-  "tor": {
-    "2-4-upper-1": {
-      "bench": true
-    }
-  }
+  "tor": {}
 }
