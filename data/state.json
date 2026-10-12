@@ -109,7 +109,7 @@
       {
         "key": "bss",
         "name": "BSS",
-        "weight": 10,
+        "weight": 12.5,
         "unit": "kg",
         "step": 2.5
       },
@@ -757,7 +757,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-10T08:43:49.219Z",
+  "updated_at": "2026-10-12T07:00:00.000Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
