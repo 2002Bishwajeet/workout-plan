@@ -146,9 +146,9 @@
       {
         "key": "tri_pd",
         "name": "Tricep Pushdown",
-        "weight": 27,
+        "weight": 17,
         "unit": "kg",
-        "changed_at": "2026-09-15T17:18:27.942Z"
+        "changed_at": "2026-10-12T15:41:12.877Z"
       },
       {
         "key": "dip",
@@ -765,7 +765,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-12T15:36:37.320Z",
+  "updated_at": "2026-10-12T15:41:13.336Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1305,6 +1305,13 @@
       "name": "Deadlift",
       "from": 102.5,
       "to": 90
+    },
+    {
+      "date": "2026-10-12T15:41:12.877Z",
+      "key": "tri_pd",
+      "name": "Tricep Pushdown",
+      "from": 27,
+      "to": 17
     }
   ],
   "tor": {
