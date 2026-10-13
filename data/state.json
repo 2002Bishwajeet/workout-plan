@@ -179,14 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-5-pull-1": [
-      0,
-      1,
-      2,
-      4
-    ]
-  },
+  "in_progress": {},
   "bodyweight_log": [],
   "log": [
     {
@@ -775,9 +768,22 @@
       "top_of_range": {
         "bench": true
       }
+    },
+    {
+      "date": "2026-10-13T16:57:10.374Z",
+      "week": 5,
+      "name": "Pull",
+      "sessionId": "pull-1",
+      "sessionKey": "2-5-pull-1",
+      "sets": 25,
+      "vol": 8257,
+      "focus": "Heavy deadlift · pull-up density · row volume",
+      "top_of_range": {
+        "deadlift": true
+      }
     }
   ],
-  "updated_at": "2026-10-13T16:51:31.616Z",
+  "updated_at": "2026-10-13T16:57:10.690Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1333,9 +1339,5 @@
       "to": 140
     }
   ],
-  "tor": {
-    "2-5-pull-1": {
-      "deadlift": true
-    }
-  }
+  "tor": {}
 }
