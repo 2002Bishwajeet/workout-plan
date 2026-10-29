@@ -179,7 +179,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "2-5-upper-1": [
+      0
+    ]
+  },
   "bodyweight_log": [],
   "log": [
     {
@@ -783,7 +787,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-19T10:01:48.000Z",
+  "updated_at": "2026-10-29T16:34:53.662Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
