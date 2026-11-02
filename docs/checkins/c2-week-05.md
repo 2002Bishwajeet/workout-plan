@@ -1,6 +1,6 @@
 # Week 05 Check-in — Cycle 2, Block 2 (Intensification)
 
-**Review date:** 2026-10-19 · **Cycle:** 2 · **Block:** 2 (week 1 of 4, RPE 8–8.5)
+**Review date:** 2026-10-19 · **Updated:** 2026-11-02 (Upper+ logged 10-29) · **Cycle:** 2 · **Block:** 2 (week 1 of 4, RPE 8–8.5)
 
 ## Sessions logged — Week 5
 
@@ -9,9 +9,9 @@
 | Push | Mon 2026-10-12 | 25 | 6,856 | Bench top of range. Tricep pushdown moved 27 → 17 kg by you |
 | Pull | Tue 2026-10-13 | 25 | 8,257 | Deadlift top of range. Chest Supported Row set to 140 kg by you |
 | Legs | — | — | — | Not logged (W4 Legs also still open) |
-| Upper+ | — | — | — | Not logged |
+| Upper+ | Thu 2026-10-29 | 21 | 2,050 | Weighted Dip top of range. Bench top set and back-offs ticked, no top-of-range flag |
 
-2 of 4 sessions logged. `current_week` is 5. Nothing has been logged in the six days since Tue 10-13.
+3 of 4 sessions logged. `current_week` is still 5. Upper+ came 16 days after Pull (10-13); nothing was logged 10-14 to 10-28. Legs is still open.
 
 | Session | W4 Sets / Vol | W5 Sets / Vol | Change |
 |---------|--------------:|--------------:|-------:|
@@ -51,3 +51,15 @@ Chest Supported Row (91 → 140 kg) and Tricep Pushdown (27 → 17 kg) were chan
 
 - **Leg Curl 65 → 67.5 kg:** the app steps in 5 kg and no Legs session is logged. Move to 70 kg only if it feels easy.
 - **Bench Back-off (60 kg):** leave until the new 67.5 kg top set is confirmed on Upper+.
+
+## Update 2026-11-02 (Upper+ logged)
+
+| Lift | Journal | Verdict |
+|------|---------|---------|
+| Bench Press 67.5 kg | Top set ticked 10-29, no top-of-range flag | One session at 67.5 kg. Hold, no change |
+| Weighted Dip | Top of range, first Block 2 exposure | One session. Hold, repeat next Upper+ before adding load |
+| Leg Press 268 kg | Still no Legs session since W3 | Hold |
+
+Flags carried over: Legs has now been missed for W4 and W5 (about five weeks since the last Legs session). Do Legs before Week 6 Push. Cycle 2 Week 6 Block 2 stays pending until you advance in the app.
+
+Applied this update: none. Proposed, not applied: none (no lift has two clean sessions at its current weight).
