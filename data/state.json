@@ -179,7 +179,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "2-6-push-1": [
+      0
+    ]
+  },
   "bodyweight_log": [],
   "log": [
     {
@@ -796,7 +800,7 @@
       }
     }
   ],
-  "updated_at": "2026-11-10T11:58:31.413Z",
+  "updated_at": "2026-11-10T12:11:39.286Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1359,5 +1363,9 @@
       "to": 70
     }
   ],
-  "tor": {}
+  "tor": {
+    "2-6-push-1": {
+      "bench": true
+    }
+  }
 }
