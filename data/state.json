@@ -9,9 +9,9 @@
       {
         "key": "bench",
         "name": "Bench Press",
-        "weight": 67.5,
+        "weight": 70,
         "unit": "kg",
-        "changed_at": "2026-10-19T10:01:48.000Z"
+        "changed_at": "2026-11-10T11:58:30.863Z"
       },
       {
         "key": "incline_bb",
@@ -796,7 +796,7 @@
       }
     }
   ],
-  "updated_at": "2026-11-10T11:46:18.692Z",
+  "updated_at": "2026-11-10T11:58:31.413Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1350,6 +1350,13 @@
       "name": "Chest Supported Row",
       "from": 91,
       "to": 140
+    },
+    {
+      "date": "2026-11-10T11:58:30.864Z",
+      "key": "bench",
+      "name": "Bench Press",
+      "from": 67.5,
+      "to": 70
     }
   ],
   "tor": {}
