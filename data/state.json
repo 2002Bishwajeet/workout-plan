@@ -179,15 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-6-push-1": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
-  },
+  "in_progress": {},
   "bodyweight_log": [],
   "log": [
     {
@@ -802,9 +794,22 @@
       "top_of_range": {
         "dip": true
       }
+    },
+    {
+      "date": "2026-11-10T13:11:13.237Z",
+      "week": 6,
+      "name": "Push",
+      "sessionId": "push-1",
+      "sessionKey": "2-6-push-1",
+      "sets": 25,
+      "vol": 7106,
+      "focus": "Bench strength · OHP intensity · lateral + rear delt",
+      "top_of_range": {
+        "bench": true
+      }
     }
   ],
-  "updated_at": "2026-11-10T13:04:42.067Z",
+  "updated_at": "2026-11-10T13:11:13.692Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1381,9 +1386,5 @@
       "to": 50
     }
   ],
-  "tor": {
-    "2-6-push-1": {
-      "bench": true
-    }
-  }
+  "tor": {}
 }
