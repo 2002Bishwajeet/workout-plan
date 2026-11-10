@@ -2,7 +2,7 @@
   "version": 1,
   "athlete": "Bishwajeet",
   "current_block": 1,
-  "current_week": 5,
+  "current_week": 6,
   "cycle": 2,
   "working_weights": {
     "push": [
@@ -796,7 +796,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-29T17:13:52.739Z",
+  "updated_at": "2026-11-10T11:46:18.692Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
