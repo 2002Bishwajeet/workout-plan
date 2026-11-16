@@ -13,7 +13,7 @@ Block 2 (Intensification), RPE 8–8.5. The programme is on Cycle 2 Week 6, and 
 
 - Week 5 Push was 25 sets and 6856 kg, so volume is up 3.6% on the same session.
 - This was the first session back after the India break (last session 29 Oct, 12 days earlier). The gap was planned, so no changes were made for it.
-- The Week 6 Push session in Cycle 1 can be compared in `c1-week-06.md`. Cycle 2 volume is higher on the same lift pattern.
+- Cycle 1 Week 6 Push was 23 sets and 5831 kg, so Cycle 2 is up 22% on volume.
 
 ## Progression
 
@@ -32,7 +32,7 @@ No lift has two clean sessions at its current weight, so no weights were changed
 
 ## Flags
 
-1. **Pull, Legs and Upper+ are missing for Week 6.** The week is open until 16 Nov+ and the app stays on Week 6 until you advance.
+1. **Pull, Legs and Upper+ are missing for Week 6.** The app stays on Week 6 until you advance.
 2. **Legs is the long gap.** The last Legs session was 3 Oct (Week 3), about six weeks ago. Do Legs before you advance the week. Leg Press 268 kg and Hack Squat availability are still unconfirmed, and `hack_sq` is still absent from `working_weights`.
 3. **Both bench bumps came from you, not from this routine.** Bench jumped 2.5 kg and Incline 5 kg in one session after a 12-day layoff, which is a lot of load change at once. If Pull or Upper+ feels flat, drop Incline back to 47.5 kg.
 4. **Bench Back-off (60 kg)** stays put until the 70 kg top set is confirmed on Upper+.
