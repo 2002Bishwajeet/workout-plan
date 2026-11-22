@@ -179,15 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-7-upper-1": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
-  },
+  "in_progress": {},
   "bodyweight_log": [],
   "log": [
     {
@@ -839,9 +831,23 @@
       "sets": 25,
       "vol": 8347,
       "focus": "Heavy deadlift · pull-up density · row volume"
+    },
+    {
+      "date": "2026-11-22T12:19:29.155Z",
+      "week": 7,
+      "name": "Upper +",
+      "sessionId": "upper-1",
+      "sessionKey": "2-7-upper-1",
+      "sets": 21,
+      "vol": 2061,
+      "focus": "Bench intensity · weighted dip primary · pull volume",
+      "top_of_range": {
+        "dip": false
+      },
+      "notes": "Did hammer curls instead if incline db"
     }
   ],
-  "updated_at": "2026-11-22T12:06:32.841Z",
+  "updated_at": "2026-11-22T12:19:29.764Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1418,9 +1424,5 @@
       "to": 50
     }
   ],
-  "tor": {
-    "2-7-upper-1": {
-      "dip": false
-    }
-  }
+  "tor": {}
 }
