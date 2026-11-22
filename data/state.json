@@ -181,7 +181,8 @@
   },
   "in_progress": {
     "2-7-upper-1": [
-      0
+      0,
+      1
     ]
   },
   "bodyweight_log": [],
@@ -837,7 +838,7 @@
       "focus": "Heavy deadlift · pull-up density · row volume"
     }
   ],
-  "updated_at": "2026-11-22T11:32:17.517Z",
+  "updated_at": "2026-11-22T11:38:06.354Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
