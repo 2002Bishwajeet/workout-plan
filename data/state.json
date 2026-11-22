@@ -2,7 +2,7 @@
   "version": 1,
   "athlete": "Bishwajeet",
   "current_block": 1,
-  "current_week": 6,
+  "current_week": 7,
   "cycle": 2,
   "working_weights": {
     "push": [
@@ -179,14 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-6-pull-1": [
-      1,
-      2,
-      3,
-      4
-    ]
-  },
+  "in_progress": {},
   "bodyweight_log": [],
   "log": [
     {
@@ -828,9 +821,19 @@
         "leg_press": true
       },
       "notes": "Bulgarian split - 2 sets 8 rep"
+    },
+    {
+      "date": "2026-11-22T11:26:26.881Z",
+      "week": 6,
+      "name": "Pull",
+      "sessionId": "pull-1",
+      "sessionKey": "2-6-pull-1",
+      "sets": 25,
+      "vol": 8347,
+      "focus": "Heavy deadlift · pull-up density · row volume"
     }
   ],
-  "updated_at": "2026-11-19T12:43:13.979Z",
+  "updated_at": "2026-11-22T11:26:27.704Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
