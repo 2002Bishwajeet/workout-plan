@@ -179,7 +179,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "2-7-push-1": [
+      0
+    ]
+  },
   "bodyweight_log": [],
   "log": [
     {
@@ -847,7 +851,7 @@
       "notes": "Did hammer curls instead if incline db"
     }
   ],
-  "updated_at": "2026-11-23T10:00:49.000Z",
+  "updated_at": "2026-11-24T12:31:54.168Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
@@ -1424,5 +1428,9 @@
       "to": 50
     }
   ],
-  "tor": {}
+  "tor": {
+    "2-7-push-1": {
+      "bench": false
+    }
+  }
 }
