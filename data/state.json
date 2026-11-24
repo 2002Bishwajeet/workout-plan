@@ -183,7 +183,8 @@
     "2-7-push-1": [
       0,
       1,
-      2
+      2,
+      3
     ]
   },
   "bodyweight_log": [],
@@ -853,7 +854,7 @@
       "notes": "Did hammer curls instead if incline db"
     }
   ],
-  "updated_at": "2026-11-24T13:05:44.056Z",
+  "updated_at": "2026-11-24T13:16:50.361Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
