@@ -179,7 +179,11 @@
       }
     ]
   },
-  "in_progress": {},
+  "in_progress": {
+    "2-7-pull-1": [
+      1
+    ]
+  },
   "bodyweight_log": [],
   "log": [
     {
@@ -860,7 +864,7 @@
       }
     }
   ],
-  "updated_at": "2026-11-24T13:19:27.435Z",
+  "updated_at": "2026-11-26T12:15:13.890Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
