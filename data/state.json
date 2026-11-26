@@ -179,14 +179,7 @@
       }
     ]
   },
-  "in_progress": {
-    "2-7-pull-1": [
-      1,
-      2,
-      3,
-      4
-    ]
-  },
+  "in_progress": {},
   "bodyweight_log": [],
   "log": [
     {
@@ -865,9 +858,20 @@
       "top_of_range": {
         "bench": false
       }
+    },
+    {
+      "date": "2026-11-26T13:00:42.549Z",
+      "week": 7,
+      "name": "Pull",
+      "sessionId": "pull-1",
+      "sessionKey": "2-7-pull-1",
+      "sets": 25,
+      "vol": 8347,
+      "focus": "Heavy deadlift · pull-up density · row volume",
+      "notes": "Did  shoulder traps 3 set 12 rep 25kg dumbell each"
     }
   ],
-  "updated_at": "2026-11-26T12:46:10.038Z",
+  "updated_at": "2026-11-26T13:00:44.001Z",
   "weight_history": [
     {
       "date": "2026-07-27T16:45:46.764Z",
